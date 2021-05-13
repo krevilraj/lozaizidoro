@@ -1,26 +1,23 @@
-<!doctype html>
-<html lang="en">
+<?php
+/**
+ * The header for our theme
+ *
+ * This is the template that displays all of the <head> section
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ * @package Lozaizidoro
+ */
+?>
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <!-- Glyphicons -->
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <!-- animation css -->
-  <link href="css/animate.css" rel="stylesheet">
-  <!-- owl carousel -->
-  <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" type="text/css" href="css/owl.theme.green.css">
-  <!-- ihover css -->
-  <link rel="stylesheet" type="text/css" href="css/ihover.css">
-  <!--  Custom css  -->
-  <link rel="stylesheet" type="text/css" href="css/custom.css">
-  <link rel="stylesheet" type="text/css" href="css/responsive.css">
-  <title>Online-Izidoro</title>
+  <meta charset="<?php bloginfo('charset'); ?>">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="profile" href="https://gmpg.org/xfn/11"/>
+  <?php wp_head(); ?>
 </head>
-<body>
+<body <?php body_class(); ?>>
 <!-- open header -->
 <header class="header top-sec fixed-top" id="header">
   <div class="header__menu">
@@ -28,7 +25,7 @@
       <span class="fa fa-bars"></span>
     </div>
     <nav class="sidebar">
-      <div class="side-logo"><img src="images/logo.png" alt="logo" class="img-fluid "></div>
+      <div class="side-logo"><img src="<?php bloginfo('template_url'); ?>/images/logo.png" alt="logo" class="img-fluid "></div>
       <ul>
         <li><a href="#">Menu -1</a></li>
         <li><a href="#">menu -2</a></li>
@@ -37,7 +34,7 @@
       </ul>
     </nav>
   </div>
-  <a href="#" class="header__logo"> <img src="images/logo.png" alt="logo" class="img-fluid "></a>
+  <a href="#" class="header__logo"> <img src="<?php bloginfo('template_url'); ?>/images/logo.png" alt="logo" class="img-fluid "></a>
   <div class="header__right">
     <div class="header__user"><i class="fa fa-user-o"></i></div>
     <div class="header__cart">

@@ -3,12 +3,13 @@
 /*
 Template Name: Home Page
 */
+get_header();
 ?>
 
 <!-- home hero section open -->
 <section class="slider owl-carousel owl-theme">
   <div class="slider__item"
-       style="background-image: url(images/slider.png); background-position: center center; background-repeat: no-repeat; ">
+       style="background-image: url(<?php bloginfo('template_url'); ?>/images/slider.png); background-position: center center; background-repeat: no-repeat; ">
     <div class="slide__info">
       <h1 class="asdf">
         TÃO IRRESISTÍVEL QUE NÃO <br>
@@ -29,7 +30,7 @@ Template Name: Home Page
           <button class="offer__btn">VER PRODUTOS</button>
         </div>
         <div class="offer-image order-1 order-md-2 wow flash" data-wow-duration="4s">
-          <img src="images/promocoes.png" class="img-fluid">
+          <img src="<?php bloginfo('template_url'); ?>/images/promocoes.png" class="img-fluid">
         </div>
       </div>
       <div class="col-md-6 d-flex justify-content-center align-items-center offer__item">
@@ -38,7 +39,7 @@ Template Name: Home Page
           <button class="offer__btn">VER PRODUTOS</button>
         </div>
         <div class="offer-image order-1 order-md-2 wow flash" data-wow-duration="4s">
-          <img src="images/cabazes.png" class="img-fluid">
+          <img src="<?php bloginfo('template_url'); ?>/images/cabazes.png" class="img-fluid">
         </div>
       </div>
     </div>
@@ -55,7 +56,7 @@ Template Name: Home Page
           <a href="#">
             <div class="item__name"><h2>o takgante</h2></div>
             <div class="food__image">
-              <img src="images/food-1.png" alt="img" class="img-fluid">
+              <img src="<?php bloginfo('template_url'); ?>/images/food-1.png" alt="img" class="img-fluid">
             </div>
             <div class="info">
               <button class="product__btn">VER PRODUTOS</button>
@@ -70,7 +71,7 @@ Template Name: Home Page
           <a href="#">
             <div class="item__name"><h2>o takgante</h2></div>
             <div class="food__image">
-              <img src="images/food-2.png" alt="img" class="img-fluid">
+              <img src="<?php bloginfo('template_url'); ?>/images/food-2.png" alt="img" class="img-fluid">
             </div>
             <div class="info">
               <button class="product__btn">VER PRODUTOS</button>
@@ -85,7 +86,7 @@ Template Name: Home Page
           <a href="#">
             <div class="item__name"><h2>o takgante</h2></div>
             <div class="food__image">
-              <img src="images/food-3.png" alt="img" class="img-fluid">
+              <img src="<?php bloginfo('template_url'); ?>/images/food-3.png" alt="img" class="img-fluid">
             </div>
             <div class="info">
               <button class="product__btn">VER PRODUTOS</button>
@@ -111,7 +112,7 @@ Template Name: Home Page
           <div class="col-md-4">
             <div class="product wow fadeInDown" data-wow-duration="1s">
               <div class="product__image">
-                <img src="images/otalhante-1.png" alt="" class="img-fluid">
+                <img src="<?php bloginfo('template_url'); ?>/images/otalhante-1.png" alt="" class="img-fluid">
               </div>
               <div class="product__detail">
                 <div class="product__name">
@@ -129,7 +130,7 @@ Template Name: Home Page
           <div class="col-md-4">
             <div class="product wow fadeInDown" data-wow-duration="1s">
               <div class="product__image">
-                <img src="images/otalhante-1.png" alt="" class="img-fluid">
+                <img src="<?php bloginfo('template_url'); ?>/images/otalhante-1.png" alt="" class="img-fluid">
               </div>
               <div class="product__detail">
                 <div class="product__name">
@@ -147,7 +148,7 @@ Template Name: Home Page
           <div class="col-md-4">
             <div class="product wow fadeInDown" data-wow-duration="1s">
               <div class="product__image">
-                <img src="images/otalhante-1.png" alt="" class="img-fluid">
+                <img src="<?php bloginfo('template_url'); ?>/images/otalhante-1.png" alt="" class="img-fluid">
               </div>
               <div class="product__detail">
                 <div class="product__name">
@@ -181,7 +182,7 @@ Template Name: Home Page
           <div class="col-md-4">
             <div class="product wow fadeInDown" data-wow-duration="1s">
               <div class="product__image">
-                <img src="images/ochu-pro.png" alt="" class="img-fluid">
+                <img src="<?php bloginfo('template_url'); ?>/images/ochu-pro.png" alt="" class="img-fluid">
               </div>
               <div class="product__detail">
                 <div class="product__name">
@@ -199,7 +200,7 @@ Template Name: Home Page
           <div class="col-md-4">
             <div class="product wow fadeInDown" data-wow-duration="1s">
               <div class="product__image">
-                <img src="images/ochu-pro.png" alt="" class="img-fluid">
+                <img src="<?php bloginfo('template_url'); ?>/images/ochu-pro.png" alt="" class="img-fluid">
               </div>
               <div class="product__detail">
                 <div class="product__name">
@@ -217,7 +218,7 @@ Template Name: Home Page
           <div class="col-md-4">
             <div class="product wow fadeInDown" data-wow-duration="1s">
               <div class="product__image">
-                <img src="images/ochu-pro.png" alt="" class="img-fluid">
+                <img src="<?php bloginfo('template_url'); ?>/images/ochu-pro.png" alt="" class="img-fluid">
               </div>
               <div class="product__detail">
                 <div class="product__name">
@@ -240,7 +241,7 @@ Template Name: Home Page
       <div class="col-md-3">
         <div class="ocharcuteiro__right__iamge">
         </div>
-        <!-- <img src="images/ocharcuteiro-img.png" alt="" class="img-fluid"> -->
+        <!-- <img src="<?php bloginfo('template_url'); ?>/images/ocharcuteiro-img.png" alt="" class="img-fluid"> -->
       </div>
     </div>
   </div>
@@ -260,7 +261,7 @@ Template Name: Home Page
           <div class="col-md-4">
             <div class="product wow fadeInDown" data-wow-duration="1s">
               <div class="product__image">
-                <img src="images/mercee.png" alt="" class="img-fluid">
+                <img src="<?php bloginfo('template_url'); ?>/images/mercee.png" alt="" class="img-fluid">
               </div>
               <div class="product__detail">
                 <div class="product__name">
@@ -278,7 +279,7 @@ Template Name: Home Page
           <div class="col-md-4">
             <div class="product wow fadeInDown" data-wow-duration="1s">
               <div class="product__image">
-                <img src="images/mercee.png" alt="" class="img-fluid">
+                <img src="<?php bloginfo('template_url'); ?>/images/mercee.png" alt="" class="img-fluid">
               </div>
               <div class="product__detail">
                 <div class="product__name">
@@ -296,7 +297,7 @@ Template Name: Home Page
           <div class="col-md-4">
             <div class="product wow fadeInDown" data-wow-duration="1s">
               <div class="product__image">
-                <img src="images/mercee.png" alt="" class="img-fluid">
+                <img src="<?php bloginfo('template_url'); ?>/images/mercee.png" alt="" class="img-fluid">
               </div>
               <div class="product__detail">
                 <div class="product__name">
@@ -330,7 +331,7 @@ Template Name: Home Page
           <div class="col-md-4">
             <div class="product wow fadeInDown" data-wow-duration="1s">
               <div class="product__image">
-                <img src="images/prod.png" alt="" class="img-fluid">
+                <img src="<?php bloginfo('template_url'); ?>/images/prod.png" alt="" class="img-fluid">
               </div>
               <div class="product__detail">
                 <div class="product__name">
@@ -348,7 +349,7 @@ Template Name: Home Page
           <div class="col-md-4">
             <div class="product wow fadeInDown" data-wow-duration="1s">
               <div class="product__image">
-                <img src="images/prod.png" alt="" class="img-fluid">
+                <img src="<?php bloginfo('template_url'); ?>/images/prod.png" alt="" class="img-fluid">
               </div>
               <div class="product__detail">
                 <div class="product__name">
@@ -366,7 +367,7 @@ Template Name: Home Page
           <div class="col-md-4">
             <div class="product wow fadeInDown" data-wow-duration="1s">
               <div class="product__image">
-                <img src="images/prod.png" alt="" class="img-fluid">
+                <img src="<?php bloginfo('template_url'); ?>/images/prod.png" alt="" class="img-fluid">
               </div>
               <div class="product__detail">
                 <div class="product__name">
@@ -408,7 +409,7 @@ Template Name: Home Page
           <div class="col-md-4">
             <div class="product wow fadeInDown" data-wow-duration="1s">
               <div class="product__image">
-                <img src="images/otalhante-1.png" alt="" class="img-fluid">
+                <img src="<?php bloginfo('template_url'); ?>/images/otalhante-1.png" alt="" class="img-fluid">
               </div>
               <div class="product__detail">
                 <div class="product__name">
@@ -426,7 +427,7 @@ Template Name: Home Page
           <div class="col-md-4">
             <div class="product wow fadeInDown" data-wow-duration="1s">
               <div class="product__image">
-                <img src="images/otalhante-1.png" alt="" class="img-fluid">
+                <img src="<?php bloginfo('template_url'); ?>/images/otalhante-1.png" alt="" class="img-fluid">
               </div>
               <div class="product__detail">
                 <div class="product__name">
@@ -444,7 +445,7 @@ Template Name: Home Page
           <div class="col-md-4">
             <div class="product wow fadeInDown" data-wow-duration="1s">
               <div class="product__image">
-                <img src="images/otalhante-1.png" alt="" class="img-fluid">
+                <img src="<?php bloginfo('template_url'); ?>/images/otalhante-1.png" alt="" class="img-fluid">
               </div>
               <div class="product__detail">
                 <div class="product__name">
@@ -478,7 +479,7 @@ Template Name: Home Page
           <div class="col-md-4">
             <div class="product wow fadeInDown" data-wow-duration="1s">
               <div class="product__image">
-                <img src="images/sd.png" alt="" class="img-fluid">
+                <img src="<?php bloginfo('template_url'); ?>/images/sd.png" alt="" class="img-fluid">
               </div>
               <div class="product__detail">
                 <div class="product__name">
@@ -496,7 +497,7 @@ Template Name: Home Page
           <div class="col-md-4">
             <div class="product wow fadeInDown" data-wow-duration="1s">
               <div class="product__image">
-                <img src="images/sd.png" alt="" class="img-fluid">
+                <img src="<?php bloginfo('template_url'); ?>/images/sd.png" alt="" class="img-fluid">
               </div>
               <div class="product__detail">
                 <div class="product__name">
@@ -514,7 +515,7 @@ Template Name: Home Page
           <div class="col-md-4">
             <div class="product wow fadeInDown" data-wow-duration="1s">
               <div class="product__image">
-                <img src="images/sd.png" alt="" class="img-fluid">
+                <img src="<?php bloginfo('template_url'); ?>/images/sd.png" alt="" class="img-fluid">
               </div>
               <div class="product__detail">
                 <div class="product__name">
@@ -537,9 +538,10 @@ Template Name: Home Page
       <div class="col-md-3">
         <div class="ocharcuteiro__right__iamge">
         </div>
-        <!-- <img src="images/ocharcuteiro-img.png" alt="" class="img-fluid"> -->
+        <!-- <img src="<?php bloginfo('template_url'); ?>/images/ocharcuteiro-img.png" alt="" class="img-fluid"> -->
       </div>
     </div>
   </div>
 </section>
 <!-- ocharcuteiro product end -->
+<?php get_footer() ?>
