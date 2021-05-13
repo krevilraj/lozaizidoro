@@ -814,6 +814,7 @@ padding-bottom: 20px;
 	width:80px !important;
 	margin-right:10px;
 	float:left !important;
+	height: 80px;
 }
 .woocommerce a.remove {
 	display: block;
@@ -896,3 +897,28 @@ padding-bottom: 20px;
 	opacity:1;
 }
 
+
+
+/*// for extra pages */
+
+.widget_shopping_cart_content ul li a{
+	color:#4D2179;
+	font-weight: bold;
+}
+
+.woocommerce-mini-cart__buttons a.button {
+	background-color:var(--red-color);
+	border-radius: 20px;
+	text-decoration: none;
+}
+
+.woocommerce-mini-cart__buttons a.button:hover {
+	background-color:var(--orange-color);
+
+}
+
+
+
+.content-area {
+	margin-top: 140px;
+}
