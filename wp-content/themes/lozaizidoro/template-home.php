@@ -10,7 +10,7 @@ Template Name: Home Page
   <div class="slider__item"
        style="background-image: url(images/slider.png); background-position: center center; background-repeat: no-repeat; ">
     <div class="slide__info">
-      <h1>
+      <h1 class="asdf">
         TÃO IRRESISTÍVEL QUE NÃO <br>
         VAIS QUERER FECHAR
       </h1>
