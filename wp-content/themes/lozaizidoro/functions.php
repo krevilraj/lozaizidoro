@@ -42,8 +42,8 @@ add_action('wp_enqueue_scripts', 'lozaizidoro_scripts');
  * @link https://codex.wordpress.org/Theme_Logo
  */
 add_theme_support('custom-logo', array(
-  'height' => 362,
-  'width' => 105,
+  'width' => 362,
+  'height' => 105,
   'flex_height' => true,
   'flex_width' => true,
   'class' => 'img-fluid'

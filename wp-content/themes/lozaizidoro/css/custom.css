@@ -781,3 +781,118 @@ padding-bottom: 20px;
 	color: red;
 }
 
+/* ---------------------------------------------------
+    minicart
+----------------------------------------------------- */
+.widget_shopping_cart_content dl.variation{
+	display:none;
+}
+.widget_shopping_cart_content{
+	background: #fff;
+}
+.mini-wrapper{
+	position: absolute;
+	right: 21px;
+	z-index: 99;
+}
+.widget_shopping_cart_content p.woocommerce-mini-cart__total{
+	clear: both;
+}
+.widget_shopping_cart_content{
+	padding:15px;
+	margin-top:14px;
+}
+.widget_shopping_cart_content .woocommerce-mini-cart-item{
+	position:relative;
+	max-width:300px;
+	padding:10px;
+	margin-left:0;
+	margin-bottom:10px;
+	clear:both;
+}
+.widget_shopping_cart_content .woocommerce-mini-cart-item img{
+	width:80px !important;
+	margin-right:10px;
+	float:left !important;
+}
+.woocommerce a.remove {
+	display: block;
+	font-size: 1.5em;
+	height: inherit;
+	width: inherit;
+	text-align: center;
+	line-height: 1;
+	border-radius: 100%;
+	text-decoration: none;
+	font-weight: 700;
+	border: 0;
+}
+
+.widget_shopping_cart_content li.mini_cart_item a.remove_from_cart_button {
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	font-size: 18px !important;
+	line-height: 22px !important;
+	background: #00000014;
+	border-radius: 50% !important;
+	padding: 0 8px;
+	color: var(--pfontcolor) !important;
+	font-weight: 300 !important;
+}
+.widget_shopping_cart_content li.mini_cart_item a.remove_from_cart_button:hover {
+	background: rgba(121, 117, 117, 0.08) !important;
+	color:#00000014 !important;
+}
+.woocommerce ul.cart_list li a, .woocommerce ul.product_list_widget li a {
+	display: block;
+	font-weight: 400;
+}
+.widget_shopping_cart_content span.quantity{
+	display:block;
+	font-size: 14px;
+	color: var(--afontcolor1);
+}
+.widget_shopping_cart_content ul li a {
+	display: block;
+	font-size: 14px;
+}
+.widget_shopping_cart_content:before {
+	position: absolute;
+	top: 7px;
+	right: 54px;
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 7px solid red;
+	border-bottom-color: #ffffff;
+	content: '';
+}
+.woocommerce-mini-cart__buttons a.button:hover{
+	background-color:#21372cd4;
+	color:#fff;
+}
+.woocommerce-mini-cart__buttons a.button{
+	background: #21372cff;
+	padding: 8px 15px;
+	color: #fff;
+	margin-right: 18px;
+	font-weight:200;
+}
+.cart-mini .mini-wrapper{
+	opacity:0;
+	display:none;
+	transition: all 0.3s;
+
+}
+
+.cart-mini.active .mini-wrapper{
+	display:block;
+	opacity:1;
+}
+.cart-mini:hover .mini-wrapper{
+	display:block;
+	opacity:1;
+}
+
