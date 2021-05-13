@@ -15,7 +15,7 @@
 get_header();
 ?>
   <div class="content-area">
-    <main class=" default-page">
+    <main class=" default-page1">
 
       <?php
       // If there are any posts

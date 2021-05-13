@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9a23b38d-eab0-48de-9f2d-c453ab3e851a" name="Default Changelist" comment="" />
+    <list default="true" id="9a23b38d-eab0-48de-9f2d-c453ab3e851a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/lozaizidoro/page.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/lozaizidoro/page.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,7 +41,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1620899565607</updated>
-      <workItem from="1620899566860" duration="1363000" />
+      <workItem from="1620899566860" duration="1370000" />
     </task>
     <servers />
   </component>
