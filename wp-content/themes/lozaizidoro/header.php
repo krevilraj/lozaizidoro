@@ -25,7 +25,14 @@
       <span class="fa fa-bars"></span>
     </div>
     <nav class="sidebar">
-      <div class="side-logo"><img src="<?php bloginfo('template_url'); ?>/images/logo.png" alt="logo" class="img-fluid "></div>
+      <div class="side-logo">
+        <?php if (has_custom_logo()): ?>
+          <?php the_custom_logo(); ?>
+        <?php else: ?>
+          <p class="site-title"><?php bloginfo('title'); ?></p>
+          <span><?php bloginfo('description'); ?></span>
+        <?php endif; ?>
+      </div>
       <ul>
         <li><a href="#">Menu -1</a></li>
         <li><a href="#">menu -2</a></li>
@@ -34,14 +41,28 @@
       </ul>
     </nav>
   </div>
-  <a href="#" class="header__logo"> <img src="<?php bloginfo('template_url'); ?>/images/logo.png" alt="logo" class="img-fluid "></a>
+  <div class="header__logo">
+    <?php if (has_custom_logo()): ?>
+      <?php the_custom_logo(); ?>
+    <?php else: ?>
+      <p class="site-title"><?php bloginfo('title'); ?></p>
+      <span><?php bloginfo('description'); ?></span>
+    <?php endif; ?>
+  </div>
+
   <div class="header__right">
     <div class="header__user"><i class="fa fa-user-o"></i></div>
-    <div class="header__cart">
+    <div class="header__cart cart-mini">
       <a href="#">
         <i class="fa fa-shopping-cart"></i>
-        <span class="badge">3</span>
+        <span class="badge"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
       </a>
+      <div class="mini-wrapper">
+        <div class="widget_shopping_cart_content">
+
+          <?php woocommerce_mini_cart(); ?>
+        </div>
+      </div>
     </div>
     <div class="search-container searchbox__header">
       <label for="search" class="fa fa-search"></label>
