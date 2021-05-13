@@ -1,3 +1,4 @@
+var $ = jQuery.noConflict();
 // for nav
 $('.hamburger').click(function(){
   $(this).toggleClass("click");
