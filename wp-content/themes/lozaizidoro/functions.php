@@ -101,3 +101,4 @@ function lozaizidoro_config()
 
 
 }
+add_action('after_setup_theme', 'lozaizidoro_config', 0);

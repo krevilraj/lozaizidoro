@@ -33,12 +33,16 @@
           <span><?php bloginfo('description'); ?></span>
         <?php endif; ?>
       </div>
-      <ul>
-        <li><a href="#">Menu -1</a></li>
-        <li><a href="#">menu -2</a></li>
-        <li><a href="#">menu -3</a></li>
-        <li><a href="#">menu -4</a></li>
-      </ul>
+      <?php
+      wp_nav_menu(array(
+          'menu' => 'mainmenu',
+          'container' => 'ul',
+          'container_class' => '',
+          'menu_class' => '',
+          'theme_location' => 'lozaizidoro_main_menu')
+      );
+      ?>
+
     </nav>
   </div>
   <div class="header__logo">

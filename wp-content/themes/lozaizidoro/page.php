@@ -14,8 +14,7 @@
 
 get_header();
 ?>
-  <div class="content-area">
-    <main class=" default-page1">
+
 
       <?php
       // If there are any posts
@@ -24,7 +23,11 @@ get_header();
         // Load posts loop
         while (have_posts()): the_post();
           ?>
-
+        <section>
+          <h1><?php the_title()?></h1>
+        </section>
+          <div class="content-area">
+          <main class=" default-page1">
           <div class="container">
             <div class="row">
               <article class="col">
@@ -33,14 +36,13 @@ get_header();
               </article>
             </div>
           </div>
+          </main>
+          </div>
         <?php
         endwhile;
       else:
         ?>
         <p>Nothing to display.</p>
       <?php endif; ?>
-
-    </main>
-  </div>
 
 <?php get_footer(); ?>
