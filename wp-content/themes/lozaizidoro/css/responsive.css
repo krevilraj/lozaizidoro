@@ -1,0 +1,85 @@
+
+@media (max-width: 575.98px) { 
+
+/*banner*/
+
+.slider__item .slide__info h1{
+	font-size: 3rem;
+	line-height: 4rem;
+	padding-top: 58px;
+}
+
+.header__logo{
+	top:25px;
+	max-width: 196px;
+	padding-right: 24px;
+	
+}
+.header__menu .hamburger{
+	top:45px;
+	left: 25px;
+}
+.header__right{
+	width: 183px;
+	padding-top: 29px;
+	padding-right:0;
+}
+.slider__item .slide__info .slider__btn{
+	padding: 7px 24px;
+   font-size: 1.5rem;
+}
+.otalhante h2 {
+	text-align: center;
+	left: unset;
+	padding-bottom: 30px;
+	font-size: 3.5rem;
+}
+
+.offer__item h2{
+	padding-bottom: unset;
+}
+
+.offer .offer__btn{
+	margin-bottom: 35px;
+}
+.offer .offer__item img{
+	padding-top: 20px;
+}
+
+.otalhante .product{
+	
+	padding-top: unset;
+}
+.ocharcuteiro h2{
+	position: relative;
+	top:32px;
+	text-align: center;
+	right: unset;
+	font-size: 3.5rem;
+}
+
+.ocharcuteiro .product{
+
+	padding-top: unset;
+}
+
+.ocharcuteiro .container-fluid{
+	padding-right: 15px;
+}
+/*offer*/
+.offer__item {
+	flex-wrap: wrap;
+}
+
+}
+
+
+@media (max-width: 767.98px) { 
+
+
+}
+
+@media (max-width: 991.98px) { ... }
+
+
+@media (max-width: 1199.98px) { ... }

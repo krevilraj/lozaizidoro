@@ -1,0 +1,783 @@
+@font-face {
+    font-family: 'Tungsten Rounded';
+    src: url('../fonts/TungstenRounded-Bold.eot');
+    src: url('../fonts/TungstenRounded-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/TungstenRounded-Bold.woff2') format('woff2'),
+        url('../fonts/TungstenRounded-Bold.woff') format('woff'),
+        url('../fonts/TungstenRounded-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tungsten Rounded light';
+    src: url('../fonts/TungstenRounded-Light.eot');
+    src: url('../fonts/TungstenRounded-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/TungstenRounded-Light.woff2') format('woff2'),
+        url('../fonts/TungstenRounded-Light.woff') format('woff'),
+        url('../fonts/TungstenRounded-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tungsten Rounded semibold';
+    src: url('../fonts/TungstenRounded-Semibold.eot');
+    src: url('../fonts/TungstenRounded-Semibold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/TungstenRounded-Semibold.woff2') format('woff2'),
+        url('../fonts/TungstenRounded-Semibold.woff') format('woff'),
+        url('../fonts/TungstenRounded-Semibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tungsten Rounded medium';
+    src: url('../fonts/TungstenRounded-Medium.eot');
+    src: url('../fonts/TungstenRounded-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/TungstenRounded-Medium.woff2') format('woff2'),
+        url('../fonts/TungstenRounded-Medium.woff') format('woff'),
+        url('../fonts/TungstenRounded-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+*,
+*::before,
+*::after
+{
+	margin: 0;
+	padding:0;
+	box-sizing: border-box;
+}
+
+:root{
+	--sky-color:#A1D9E7;
+	--purple-color:#4D2179;
+	--orange-color:#F9B600;
+	--green-color:#51A215;
+	--red-color:#E41C1B;
+	--peachpuff-color:#F49D7B;
+}
+
+h1 {
+    font-size: 6rem;
+    line-height: 5rem;
+  font-family: 'Tungsten Rounded';
+    font-weight: 900;
+    text-transform: uppercase;
+}
+h2{
+	font-family: 'Tungsten Rounded';
+	font-weight: 900;
+	font-size: 3.75rem;
+	text-transform: uppercase;
+}
+
+h3{
+  font-family: 'Tungsten Rounded';
+  font-size: 2.5rem;
+  text-transform: uppercase;
+}
+h4{
+  font-family: 'Tungsten Rounded';
+  font-size: 2.5rem;
+  text-transform: uppercase;
+}
+
+p{
+    font-size: 1rem;
+  
+}
+
+
+button{
+	background-color: red;
+	color:#fff;
+	border: none;
+	border-radius: 20px;
+	padding: 3px 22px;
+	font-size: 1.5rem;
+	text-transform: uppercase;
+	transition: 0.4s;
+	transition-timing-function: linear;
+	font-family: 'Tungsten Rounded semibold';
+}
+
+button:hover{
+	background-color: #fff;
+	color: var(--red-color);
+	
+}
+
+/* ======================== header section Open ================================ */
+
+#header {
+	display: flex;
+	justify-content: space-between;
+
+}
+
+.header .fa-bars{
+	font-size: 2rem;
+	color: #fff;
+}
+
+.header__logo {
+	width: 100%;
+	max-width: 164px;	
+	padding-top: 45px;
+	flex:1;
+
+}
+.header__right {
+	display: flex;
+	/*width: 200px;*/
+	justify-content:flex-end;
+	align-items: center;
+	padding-top: 45px;
+	flex:1;
+	padding-right: 11px;
+}
+.header__right .header__user {
+	font-size: 2rem;
+	cursor: pointer;
+	display: block;
+	padding-right: 20px;
+}
+.header__user .fa-user-o {
+	color: #fff;
+
+}
+.header__right .header__cart {
+	font-size: 2rem;
+	cursor: pointer;
+	display: block;
+	padding-right: 78px;
+
+}
+.header__right .fa-shopping-cart{
+		color: #fff;
+}
+
+.header__right .badge{
+	font-size: 12px;
+    font-weight: 500;
+    position: absolute;
+    bottom: 27px;
+    display: -ms-flexbox;
+    display: flex;
+    width: 25px;
+    height: 25px;
+    color: #fff;
+    border-radius: 50%;
+    background-color: var(--red-color);
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+/*search*/
+/*.header__search {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	display: block;
+}*/
+
+.search-container {
+	display: inline;
+	position: relative;
+}
+
+#search {
+	position: absolute;
+	top: -1.5rem;
+	right: .8rem;
+	height: 3.5rem;
+	width: 3.5rem;
+	font-size: 1.5rem;
+	padding: 0 1rem;
+	border:none;
+	outline: none;
+	border-radius: 5rem;
+	background: transparent;
+}
+ #search:focus{
+	width: 25rem;
+	background-color: white;
+
+}
+.search-container .fa-search{
+	position: absolute;
+	top:-.7rem;
+	left:-3.5rem;
+	color: #fff;
+	cursor: pointer;
+	z-index: 1;
+	font-size: 2rem;
+}
+
+
+/*scroll nav*/
+.scroll-nav {
+	background-color: var(--red-color);
+	transition: .8s all;
+box-shadow: 0px 2px 7px -1px rgba(0,0,0,0.77);
+-webkit-box-shadow: 0px 2px 7px -1px rgba(0,0,0,0.77);
+-moz-box-shadow: 0px 2px 7px -1px rgba(0,0,0,0.77);
+padding-bottom: 20px;
+}
+.scroll-nav .header__right {
+	padding-top: 20px;
+}
+.scroll-nav .header__logo{
+	padding-top: 20px;
+}
+ .header__menu {
+	flex:1;
+}
+.scroll-nav .header__menu .hamburger {
+   top: 30px;
+}
+
+.scroll-nav .header__right .badge {
+	background-color: var(--sky-color);
+	color: #fff;
+}
+
+/*nav*/
+.header__menu .side-logo {
+	padding: 40px 0;
+	text-align: center;
+}
+.header__menu .side-logo img{
+   width: 100%;
+   max-width: 150px;
+    animation: roll-logo 3s;
+ 
+
+}
+@keyframes roll-logo {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+.header__menu .hamburger {
+	position: absolute;
+	top:55px;
+	left: 45px;
+	height: 45px;
+	width: 45px;
+	cursor: pointer;
+	transition: left 0.4s ease;	
+}
+.header__menu .hamburger.click{
+	left: 250px;
+}
+.header__menu .hamburger.click span:before{
+	content:"\f00d";
+	background: white;
+	width: 55px;
+	height: 55px;
+	color: red;
+	padding: 10px;
+	z-index: 2;
+    position: absolute;
+
+}
+
+.header__menu .sidebar {
+	position: fixed;
+	width: 250px;
+	height: 100%;
+	left: -250px;
+	background: var(--red-color);	
+	transition: left 0.4s ease;
+}
+.header__menu .sidebar.show{
+	left: 0px;
+}
+
+
+
+.header__menu nav ul{
+	background-color: var(--red-color);
+	height: 100%;
+	width: 100%;
+	list-style: none;
+	padding-top: 25px;
+}
+.header__menu nav ul li{
+	line-height: 4rem;
+	border-bottom: 1px solid #d71312;
+}
+.header__menu nav ul> li > a{
+	color: #fff;
+	font-size: 1.8rem;
+	text-align: center;
+	font-weight: 500;
+	display: block;
+	width: 100%;
+	text-decoration: none;
+	border-left: 5px solid transparent;
+	text-transform: uppercase;
+	 font-family: 'Tungsten Rounded';
+
+}
+
+.header__menu nav ul li a:hover{
+	color: #F9B600;
+	background: #d71312;
+	border-left-color: var(--orange-color);
+}
+
+
+
+/* ======================== header section Close ================================ */
+
+/* ======================== hero section open ================================ */
+.slider{
+	position: relative;
+}
+.slider__item {
+	height: 550px;
+	width: 100%;
+}
+.slider__item .slide__info {
+	position: absolute;
+	top: 58%;
+    left: 50%;
+    transform: translate(-50%,-58%);
+	text-align: center;
+}
+
+.slider__item .slide__info h1{
+	color: #fff;
+	line-height: 6rem;
+	padding-bottom: 25px;
+}
+
+.slider__item .slide__info .slider__btn{
+	padding: 4px 30px;
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: .4s ease;
+}
+
+.slider__item .slide__info .slider__btn:hover{
+  background-color: white;
+  color: var(--red-color);
+}
+
+/* ======================== hero section Close ================================ */
+
+/* ======================== offer section open ================================ */
+
+.offer__item{
+	padding: 10px;
+} 
+.offer__item h2{
+	color: #fff;
+	   font-family: 'Tungsten Rounded semibold';
+	   padding-bottom: 35px;
+}
+.offer__item:first-child{
+	background-color: var(--orange-color);
+}
+.offer__item:last-child{
+	background-color: var(--red-color);
+}
+
+.offer__item img{
+	width: 100%;
+	max-width: 400px;
+	height: auto;
+}
+
+/* ======================== offer section  Close ================================ */
+
+/* ======================== three food open ================================ */
+
+.three-food .ih-item.square{
+	width: 100%;
+	height: auto;
+
+}
+.three-food .ih-item.square.effect4 .info{
+	background-color: transparent;
+	bottom: 0;
+	top:unset;
+}
+
+
+.three-food .ih-item.square.effect4 .mask1, .three-food .ih-item.square.effect4 .mask2{
+	background: rgba(249, 182, 0, 0.5);
+	height:241px;
+    width: 285pxpx;
+}
+.three-food .ih-item.square.effect4 a:hover .info {
+	width: 100%;
+	height: 300px;
+	top:unset;
+	bottom: 0;
+}
+
+.three-food .item__name {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	transition: .5s linear;
+	
+}
+.three-food .item__name  h2{
+	text-align: center;
+	color: #fff;
+	padding-bottom: 35px;
+}
+
+.three-food .ih-item.square {
+	border:none;
+}
+
+.three-food .ih-item.square:hover .item__name{
+	bottom:30%;
+}
+
+.three-food .product__btn {
+	top: 50%;
+	position: relative;
+
+}
+
+.three-food .item__name h2::first-letter {
+	border-bottom: 7px solid #fff;	
+}
+.three-food .container-fluid {
+	padding-right: 0;
+	padding-left: 0;
+}
+
+/* ======================== three food  Close ================================ */
+
+/* ======================== otalhante product open ================================ */
+.otalhante {
+	background-color: var(--sky-color);
+}
+.otalhante .container-fluid{
+	padding-left: 0;
+}
+.otalhante .product .product__image img{
+	width: 100%;
+	max-width: 190px;
+}
+.otalhante h2{
+	color: var(--red-color);
+	letter-spacing: 2px;
+	position: relative;
+	left: -25px;
+	top:32px;
+	font-size: 5rem;
+}
+
+.otalhante h2::first-letter{
+	padding-right: 10px;
+	border-bottom: 7px solid var(--red-color);
+}
+
+.otalhante .product {
+	padding-bottom: 55px;
+	position: relative;
+	padding-top: 30px;
+}
+.otalhante  .product__image{
+	text-align: center;
+}
+.otalhante .product-list{
+	padding-right: 30px;
+	padding-left: 30px;
+	padding-top: 5%;
+}
+.otalhante .product-list h3{
+	color: #3C3C3B;
+	font-family: 'Tungsten Rounded medium';
+}
+.otalhante .product-list p{
+	color: #3C3C3B;
+	font-family: 'Tungsten Rounded medium';
+	font-size: 1.8rem;
+}
+
+.otalhante .product__detail{
+	text-align: center;
+	position: relative;
+}
+
+.product button{
+	/*visibility:hidden;*/
+	-ms-transform: scale(0);
+	-webkit-transform: scale(0);
+    transform: scale(0);
+      transition:.3s ease;
+}
+.otalhante .product:hover button{
+	/*visibility:visible;*/
+	text-align: center;
+	-ms-transform: scale(1);
+	-webkit-transform: scale(1);
+    transform: scale(1); 
+}
+
+.otalhante .see-more { 
+	display: flex;
+	justify-content: flex-end;
+	padding-right: 30px;
+	padding-bottom: 40px;
+	padding-top: 40px;
+
+}
+.otalhante .see-more a{
+	color: var(--red-color);
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 1.5rem;
+	font-family: 'Tungsten Rounded semibold';
+}
+.otalhante .see-more a .fa-long-arrow-right{
+	position: relative;
+	font-size: 0;
+	transition: 0.4s ease;
+}
+.otalhante .see-more a:hover .fa-long-arrow-right{
+	font-size: 1.5rem;
+}
+.otalhante__left__img{
+	background:url(../images/otalhante.png);
+	background-position: center;
+	background-size: cover;
+	height: 100%;
+	background-repeat: no-repeat;
+}
+
+/* ======================== otalhante product Close ================================ */
+
+
+/* ======================== ocharcuteiro product open ================================ */
+.ocharcuteiro{
+	background-color: var(--purple-color);
+}
+
+.ocharcuteiro .container-fluid{
+	padding-right: 0;
+}
+.ocharcuteiro .product .product__image img{
+	width: 100%;
+	max-width: 190px;
+}
+.ocharcuteiro h2{
+	color: var(--red-color);
+	letter-spacing: 2px;
+	position: absolute;
+	right: -38px;
+	z-index: 1;
+	top:32px;
+	font-size: 5rem;
+}
+
+.ocharcuteiro h2::first-letter{
+	padding-right: 10px;
+	border-bottom: 7px solid var(--red-color);
+	
+}
+
+.ocharcuteiro .product {
+	padding-bottom: 55px;
+	position: relative;
+	padding-top: 30px;
+}
+.ocharcuteiro  .product__image{
+	text-align: center;
+}
+.ocharcuteiro .product-list{
+	padding-right: 30px;
+	padding-left: 30px;
+	padding-top: 17%;
+}
+.ocharcuteiro .product-list h3{
+	color: #fff;
+	font-family: 'Tungsten Rounded medium';
+}
+.ocharcuteiro .product-list p{
+	color: #fff;
+	font-family: 'Tungsten Rounded medium';
+	font-size: 1.8rem;
+}
+.ocharcuteiro .product__detail{
+	text-align: center;
+	position: relative;
+}
+
+.ocharcuteiro button{
+	/*visibility:hidden;*/
+	-ms-transform: scale(0);
+	-webkit-transform: scale(0);
+    transform: scale(0);
+      transition:.3s ease;
+}
+.ocharcuteiro .product:hover button{
+	/*visibility:visible;*/
+	text-align: center;
+	-ms-transform: scale(1);
+	-webkit-transform: scale(1);
+    transform: scale(1); 
+}
+
+.ocharcuteiro .see-more { 
+	display: flex;
+	justify-content: flex-end;
+	padding-right: 30px;
+	padding-bottom: 40px;
+	padding-top: 40px;
+
+}
+.ocharcuteiro .see-more a{
+	color: var(--red-color);
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 1.5rem;
+	font-family: 'Tungsten Rounded semibold';
+}
+.ocharcuteiro .see-more a .fa-long-arrow-right{
+	position: relative;
+	font-size: 0;
+	transition: 0.4s ease;
+}
+.ocharcuteiro .see-more a:hover .fa-long-arrow-right{
+	font-size: 1.3rem;
+}
+.ocharcuteiro__right__iamge {
+	background: url(../images/ocharcuteiro-img.png);
+	background-position: center center;
+	background-size: cover;
+	height: 100%;
+}
+
+/* ======================== ocharcuteiro product Close ================================ */
+
+.omerceeiro {
+	background-color: var(--orange-color);
+}
+
+.omerceeiro .otalhante__left__img {
+	background: url(../images/omercee.png);
+	background-position: center center;
+	background-size: cover;
+	height: 100%;
+}
+
+.produtos__veggie {
+	background-color: var(--green-color);
+}
+
+.produtos__veggie .see-more a{
+	color: #fff;
+}
+
+.produtos__veggie .ocharcuteiro__right__iamge {
+	background: url(../images/produtos-vg.png);
+	background-position: center center;
+	background-size: cover;
+	height: 100%;
+}
+
+.produtos__veggie  h2{
+	color: #fff;
+}
+
+
+.produtos__veggie  h2::first-letter{
+	border-bottom: none;
+		padding-right: unset;
+
+}
+
+.promocoes_home {
+	background-color: var(--red-color);
+}
+
+.promocoes_home .otalhante__left__img {
+	background: url(../images/promoc.png);
+	background-position: center center;
+	background-size: cover;
+	height: 100%;
+}
+
+
+.promocoes_home h2{
+	color: #fff;
+}
+
+.promocoes_home   h2::first-letter{
+	padding-right: unset;
+	border-bottom: none;
+}
+
+
+.promocoes_home .product-list h3{
+	color: #fff;
+}
+
+.promocoes_home .product-list p{
+	color: #fff;
+}
+
+.promocoes_home .see-more a{
+	color: #fff;
+}
+
+
+.cabazes__h{
+	
+}
+
+.cabazes__h .ocharcuteiro__right__iamge {
+	background: url(../images/cabazes-left.png);
+	background-position: center center;
+	background-size: cover;
+	height: 100%;
+}
+
+.cabazes__h  h2{
+	color: #fff;
+}
+
+.cabazes__h  h2::first-letter{
+     padding-right: unset;
+	border-bottom: none;
+}
+
+
+.footer {
+	padding: 20px 0;
+	text-align: center;
+}
+.footer a{
+	text-decoration: none;
+	color:#000;
+	transition:0.2s linear;
+}
+
+.footer a:hover{
+	color: red;
+}
+
