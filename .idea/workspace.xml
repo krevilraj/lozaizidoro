@@ -43,7 +43,7 @@
       <option name="presentableId" value="Default" />
       <updated>1620899565607</updated>
       <workItem from="1620899566860" duration="1648000" />
-      <workItem from="1620903902729" duration="659000" />
+      <workItem from="1620903902729" duration="1472000" />
     </task>
     <servers />
   </component>
@@ -55,6 +55,17 @@
         <option value="$PROJECT_DIR$/wp-content/plugins/woocommerce/packages/woocommerce-blocks/assets/js/type-defs/shipping.js" />
         <option value="$PROJECT_DIR$/wp-content/plugins/woocommerce/packages/woocommerce-blocks/assets/js/type-defs/cart.js" />
       </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
     </option>
   </component>
 </project>
