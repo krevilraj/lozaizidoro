@@ -1045,9 +1045,7 @@ padding-bottom: 20px;
 	padding: 10px 0 0 20px;
 }
 
-.hell{
-	color:red;
-}
+
 
 
 /* ---------------------------------------------------
@@ -1179,7 +1177,7 @@ nav.woocommerce-MyAccount-navigation ul li a {
 	border: 1px solid #d5115a;
 }
 .woocommerce form .form-row.woocommerce-validated .select2-container, .woocommerce form .form-row.woocommerce-validated input.input-text, .woocommerce form .form-row.woocommerce-validated select {
-	border: 1px solid #aaa;
+	border-color:#aaa;
 }
 
 .recent-post-wrapper .image-wrapper img {
