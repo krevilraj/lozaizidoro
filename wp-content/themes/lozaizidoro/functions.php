@@ -2,7 +2,9 @@
 /**
  * Include file
  */
-require_once get_template_directory() . '/customposttype/slider.php';
+require_once get_template_directory() . '/inc/customposttype/slider.php';
+require_once get_template_directory() . '/inc/sidebar/shop.php';
+
 
 
 /**
@@ -107,3 +109,22 @@ function lozaizidoro_config()
 
 }
 add_action('after_setup_theme', 'lozaizidoro_config', 0);
+
+
+
+function update_woocommerce_version() {
+  if(class_exists('WooCommerce')) {
+    global $woocommerce;
+
+    if(version_compare(get_option('woocommerce_db_version', null), $woocommerce->version, '!=')) {
+      update_option('woocommerce_db_version', $woocommerce->version);
+
+      if(! wc_update_product_lookup_tables_is_running()) {
+        wc_update_product_lookup_tables();
+      }
+    }
+  }
+}
+add_action('init', 'update_woocommerce_version');
+
+add_filter ('yith_wcan_use_wp_the_query_object', '__return_true');
