@@ -1,4 +1,9 @@
 <?php
+/**
+ * Include file
+ */
+require_once get_template_directory() . '/customposttype/slider.php';
+
 
 /**
  * Enqueue scripts and styles.

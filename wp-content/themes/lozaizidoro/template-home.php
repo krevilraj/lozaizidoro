@@ -8,16 +8,21 @@ get_header();
 
 <!-- home hero section open -->
 <section class="slider owl-carousel owl-theme">
-  <div class="slider__item"
-       style="background-image: url(<?php bloginfo('template_url'); ?>/images/slider.png); background-position: center center; background-repeat: no-repeat; ">
-    <div class="slide__info">
-      <h1 class="asdf">
-        TÃO IRRESISTÍVEL QUE NÃO <br>
-        VAIS QUERER FECHAR
-      </h1>
-      <button type="button" class="slider__btn">PRODUTOS</button>
+
+  <?php $loop = new WP_Query(array('post_type' => 'slider','posts_per_page' => -1)); ?>
+  <?php while ($loop->have_posts()) : $loop->the_post(); ?>
+
+    <div class="slider__item"
+         style="background-image: url(<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>); background-position: center center; background-repeat: no-repeat; ">
+      <div class="slide__info">
+        <?php the_content()?>
+        <a href="<?php echo get_field('link') ?>"></a><button type="button" class="slider__btn">PRODUTOS</button>
+      </div>
     </div>
-  </div>
+
+  <?php endwhile; wp_reset_query(); ?>
+
+
 </section>
 <!-- home hero section end -->
 <!-- offer section open -->
@@ -101,7 +106,7 @@ get_header();
 <!-- three food close  -->
 
 
-<?php $slug = array('o-talhante', 'o-charcuteiro', 'o-merceeiro','produtos-veggie','promocoes','cabazes') ?>
+<?php $slug = array('o-talhante', 'o-charcuteiro', 'o-merceeiro', 'produtos-veggie', 'promocoes', 'cabazes') ?>
 
 <?php
 $i = 0;
@@ -178,11 +183,12 @@ foreach ($slug as $cat_slug) {
                 <div class="col-md-4">
                   <div class="product wow fadeInDown" data-wow-duration="1s">
                     <div class="product__image">
-                      <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>" alt="" class="img-fluid">
+                      <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>" alt=""
+                           class="img-fluid">
                     </div>
                     <div class="product__detail">
                       <div class="product__name">
-                        <h3><a href="<?php the_title()?>"> <?php the_title()?></a></h3>
+                        <h3><a href="<?php the_title() ?>"> <?php the_title() ?></a></h3>
                       </div>
                       <div class="product__price">
                         <p><?php echo $product->get_price_html(); ?></p>
@@ -218,452 +224,452 @@ foreach ($slug as $cat_slug) {
   $i++;
 }
 ?>
-
-<!-- otalhante product open -->
-<section class="otalhante">
-  <div class="container-fluid">
-    <div class="row no-gutters">
-      <div class="col-md-3">
-        <div class="otalhante__left__img"></div>
-      </div>
-      <div class="col-md-9">
-        <h2 class="wow bounce" data-wow-duration="4s">otalhante</h2>
-        <div class="row product-list">
-          <div class="col-md-4">
-            <div class="product wow fadeInDown" data-wow-duration="1s">
-              <div class="product__image">
-                <img src="<?php bloginfo('template_url'); ?>/images/otalhante-1.png" alt="" class="img-fluid">
-              </div>
-              <div class="product__detail">
-                <div class="product__name">
-                  <h3>NOME PRODUTO</h3>
-                </div>
-                <div class="product__price">
-                  <p>0,00€</p>
-                </div>
-                <div class="product__btn">
-                  <button class="product__inner__btn">COMPRAR</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="product wow fadeInDown" data-wow-duration="1s">
-              <div class="product__image">
-                <img src="<?php bloginfo('template_url'); ?>/images/otalhante-1.png" alt="" class="img-fluid">
-              </div>
-              <div class="product__detail">
-                <div class="product__name">
-                  <h3>NOME PRODUTO</h3>
-                </div>
-                <div class="product__price">
-                  <p>0,00€</p>
-                </div>
-                <div class="product__btn">
-                  <button class="product__inner__btn">COMPRAR</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="product wow fadeInDown" data-wow-duration="1s">
-              <div class="product__image">
-                <img src="<?php bloginfo('template_url'); ?>/images/otalhante-1.png" alt="" class="img-fluid">
-              </div>
-              <div class="product__detail">
-                <div class="product__name">
-                  <h3>NOME PRODUTO</h3>
-                </div>
-                <div class="product__price">
-                  <p>0,00€</p>
-                </div>
-                <div class="product__btn">
-                  <button class="product__inner__btn">COMPRAR</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="see-more">
-          <a href="#">todos os PRODUTOS <i class="fa fa-long-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- otalhante product end -->
-
-<!-- ocharcuteiro product open -->
-<section class="ocharcuteiro">
-  <div class="container-fluid">
-    <div class="row no-gutters">
-      <div class="col-md-9">
-        <h2 class="wow bounce" data-wow-duration="4s">ocharcuteiro</h2>
-        <div class="row product-list">
-          <div class="col-md-4">
-            <div class="product wow fadeInDown" data-wow-duration="1s">
-              <div class="product__image">
-                <img src="<?php bloginfo('template_url'); ?>/images/ochu-pro.png" alt="" class="img-fluid">
-              </div>
-              <div class="product__detail">
-                <div class="product__name">
-                  <h3>NOME PRODUTO</h3>
-                </div>
-                <div class="product__price">
-                  <p>0,00€</p>
-                </div>
-                <div class="product__btn">
-                  <button class="product__inner__btn">COMPRAR</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="product wow fadeInDown" data-wow-duration="1s">
-              <div class="product__image">
-                <img src="<?php bloginfo('template_url'); ?>/images/ochu-pro.png" alt="" class="img-fluid">
-              </div>
-              <div class="product__detail">
-                <div class="product__name">
-                  <h3>NOME PRODUTO</h3>
-                </div>
-                <div class="product__price">
-                  <p>0,00€</p>
-                </div>
-                <div class="product__btn">
-                  <button class="product__inner__btn">COMPRAR</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="product wow fadeInDown" data-wow-duration="1s">
-              <div class="product__image">
-                <img src="<?php bloginfo('template_url'); ?>/images/ochu-pro.png" alt="" class="img-fluid">
-              </div>
-              <div class="product__detail">
-                <div class="product__name">
-                  <h3>NOME PRODUTO</h3>
-                </div>
-                <div class="product__price">
-                  <p>0,00€</p>
-                </div>
-                <div class="product__btn">
-                  <button class="product__inner__btn">COMPRAR</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="see-more">
-          <a href="#">todos os PRODUTOS <i class="fa fa-long-arrow-right"></i></a>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="ocharcuteiro__right__iamge">
-        </div>
-        <!-- <img src="<?php bloginfo('template_url'); ?>/images/ocharcuteiro-img.png" alt="" class="img-fluid"> -->
-      </div>
-    </div>
-  </div>
-</section>
-<!-- ocharcuteiro product end -->
-
-
-<!-- otalhante product open -->
-<section class="otalhante omerceeiro">
-  <div class="container-fluid">
-    <div class="row no-gutters">
-      <div class="col-md-3">
-        <div class="otalhante__left__img"></div>
-      </div>
-      <div class="col-md-9">
-        <h2 class="wow bounce" data-wow-duration="4s">omerceeiro</h2>
-        <div class="row product-list">
-          <div class="col-md-4">
-            <div class="product wow fadeInDown" data-wow-duration="1s">
-              <div class="product__image">
-                <img src="<?php bloginfo('template_url'); ?>/images/mercee.png" alt="" class="img-fluid">
-              </div>
-              <div class="product__detail">
-                <div class="product__name">
-                  <h3>NOME PRODUTO</h3>
-                </div>
-                <div class="product__price">
-                  <p>0,00€</p>
-                </div>
-                <div class="product__btn">
-                  <button class="product__inner__btn">COMPRAR</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="product wow fadeInDown" data-wow-duration="1s">
-              <div class="product__image">
-                <img src="<?php bloginfo('template_url'); ?>/images/mercee.png" alt="" class="img-fluid">
-              </div>
-              <div class="product__detail">
-                <div class="product__name">
-                  <h3>NOME PRODUTO</h3>
-                </div>
-                <div class="product__price">
-                  <p>0,00€</p>
-                </div>
-                <div class="product__btn">
-                  <button class="product__inner__btn">COMPRAR</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="product wow fadeInDown" data-wow-duration="1s">
-              <div class="product__image">
-                <img src="<?php bloginfo('template_url'); ?>/images/mercee.png" alt="" class="img-fluid">
-              </div>
-              <div class="product__detail">
-                <div class="product__name">
-                  <h3>NOME PRODUTO</h3>
-                </div>
-                <div class="product__price">
-                  <p>0,00€</p>
-                </div>
-                <div class="product__btn">
-                  <button class="product__inner__btn">COMPRAR</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="see-more">
-          <a href="#">todos os PRODUTOS <i class="fa fa-long-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- otalhante product end -->
-<!-- ocharcuteiro product open -->
-<section class="ocharcuteiro produtos__veggie">
-  <div class="container-fluid">
-    <div class="row no-gutters">
-      <div class="col-md-9">
-        <h2 class="wow bounce" data-wow-duration="4s">produtos veggie</h2>
-        <div class="row product-list">
-          <div class="col-md-4">
-            <div class="product wow fadeInDown" data-wow-duration="1s">
-              <div class="product__image">
-                <img src="<?php bloginfo('template_url'); ?>/images/prod.png" alt="" class="img-fluid">
-              </div>
-              <div class="product__detail">
-                <div class="product__name">
-                  <h3>NOME PRODUTO</h3>
-                </div>
-                <div class="product__price">
-                  <p>0,00€</p>
-                </div>
-                <div class="product__btn">
-                  <button class="product__inner__btn">COMPRAR</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="product wow fadeInDown" data-wow-duration="1s">
-              <div class="product__image">
-                <img src="<?php bloginfo('template_url'); ?>/images/prod.png" alt="" class="img-fluid">
-              </div>
-              <div class="product__detail">
-                <div class="product__name">
-                  <h3>NOME PRODUTO</h3>
-                </div>
-                <div class="product__price">
-                  <p>0,00€</p>
-                </div>
-                <div class="product__btn">
-                  <button class="product__inner__btn">COMPRAR</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="product wow fadeInDown" data-wow-duration="1s">
-              <div class="product__image">
-                <img src="<?php bloginfo('template_url'); ?>/images/prod.png" alt="" class="img-fluid">
-              </div>
-              <div class="product__detail">
-                <div class="product__name">
-                  <h3>NOME PRODUTO</h3>
-                </div>
-                <div class="product__price">
-                  <p>0,00€</p>
-                </div>
-                <div class="product__btn">
-                  <button class="product__inner__btn">COMPRAR</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="see-more">
-          <a href="#">todos os PRODUTOS <i class="fa fa-long-arrow-right"></i></a>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="ocharcuteiro__right__iamge"></div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- ocharcuteiro product end -->
-
-<!-- otalhante product open -->
-<section class="otalhante promocoes_home">
-  <div class="container-fluid">
-    <div class="row no-gutters">
-      <div class="col-md-3">
-        <div class="otalhante__left__img"></div>
-
-      </div>
-      <div class="col-md-9">
-        <h2 class="wow bounce" data-wow-duration="4s">PROMOÇÕES</h2>
-        <div class="row product-list">
-          <div class="col-md-4">
-            <div class="product wow fadeInDown" data-wow-duration="1s">
-              <div class="product__image">
-                <img src="<?php bloginfo('template_url'); ?>/images/otalhante-1.png" alt="" class="img-fluid">
-              </div>
-              <div class="product__detail">
-                <div class="product__name">
-                  <h3>NOME PRODUTO</h3>
-                </div>
-                <div class="product__price">
-                  <p>0,00€</p>
-                </div>
-                <div class="product__btn">
-                  <button class="product__inner__btn">COMPRAR</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="product wow fadeInDown" data-wow-duration="1s">
-              <div class="product__image">
-                <img src="<?php bloginfo('template_url'); ?>/images/otalhante-1.png" alt="" class="img-fluid">
-              </div>
-              <div class="product__detail">
-                <div class="product__name">
-                  <h3>NOME PRODUTO</h3>
-                </div>
-                <div class="product__price">
-                  <p>0,00€</p>
-                </div>
-                <div class="product__btn">
-                  <button class="product__inner__btn">COMPRAR</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="product wow fadeInDown" data-wow-duration="1s">
-              <div class="product__image">
-                <img src="<?php bloginfo('template_url'); ?>/images/otalhante-1.png" alt="" class="img-fluid">
-              </div>
-              <div class="product__detail">
-                <div class="product__name">
-                  <h3>NOME PRODUTO</h3>
-                </div>
-                <div class="product__price">
-                  <p>0,00€</p>
-                </div>
-                <div class="product__btn">
-                  <button class="product__inner__btn">COMPRAR</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="see-more">
-          <a href="#">todos os PRODUTOS <i class="fa fa-long-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- otalhante product end -->
-<!-- ocharcuteiro product open -->
-<section class="ocharcuteiro cabazes__h">
-  <div class="container-fluid">
-    <div class="row no-gutters">
-      <div class="col-md-9">
-        <h2 class="wow bounce" data-wow-duration="4s">CABAZES</h2>
-        <div class="row product-list">
-          <div class="col-md-4">
-            <div class="product wow fadeInDown" data-wow-duration="1s">
-              <div class="product__image">
-                <img src="<?php bloginfo('template_url'); ?>/images/sd.png" alt="" class="img-fluid">
-              </div>
-              <div class="product__detail">
-                <div class="product__name">
-                  <h3>NOME PRODUTO</h3>
-                </div>
-                <div class="product__price">
-                  <p>0,00€</p>
-                </div>
-                <div class="product__btn">
-                  <button class="product__inner__btn">COMPRAR</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="product wow fadeInDown" data-wow-duration="1s">
-              <div class="product__image">
-                <img src="<?php bloginfo('template_url'); ?>/images/sd.png" alt="" class="img-fluid">
-              </div>
-              <div class="product__detail">
-                <div class="product__name">
-                  <h3>NOME PRODUTO</h3>
-                </div>
-                <div class="product__price">
-                  <p>0,00€</p>
-                </div>
-                <div class="product__btn">
-                  <button class="product__inner__btn">COMPRAR</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="product wow fadeInDown" data-wow-duration="1s">
-              <div class="product__image">
-                <img src="<?php bloginfo('template_url'); ?>/images/sd.png" alt="" class="img-fluid">
-              </div>
-              <div class="product__detail">
-                <div class="product__name">
-                  <h3>NOME PRODUTO</h3>
-                </div>
-                <div class="product__price">
-                  <p>0,00€</p>
-                </div>
-                <div class="product__btn">
-                  <button class="product__inner__btn">COMPRAR</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="see-more">
-          <a href="#">todos os PRODUTOS <i class="fa fa-long-arrow-right"></i></a>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="ocharcuteiro__right__iamge">
-        </div>
-        <!-- <img src="<?php bloginfo('template_url'); ?>/images/ocharcuteiro-img.png" alt="" class="img-fluid"> -->
-      </div>
-    </div>
-  </div>
-</section>
-<!-- ocharcuteiro product end -->
+<!---->
+<!--<!-- otalhante product open -->-->
+<!--<section class="otalhante">-->
+<!--  <div class="container-fluid">-->
+<!--    <div class="row no-gutters">-->
+<!--      <div class="col-md-3">-->
+<!--        <div class="otalhante__left__img"></div>-->
+<!--      </div>-->
+<!--      <div class="col-md-9">-->
+<!--        <h2 class="wow bounce" data-wow-duration="4s">otalhante</h2>-->
+<!--        <div class="row product-list">-->
+<!--          <div class="col-md-4">-->
+<!--            <div class="product wow fadeInDown" data-wow-duration="1s">-->
+<!--              <div class="product__image">-->
+<!--                <img src="--><?php //bloginfo('template_url'); ?><!--/images/otalhante-1.png" alt="" class="img-fluid">-->
+<!--              </div>-->
+<!--              <div class="product__detail">-->
+<!--                <div class="product__name">-->
+<!--                  <h3>NOME PRODUTO</h3>-->
+<!--                </div>-->
+<!--                <div class="product__price">-->
+<!--                  <p>0,00€</p>-->
+<!--                </div>-->
+<!--                <div class="product__btn">-->
+<!--                  <button class="product__inner__btn">COMPRAR</button>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-md-4">-->
+<!--            <div class="product wow fadeInDown" data-wow-duration="1s">-->
+<!--              <div class="product__image">-->
+<!--                <img src="--><?php //bloginfo('template_url'); ?><!--/images/otalhante-1.png" alt="" class="img-fluid">-->
+<!--              </div>-->
+<!--              <div class="product__detail">-->
+<!--                <div class="product__name">-->
+<!--                  <h3>NOME PRODUTO</h3>-->
+<!--                </div>-->
+<!--                <div class="product__price">-->
+<!--                  <p>0,00€</p>-->
+<!--                </div>-->
+<!--                <div class="product__btn">-->
+<!--                  <button class="product__inner__btn">COMPRAR</button>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-md-4">-->
+<!--            <div class="product wow fadeInDown" data-wow-duration="1s">-->
+<!--              <div class="product__image">-->
+<!--                <img src="--><?php //bloginfo('template_url'); ?><!--/images/otalhante-1.png" alt="" class="img-fluid">-->
+<!--              </div>-->
+<!--              <div class="product__detail">-->
+<!--                <div class="product__name">-->
+<!--                  <h3>NOME PRODUTO</h3>-->
+<!--                </div>-->
+<!--                <div class="product__price">-->
+<!--                  <p>0,00€</p>-->
+<!--                </div>-->
+<!--                <div class="product__btn">-->
+<!--                  <button class="product__inner__btn">COMPRAR</button>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="see-more">-->
+<!--          <a href="#">todos os PRODUTOS <i class="fa fa-long-arrow-right"></i></a>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+<!--<!-- otalhante product end -->-->
+<!---->
+<!--<!-- ocharcuteiro product open -->-->
+<!--<section class="ocharcuteiro">-->
+<!--  <div class="container-fluid">-->
+<!--    <div class="row no-gutters">-->
+<!--      <div class="col-md-9">-->
+<!--        <h2 class="wow bounce" data-wow-duration="4s">ocharcuteiro</h2>-->
+<!--        <div class="row product-list">-->
+<!--          <div class="col-md-4">-->
+<!--            <div class="product wow fadeInDown" data-wow-duration="1s">-->
+<!--              <div class="product__image">-->
+<!--                <img src="--><?php //bloginfo('template_url'); ?><!--/images/ochu-pro.png" alt="" class="img-fluid">-->
+<!--              </div>-->
+<!--              <div class="product__detail">-->
+<!--                <div class="product__name">-->
+<!--                  <h3>NOME PRODUTO</h3>-->
+<!--                </div>-->
+<!--                <div class="product__price">-->
+<!--                  <p>0,00€</p>-->
+<!--                </div>-->
+<!--                <div class="product__btn">-->
+<!--                  <button class="product__inner__btn">COMPRAR</button>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-md-4">-->
+<!--            <div class="product wow fadeInDown" data-wow-duration="1s">-->
+<!--              <div class="product__image">-->
+<!--                <img src="--><?php //bloginfo('template_url'); ?><!--/images/ochu-pro.png" alt="" class="img-fluid">-->
+<!--              </div>-->
+<!--              <div class="product__detail">-->
+<!--                <div class="product__name">-->
+<!--                  <h3>NOME PRODUTO</h3>-->
+<!--                </div>-->
+<!--                <div class="product__price">-->
+<!--                  <p>0,00€</p>-->
+<!--                </div>-->
+<!--                <div class="product__btn">-->
+<!--                  <button class="product__inner__btn">COMPRAR</button>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-md-4">-->
+<!--            <div class="product wow fadeInDown" data-wow-duration="1s">-->
+<!--              <div class="product__image">-->
+<!--                <img src="--><?php //bloginfo('template_url'); ?><!--/images/ochu-pro.png" alt="" class="img-fluid">-->
+<!--              </div>-->
+<!--              <div class="product__detail">-->
+<!--                <div class="product__name">-->
+<!--                  <h3>NOME PRODUTO</h3>-->
+<!--                </div>-->
+<!--                <div class="product__price">-->
+<!--                  <p>0,00€</p>-->
+<!--                </div>-->
+<!--                <div class="product__btn">-->
+<!--                  <button class="product__inner__btn">COMPRAR</button>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="see-more">-->
+<!--          <a href="#">todos os PRODUTOS <i class="fa fa-long-arrow-right"></i></a>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="col-md-3">-->
+<!--        <div class="ocharcuteiro__right__iamge">-->
+<!--        </div>-->
+<!--        <!-- <img src="--><?php //bloginfo('template_url'); ?><!--/images/ocharcuteiro-img.png" alt="" class="img-fluid"> -->-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+<!--<!-- ocharcuteiro product end -->-->
+<!---->
+<!---->
+<!--<!-- otalhante product open -->-->
+<!--<section class="otalhante omerceeiro">-->
+<!--  <div class="container-fluid">-->
+<!--    <div class="row no-gutters">-->
+<!--      <div class="col-md-3">-->
+<!--        <div class="otalhante__left__img"></div>-->
+<!--      </div>-->
+<!--      <div class="col-md-9">-->
+<!--        <h2 class="wow bounce" data-wow-duration="4s">omerceeiro</h2>-->
+<!--        <div class="row product-list">-->
+<!--          <div class="col-md-4">-->
+<!--            <div class="product wow fadeInDown" data-wow-duration="1s">-->
+<!--              <div class="product__image">-->
+<!--                <img src="--><?php //bloginfo('template_url'); ?><!--/images/mercee.png" alt="" class="img-fluid">-->
+<!--              </div>-->
+<!--              <div class="product__detail">-->
+<!--                <div class="product__name">-->
+<!--                  <h3>NOME PRODUTO</h3>-->
+<!--                </div>-->
+<!--                <div class="product__price">-->
+<!--                  <p>0,00€</p>-->
+<!--                </div>-->
+<!--                <div class="product__btn">-->
+<!--                  <button class="product__inner__btn">COMPRAR</button>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-md-4">-->
+<!--            <div class="product wow fadeInDown" data-wow-duration="1s">-->
+<!--              <div class="product__image">-->
+<!--                <img src="--><?php //bloginfo('template_url'); ?><!--/images/mercee.png" alt="" class="img-fluid">-->
+<!--              </div>-->
+<!--              <div class="product__detail">-->
+<!--                <div class="product__name">-->
+<!--                  <h3>NOME PRODUTO</h3>-->
+<!--                </div>-->
+<!--                <div class="product__price">-->
+<!--                  <p>0,00€</p>-->
+<!--                </div>-->
+<!--                <div class="product__btn">-->
+<!--                  <button class="product__inner__btn">COMPRAR</button>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-md-4">-->
+<!--            <div class="product wow fadeInDown" data-wow-duration="1s">-->
+<!--              <div class="product__image">-->
+<!--                <img src="--><?php //bloginfo('template_url'); ?><!--/images/mercee.png" alt="" class="img-fluid">-->
+<!--              </div>-->
+<!--              <div class="product__detail">-->
+<!--                <div class="product__name">-->
+<!--                  <h3>NOME PRODUTO</h3>-->
+<!--                </div>-->
+<!--                <div class="product__price">-->
+<!--                  <p>0,00€</p>-->
+<!--                </div>-->
+<!--                <div class="product__btn">-->
+<!--                  <button class="product__inner__btn">COMPRAR</button>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="see-more">-->
+<!--          <a href="#">todos os PRODUTOS <i class="fa fa-long-arrow-right"></i></a>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+<!--<!-- otalhante product end -->-->
+<!--<!-- ocharcuteiro product open -->-->
+<!--<section class="ocharcuteiro produtos__veggie">-->
+<!--  <div class="container-fluid">-->
+<!--    <div class="row no-gutters">-->
+<!--      <div class="col-md-9">-->
+<!--        <h2 class="wow bounce" data-wow-duration="4s">produtos veggie</h2>-->
+<!--        <div class="row product-list">-->
+<!--          <div class="col-md-4">-->
+<!--            <div class="product wow fadeInDown" data-wow-duration="1s">-->
+<!--              <div class="product__image">-->
+<!--                <img src="--><?php //bloginfo('template_url'); ?><!--/images/prod.png" alt="" class="img-fluid">-->
+<!--              </div>-->
+<!--              <div class="product__detail">-->
+<!--                <div class="product__name">-->
+<!--                  <h3>NOME PRODUTO</h3>-->
+<!--                </div>-->
+<!--                <div class="product__price">-->
+<!--                  <p>0,00€</p>-->
+<!--                </div>-->
+<!--                <div class="product__btn">-->
+<!--                  <button class="product__inner__btn">COMPRAR</button>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-md-4">-->
+<!--            <div class="product wow fadeInDown" data-wow-duration="1s">-->
+<!--              <div class="product__image">-->
+<!--                <img src="--><?php //bloginfo('template_url'); ?><!--/images/prod.png" alt="" class="img-fluid">-->
+<!--              </div>-->
+<!--              <div class="product__detail">-->
+<!--                <div class="product__name">-->
+<!--                  <h3>NOME PRODUTO</h3>-->
+<!--                </div>-->
+<!--                <div class="product__price">-->
+<!--                  <p>0,00€</p>-->
+<!--                </div>-->
+<!--                <div class="product__btn">-->
+<!--                  <button class="product__inner__btn">COMPRAR</button>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-md-4">-->
+<!--            <div class="product wow fadeInDown" data-wow-duration="1s">-->
+<!--              <div class="product__image">-->
+<!--                <img src="--><?php //bloginfo('template_url'); ?><!--/images/prod.png" alt="" class="img-fluid">-->
+<!--              </div>-->
+<!--              <div class="product__detail">-->
+<!--                <div class="product__name">-->
+<!--                  <h3>NOME PRODUTO</h3>-->
+<!--                </div>-->
+<!--                <div class="product__price">-->
+<!--                  <p>0,00€</p>-->
+<!--                </div>-->
+<!--                <div class="product__btn">-->
+<!--                  <button class="product__inner__btn">COMPRAR</button>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="see-more">-->
+<!--          <a href="#">todos os PRODUTOS <i class="fa fa-long-arrow-right"></i></a>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="col-md-3">-->
+<!--        <div class="ocharcuteiro__right__iamge"></div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+<!--<!-- ocharcuteiro product end -->-->
+<!---->
+<!--<!-- otalhante product open -->-->
+<!--<section class="otalhante promocoes_home">-->
+<!--  <div class="container-fluid">-->
+<!--    <div class="row no-gutters">-->
+<!--      <div class="col-md-3">-->
+<!--        <div class="otalhante__left__img"></div>-->
+<!---->
+<!--      </div>-->
+<!--      <div class="col-md-9">-->
+<!--        <h2 class="wow bounce" data-wow-duration="4s">PROMOÇÕES</h2>-->
+<!--        <div class="row product-list">-->
+<!--          <div class="col-md-4">-->
+<!--            <div class="product wow fadeInDown" data-wow-duration="1s">-->
+<!--              <div class="product__image">-->
+<!--                <img src="--><?php //bloginfo('template_url'); ?><!--/images/otalhante-1.png" alt="" class="img-fluid">-->
+<!--              </div>-->
+<!--              <div class="product__detail">-->
+<!--                <div class="product__name">-->
+<!--                  <h3>NOME PRODUTO</h3>-->
+<!--                </div>-->
+<!--                <div class="product__price">-->
+<!--                  <p>0,00€</p>-->
+<!--                </div>-->
+<!--                <div class="product__btn">-->
+<!--                  <button class="product__inner__btn">COMPRAR</button>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-md-4">-->
+<!--            <div class="product wow fadeInDown" data-wow-duration="1s">-->
+<!--              <div class="product__image">-->
+<!--                <img src="--><?php //bloginfo('template_url'); ?><!--/images/otalhante-1.png" alt="" class="img-fluid">-->
+<!--              </div>-->
+<!--              <div class="product__detail">-->
+<!--                <div class="product__name">-->
+<!--                  <h3>NOME PRODUTO</h3>-->
+<!--                </div>-->
+<!--                <div class="product__price">-->
+<!--                  <p>0,00€</p>-->
+<!--                </div>-->
+<!--                <div class="product__btn">-->
+<!--                  <button class="product__inner__btn">COMPRAR</button>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-md-4">-->
+<!--            <div class="product wow fadeInDown" data-wow-duration="1s">-->
+<!--              <div class="product__image">-->
+<!--                <img src="--><?php //bloginfo('template_url'); ?><!--/images/otalhante-1.png" alt="" class="img-fluid">-->
+<!--              </div>-->
+<!--              <div class="product__detail">-->
+<!--                <div class="product__name">-->
+<!--                  <h3>NOME PRODUTO</h3>-->
+<!--                </div>-->
+<!--                <div class="product__price">-->
+<!--                  <p>0,00€</p>-->
+<!--                </div>-->
+<!--                <div class="product__btn">-->
+<!--                  <button class="product__inner__btn">COMPRAR</button>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="see-more">-->
+<!--          <a href="#">todos os PRODUTOS <i class="fa fa-long-arrow-right"></i></a>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+<!--<!-- otalhante product end -->-->
+<!--<!-- ocharcuteiro product open -->-->
+<!--<section class="ocharcuteiro cabazes__h">-->
+<!--  <div class="container-fluid">-->
+<!--    <div class="row no-gutters">-->
+<!--      <div class="col-md-9">-->
+<!--        <h2 class="wow bounce" data-wow-duration="4s">CABAZES</h2>-->
+<!--        <div class="row product-list">-->
+<!--          <div class="col-md-4">-->
+<!--            <div class="product wow fadeInDown" data-wow-duration="1s">-->
+<!--              <div class="product__image">-->
+<!--                <img src="--><?php //bloginfo('template_url'); ?><!--/images/sd.png" alt="" class="img-fluid">-->
+<!--              </div>-->
+<!--              <div class="product__detail">-->
+<!--                <div class="product__name">-->
+<!--                  <h3>NOME PRODUTO</h3>-->
+<!--                </div>-->
+<!--                <div class="product__price">-->
+<!--                  <p>0,00€</p>-->
+<!--                </div>-->
+<!--                <div class="product__btn">-->
+<!--                  <button class="product__inner__btn">COMPRAR</button>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-md-4">-->
+<!--            <div class="product wow fadeInDown" data-wow-duration="1s">-->
+<!--              <div class="product__image">-->
+<!--                <img src="--><?php //bloginfo('template_url'); ?><!--/images/sd.png" alt="" class="img-fluid">-->
+<!--              </div>-->
+<!--              <div class="product__detail">-->
+<!--                <div class="product__name">-->
+<!--                  <h3>NOME PRODUTO</h3>-->
+<!--                </div>-->
+<!--                <div class="product__price">-->
+<!--                  <p>0,00€</p>-->
+<!--                </div>-->
+<!--                <div class="product__btn">-->
+<!--                  <button class="product__inner__btn">COMPRAR</button>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-md-4">-->
+<!--            <div class="product wow fadeInDown" data-wow-duration="1s">-->
+<!--              <div class="product__image">-->
+<!--                <img src="--><?php //bloginfo('template_url'); ?><!--/images/sd.png" alt="" class="img-fluid">-->
+<!--              </div>-->
+<!--              <div class="product__detail">-->
+<!--                <div class="product__name">-->
+<!--                  <h3>NOME PRODUTO</h3>-->
+<!--                </div>-->
+<!--                <div class="product__price">-->
+<!--                  <p>0,00€</p>-->
+<!--                </div>-->
+<!--                <div class="product__btn">-->
+<!--                  <button class="product__inner__btn">COMPRAR</button>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="see-more">-->
+<!--          <a href="#">todos os PRODUTOS <i class="fa fa-long-arrow-right"></i></a>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="col-md-3">-->
+<!--        <div class="ocharcuteiro__right__iamge">-->
+<!--        </div>-->
+<!--        <!-- <img src="--><?php //bloginfo('template_url'); ?><!--/images/ocharcuteiro-img.png" alt="" class="img-fluid"> -->-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+<!--<!-- ocharcuteiro product end -->-->
 <?php get_footer() ?>
