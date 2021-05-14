@@ -953,6 +953,11 @@ padding-bottom: 20px;
 .content-area  .woocommerce a.button.alt {
 	background-color: var(--red-color) !important;
 	text-transform: uppercase;
+	transition: 0.4s all;
+}
+
+.content-area .woocommerce a.button.alt:hover{
+	background-color: var(--purple-color) !important;
 }
 
 .content-area  .woocommerce-cart-form .button {
@@ -964,7 +969,7 @@ padding-bottom: 20px;
 }
 
 .content-area .woocommerce button.button:hover{
-	background-color: var(--red-color) !important;
+	background-color: var(--purple-color) !important;
 }
 
 .product-name a{
@@ -1036,7 +1041,7 @@ padding-bottom: 20px;
 }
 
 .woocommerce form .form-row.woocommerce-validated input.input-text {
-	border-color: #0d0c0a;
+	border-color: #f00;
 }
 
 .woocommerce form .form-row .input-text, .woocommerce-page form .form-row .input-text{
