@@ -10,3 +10,11 @@ Stack trace:
 #7 {main}
   thrown in /Applications/MAMP/htdocs/wp_lozaizidoro/wp-includes/class-wp-hook.php on line 292
 
+2021-05-13T16:10:18+00:00 CRITICAL Uncaught Error: Call to a member function get_price_html() on null in /Applications/MAMP/htdocs/wp_lozaizidoro/wp-content/themes/lozaizidoro/template-home.php:228
+Stack trace:
+#0 /Applications/MAMP/htdocs/wp_lozaizidoro/wp-includes/template-loader.php(106): include()
+#1 /Applications/MAMP/htdocs/wp_lozaizidoro/wp-blog-header.php(19): require_once('/Applications/M...')
+#2 /Applications/MAMP/htdocs/wp_lozaizidoro/index.php(17): require('/Applications/M...')
+#3 {main}
+  thrown in /Applications/MAMP/htdocs/wp_lozaizidoro/wp-content/themes/lozaizidoro/template-home.php on line 228
+

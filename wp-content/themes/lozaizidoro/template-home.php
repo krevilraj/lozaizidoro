@@ -99,6 +99,126 @@ get_header();
   </div>
 </section>
 <!-- three food close  -->
+
+
+<?php $slug = array('o-talhante', 'o-charcuteiro', 'o-merceeiro','produtos-veggie','promocoes','cabazes') ?>
+
+<?php
+$i = 0;
+foreach ($slug as $cat_slug) {
+  $catObj = get_term_by('slug', $cat_slug, 'product_cat');
+  $catName = $catObj->name;
+  ?>
+  <?php if ($i % 2 == 0): ?>
+    <!-- otalhante product open -->
+    <section class="otalhante">
+      <div class="container-fluid">
+        <div class="row no-gutters">
+          <div class="col-md-3">
+            <div class="otalhante__left__img"></div>
+          </div>
+          <div class="col-md-9">
+
+            <h2 class="wow bounce" data-wow-duration="4s"><?php echo $catName; ?></h2>
+            <div class="row product-list">
+              <?php
+              $args = array('post_type' => 'product', 'stock' => 1, 'posts_per_page' => 3, 'product_cat' => $cat_slug, 'orderby' => 'date', 'order' => 'ASC');
+              $loop = new WP_Query($args);
+
+              while ($loop->have_posts()) : $loop->the_post();
+                global $product;
+                ?>
+                <div class="col-md-4">
+                  <div class="product wow fadeInDown" data-wow-duration="1s">
+                    <div class="product__image">
+                      <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>"
+                           alt="<?php the_title() ?>" class="img-fluid">
+                    </div>
+                    <div class="product__detail">
+                      <div class="product__name">
+                        <h3><a href="<?php echo the_permalink(); ?>"><?php the_title() ?></a></h3>
+                      </div>
+                      <div class="product__price">
+                        <p><?php echo $product->get_price_html(); ?></p>
+                      </div>
+                      <div class="product__btn">
+                        <button class="product__inner__btn">COMPRAR</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <?php endwhile;
+              wp_reset_query(); ?>
+
+            </div>
+            <div class="see-more">
+              <a href="#">todos os PRODUTOS <i class="fa fa-long-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- otalhante product end -->
+
+  <?php else: ?>
+    <!-- ocharcuteiro product open -->
+    <section class="ocharcuteiro">
+      <div class="container-fluid">
+        <div class="row no-gutters">
+          <div class="col-md-9">
+            <h2 class="wow bounce" data-wow-duration="4s"><?php echo $catName; ?></h2>
+            <div class="row product-list">
+              <?php
+              $args = array('post_type' => 'product', 'stock' => 1, 'posts_per_page' => 3, 'product_cat' => $cat_slug, 'orderby' => 'date', 'order' => 'ASC');
+              $loop = new WP_Query($args);
+
+              while ($loop->have_posts()) : $loop->the_post();
+                global $product;
+                ?>
+                <div class="col-md-4">
+                  <div class="product wow fadeInDown" data-wow-duration="1s">
+                    <div class="product__image">
+                      <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>" alt="" class="img-fluid">
+                    </div>
+                    <div class="product__detail">
+                      <div class="product__name">
+                        <h3><a href="<?php the_title()?>"> <?php the_title()?></a></h3>
+                      </div>
+                      <div class="product__price">
+                        <p><?php echo $product->get_price_html(); ?></p>
+                      </div>
+                      <div class="product__btn">
+                        <button class="product__inner__btn">COMPRAR</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <?php endwhile;
+              wp_reset_query(); ?>
+
+            </div>
+            <div class="see-more">
+              <a href="#">todos os PRODUTOS <i class="fa fa-long-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="ocharcuteiro__right__iamge">
+            </div>
+            <!-- <img src="<?php bloginfo('template_url'); ?>/images/ocharcuteiro-img.png" alt="" class="img-fluid"> -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ocharcuteiro product end -->
+
+  <?php endif; ?>
+
+
+  <?php
+  $i++;
+}
+?>
+
 <!-- otalhante product open -->
 <section class="otalhante">
   <div class="container-fluid">
@@ -172,6 +292,7 @@ get_header();
   </div>
 </section>
 <!-- otalhante product end -->
+
 <!-- ocharcuteiro product open -->
 <section class="ocharcuteiro">
   <div class="container-fluid">
@@ -247,6 +368,7 @@ get_header();
   </div>
 </section>
 <!-- ocharcuteiro product end -->
+
 
 <!-- otalhante product open -->
 <section class="otalhante omerceeiro">
