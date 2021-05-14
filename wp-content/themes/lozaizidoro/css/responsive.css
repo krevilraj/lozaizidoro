@@ -1,5 +1,5 @@
 
-@media (max-width: 575.98px) { 
+@media (max-width: 575.98px) {
 
 /*banner*/
 
@@ -13,7 +13,7 @@
 	top:25px;
 	max-width: 196px;
 	padding-right: 24px;
-	
+
 }
 .header__menu .hamburger{
 	top:45px;
@@ -47,7 +47,7 @@
 }
 
 .otalhante .product{
-	
+
 	padding-top: unset;
 }
 .ocharcuteiro h2{
@@ -71,10 +71,16 @@
 	flex-wrap: wrap;
 }
 
+/*product page css*/
+	. product-caption h1{
+		line-height: 1rem;
+		font-size: 1.2rem;
+	}
+
 }
 
 
-@media (max-width: 767.98px) { 
+@media (max-width: 767.98px) {
 
 
 }

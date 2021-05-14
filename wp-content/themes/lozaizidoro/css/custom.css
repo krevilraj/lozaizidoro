@@ -405,6 +405,15 @@ padding-bottom: 20px;
 	height: auto;
 }
 
+.offer__btn a{
+	color:#fff;
+	text-decoration: none;
+}
+
+.offer__btn a:hover{
+	color:var(--red-color);
+}
+
 /* ======================== offer section  Close ================================ */
 
 /* ======================== three food open ================================ */
@@ -1202,4 +1211,21 @@ nav.woocommerce-MyAccount-navigation ul li a {
 	position: -webkit-sticky;
 	position: sticky;
 	top:40px;
+}
+
+
+.cat-banner{
+	position: relative;
+}
+.product-caption
+{
+	color: #fff;
+	position: absolute;
+	top: 45%;
+	left: 6%;
+}
+
+.search-side-product .woocommerce-products-header h2{
+	text-align: unset !important;
+	color:var(--red-color);
 }

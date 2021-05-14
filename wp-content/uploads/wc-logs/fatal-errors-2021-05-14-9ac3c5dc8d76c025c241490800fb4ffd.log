@@ -7,3 +7,5 @@ Stack trace:
 #4 {main}
   thrown in /Applications/MAMP/htdocs/wp_lozaizidoro/wp-content/themes/lozaizidoro/functions.php on line 6
 
+2021-05-14T14:09:06+00:00 CRITICAL syntax error, unexpected token "<<", expecting end of file in D:\xampp\htdocs\DigitalConnectionAll\gits-sites\lozaizidoro\wp-content\themes\lozaizidoro\functions.php on line 113
+

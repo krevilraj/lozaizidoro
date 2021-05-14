@@ -32,16 +32,18 @@ get_header('shop');
 
   <section class="cat-banner">
     <?php $category = get_queried_object();?>
-    <img src="<?php the_field('banner_image', 'product_cat_' . $category->term_id); ?>" alt="" class="img-fluid">
-    <h1><?php the_field('banner_title', 'product_cat_' . $category->term_id); ?></h1>
-    <p><?php the_field('banner_description', 'product_cat_' . $category->term_id); ?></p>
+      <div class="product-bg"> <img src="<?php the_field('banner_image', 'product_cat_' . $category->term_id); ?>" alt="" class="img-fluid"></div>
+      <div class="container product-caption">
+        <h1><?php the_field('banner_title', 'product_cat_' . $category->term_id); ?></h1>
+        <p><?php the_field('banner_description', 'product_cat_' . $category->term_id); ?></p>
+      </div>
   </section>
 
 
   <div class="product-section search-side-product">
     <header class="woocommerce-products-header">
       <?php if (apply_filters('woocommerce_show_page_title', true)) : ?>
-        <h1 class="woocommerce-products-header__title page-title text-center"><?php woocommerce_page_title(); ?></h1>
+        <h2 class="woocommerce-products-header__title page-title text-center"><?php woocommerce_page_title(); ?></h2>
       <?php endif; ?>
 
       <?php
