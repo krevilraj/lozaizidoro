@@ -53,3 +53,4 @@ fabric.properties
 # modules.xml
 
 wp-config.php
+.htaccess
