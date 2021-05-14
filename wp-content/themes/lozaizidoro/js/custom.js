@@ -1,6 +1,6 @@
 var $ = jQuery.noConflict();
 // for nav
-$('.hamburger').click(function(){
+$('.hamburger').click(function () {
   $(this).toggleClass("click");
   $('.sidebar').toggleClass('show');
 });
@@ -21,31 +21,30 @@ $(function () {
 });
 
 
-
 // home slider
 $('.owl-carousel').owlCarousel({
-    loop:true,
-    margin:10,
-    nav:true,
-    // autoplay:true,
-    autoplayTimeout:2000,
-    autoplayHoverPause:false,
+  loop: true,
+  margin: 10,
+  nav: false,
+  dots: false,
+  autoplay:true,
+  autoplayTimeout: 2000,
+  autoplayHoverPause: false,
 
-       responsive:{
-        0:{
-            items:1
-        },
-        600:{
-            items:1
-        },
-        1000:{
-            items:1
-        }
+  responsive: {
+    0: {
+      items: 1
+    },
+    600: {
+      items: 1
+    },
+    1000: {
+      items: 1
     }
+  }
 
-   
+
 });
-
 
 
 new WOW().init();
