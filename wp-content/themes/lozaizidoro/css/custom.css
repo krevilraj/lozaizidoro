@@ -405,6 +405,15 @@ padding-bottom: 20px;
 	height: auto;
 }
 
+.offer__btn a{
+	color:#fff;
+	text-decoration: none;
+}
+
+.offer__btn a:hover{
+	color:var(--red-color);
+}
+
 /* ======================== offer section  Close ================================ */
 
 /* ======================== three food open ================================ */

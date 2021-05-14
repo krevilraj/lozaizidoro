@@ -107,3 +107,133 @@ function lozaizidoro_config()
 
 }
 add_action('after_setup_theme', 'lozaizidoro_config', 0);
+
+//Izidoro offer function
+
+function li__customize_register( $wp_customize ) {
+
+// Create our panels
+
+    $wp_customize->add_panel( 'izidoro_offer_panel', array(
+        'title'          => __('Izidoro Offer Section', 'lojaizidoro'),
+    ) );
+
+// Create our sections
+
+    $wp_customize->add_section( 'first_offer_section' , array(
+        'title'             => __('First Offer', 'lojaizidoro'),
+        'panel'             => 'izidoro_offer_panel',
+    ) );
+
+// Create title offer 1
+
+    $wp_customize->add_setting( 'offer_title_setting' , array(
+        'type'          => 'theme_mod',
+        'transport'     => 'refresh',
+    ) );
+    $wp_customize->add_control( 'offer_title_setting_control', array(
+        'label'      => __('Offer Title', 'lojaizidoro'),
+        'section'    => 'first_offer_section',
+        'settings'   => 'offer_title_setting',
+        'type'       => 'text',
+    ) );
+
+    // Create link
+
+    $wp_customize->add_setting( 'offer_link_setting' , array(
+        'type'          => 'theme_mod',
+        'transport'     => 'refresh',
+    ) );
+    $wp_customize->add_control( 'offer_link_setting_control', array(
+        'label'      => __('Offer Link', 'lojaizidoro'),
+        'description'=> __('Please put the link here', 'lojaizidoro'),
+        'section'    => 'first_offer_section',
+        'settings'   => 'offer_link_setting',
+        'type'       => 'url',
+    ) );
+
+    // Create image
+
+    $wp_customize->add_setting( 'first_offer_image', array(
+        'default' => get_theme_file_uri('img/footer_banner.png'), // Add Default Image URL
+        'sanitize_callback' => 'esc_url_raw'
+    ));
+
+    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'footer_logo_control', array(
+        'label' => 'Upload offer image',
+        'section' => 'first_offer_section',
+        'settings' => 'first_offer_image',
+        'button_labels' => array(// All These labels are optional
+            'select' => 'Select  Image',
+            'remove' => 'Remove  Image',
+            'change' => 'Upload  Image',
+        )
+    )));
+
+
+    // it disply pen tool for edit
+    $wp_customize->selective_refresh->add_partial('offer_title_setting', array(
+        'selector' => 'span#first_offer_edit',
+    ));
+
+
+    // Create second offer section
+
+    $wp_customize->add_section( 'second_offer_section' , array(
+        'title'             => __('Second Offer', 'lojaizidoro'),
+        'panel'             => 'izidoro_offer_panel',
+    ) );
+
+// Create title
+
+    $wp_customize->add_setting( 'second_offer_title_setting' , array(
+        'type'          => 'theme_mod',
+        'transport'     => 'refresh',
+    ) );
+    $wp_customize->add_control( 'second_offer_title_setting_control', array(
+        'label'      => __('Second Offer Title', 'lojaizidoro'),
+        'section'    => 'second_offer_section',
+        'settings'   => 'second_offer_title_setting',
+        'type'       => 'text',
+    ) );
+
+    // Create our link
+
+    $wp_customize->add_setting( 'second_offer_link_setting' , array(
+        'type'          => 'theme_mod',
+        'transport'     => 'refresh',
+    ) );
+    $wp_customize->add_control( 'second_offer_link_setting_control', array(
+        'label'      => __('Second Offer Link', 'lojaizidoro'),
+        'section'    => 'second_offer_section',
+        'settings'   => 'second_offer_link_setting',
+        'type'       => 'text',
+    ) );
+
+    // Create second image
+
+    $wp_customize->add_setting( 'second_offer_image', array(
+        'default' => get_theme_file_uri('img/footer_banner.png'), // Add Default Image URL
+        'sanitize_callback' => 'esc_url_raw'
+    ));
+
+    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'footer_logo_control', array(
+        'label' => 'Upload offer image',
+        'section' => 'second_offer_section',
+        'settings' => 'second_offer_image',
+        'button_labels' => array(// All These labels are optional
+            'select' => 'Select  Image',
+            'remove' => 'Remove  Image',
+            'change' => 'Upload  Image',
+        )
+    )));
+
+
+    // it disply pen tool for edit
+    $wp_customize->selective_refresh->add_partial('second_offer_title_setting', array(
+        'selector' => 'span#second_offer_edit',
+    ));
+
+
+}
+add_action( 'customize_register', 'li__customize_register' );

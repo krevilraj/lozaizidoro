@@ -31,20 +31,31 @@ get_header();
     <div class="row">
       <div class="col-md-6 d-flex justify-content-center align-items-center offer__item">
         <div class="offer__detail order-2 order-md-1 wow fadeInDown" data-wow-duration="1s">
-          <h2>PROMOÇÕES</h2>
-          <button class="offer__btn">VER PRODUTOS</button>
+
+          <h2><?php echo get_theme_mod('offer_title_setting'); ?> </h2>
+
+            <button class="offer__btn"><a href="<?php echo get_theme_mod('offer_link_setting_control'); ?> ">VER PRODUTOS</a></button>
+            <!--  show pen for edit  -->
+            <span id="first_offer_edit"></span>
         </div>
         <div class="offer-image order-1 order-md-2 wow flash" data-wow-duration="4s">
-          <img src="<?php bloginfo('template_url'); ?>/images/promocoes.png" class="img-fluid">
+          <img src="<?php echo get_theme_mod('first_offer_image'); ?> " class="img-fluid">
         </div>
+
       </div>
+
       <div class="col-md-6 d-flex justify-content-center align-items-center offer__item">
         <div class="offer__detail order-2 order-md-1 wow fadeInDown" data-wow-duration="1s">
-          <h2>CABAZES</h2>
-          <button class="offer__btn">VER PRODUTOS</button>
+          <h2><?php echo get_theme_mod('second_offer_title_setting'); ?> </h2>
+          <button class="offer__btn"><a href="<?php echo get_theme_mod('second_offer_link_setting'); ?>">VER PRODUTOS</a></button>
+
         </div>
+
         <div class="offer-image order-1 order-md-2 wow flash" data-wow-duration="4s">
-          <img src="<?php bloginfo('template_url'); ?>/images/cabazes.png" class="img-fluid">
+            <!--  show pen for edit  -->
+            <span id="second_offer_edit"></span>
+          <img src="<?php echo get_theme_mod('second_offer_image'); ?>" class="img-fluid">
+
         </div>
       </div>
     </div>
