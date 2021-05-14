@@ -23,8 +23,8 @@ get_header();
         // Load posts loop
         while (have_posts()): the_post();
           ?>
-        <section>
-          <h1><?php the_title()?></h1>
+        <section class="all-header">
+            <div class="page__title"> <h2><?php the_title()?></h2> </div>
         </section>
           <div class="content-area">
           <main class=" default-page1">

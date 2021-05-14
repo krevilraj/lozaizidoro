@@ -175,7 +175,7 @@ button:hover{
     height: 25px;
     color: #fff;
     border-radius: 50%;
-    background-color: var(--red-color);
+    background-color: var(--orange-color);
     -ms-flex-align: center;
     align-items: center;
     -ms-flex-pack: center;
@@ -809,23 +809,30 @@ padding-bottom: 20px;
 	margin-left:0;
 	margin-bottom:10px;
 	clear:both;
+	list-style-type: none;
 }
 .widget_shopping_cart_content .woocommerce-mini-cart-item img{
 	width:80px !important;
 	margin-right:10px;
 	float:left !important;
+	height: 80px;
 }
 .woocommerce a.remove {
 	display: block;
 	font-size: 1.5em;
-	height: inherit;
-	width: inherit;
+	height: 22px;
+	width: 22px;
 	text-align: center;
-	line-height: 1;
+	line-height: 22px;
 	border-radius: 100%;
 	text-decoration: none;
 	font-weight: 700;
 	border: 0;
+}
+
+.woocommerce a.remove:hover {
+	color: #0b0a0a !important;
+	background: #fff;
 }
 
 .widget_shopping_cart_content li.mini_cart_item a.remove_from_cart_button {
@@ -896,3 +903,91 @@ padding-bottom: 20px;
 	opacity:1;
 }
 
+
+
+/*// for extra pages */
+
+.widget_shopping_cart_content ul li a{
+	color:#4D2179;
+	font-weight: bold;
+}
+
+.woocommerce-mini-cart__buttons a.button {
+	background-color:var(--red-color);
+	border-radius: 20px;
+	text-decoration: none;
+}
+
+.woocommerce-mini-cart__buttons a.button:hover {
+	background-color:var(--orange-color);
+
+}
+
+.content-area {
+	margin-top: 140px;
+}
+
+.all-header{
+	background-color:var(--red-color);
+}
+.all-header .page__title{
+	text-align: center;
+	padding: 11% 0 2% 0;
+}
+.all-header .page__title h2{
+	font-size: 4rem;
+	color: var(--orange-color);
+}
+
+.content-area .cart_totals h2{
+	font-size: 2rem;
+
+}
+
+.cart-collaterals1 {
+	background-color: var(--orange-color);
+	padding: 38px 25px 0 25px;
+}
+
+.content-area  .woocommerce a.button.alt {
+	background-color: var(--red-color) !important;
+	text-transform: uppercase;
+}
+
+.content-area  .woocommerce-cart-form .button {
+	background-color: var(--red-color) !important; !important;
+	color: #fff !important;
+	opacity: 1 !important;
+	transition: 0.4s all;
+	font-family: unset;
+}
+
+.content-area .woocommerce button.button:hover{
+	background-color: var(--red-color) !important;
+}
+
+.product-name a{
+	color: #000;
+	font-weight: bold;
+}
+
+.content-area  thead{
+	background-color: ##f4f4f4;
+}
+
+
+.woocommerce-cart-form a{
+	font-size:1.1rem;
+
+}
+
+
+.content-area  th{
+	text-transform: uppercase;
+}
+
+
+.woocommerce-cart table.cart td.actions .coupon .input-text{
+	width: 156px;
+	max-width: 100%;
+}
