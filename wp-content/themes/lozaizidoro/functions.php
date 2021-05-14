@@ -2,7 +2,9 @@
 /**
  * Include file
  */
-require_once get_template_directory() . '/customposttype/slider.php';
+require_once get_template_directory() . '/inc/customposttype/slider.php';
+require_once get_template_directory() . '/inc/sidebar/shop.php';
+
 
 
 /**
@@ -35,7 +37,7 @@ function lozaizidoro_scripts()
   // Theme's main stylesheet
   wp_enqueue_style('lozaizidoro-style', get_stylesheet_uri(), array(), filemtime(get_template_directory() . '/style.css'), 'all');
 //  wp_enqueue_style('lozaizidoro-custom-style', get_stylesheet_uri(), array(), filemtime(get_template_directory() . '/css/custom.css'), 'all');
-//  wp_enqueue_style('lozaizidoro-responsive-style', get_stylesheet_uri(), array(), filemtime(get_template_directory() . '/css/responsive.css'), 'all');
+// wp_enqueue_style('lozaizidoro-responsive-style', get_stylesheet_uri(), array(), filemtime(get_template_directory() . '/css/responsive.css'), 'all');
 
 }
 
@@ -237,3 +239,22 @@ function li__customize_register( $wp_customize ) {
 
 }
 add_action( 'customize_register', 'li__customize_register' );
+
+
+
+function update_woocommerce_version() {
+  if(class_exists('WooCommerce')) {
+    global $woocommerce;
+
+    if(version_compare(get_option('woocommerce_db_version', null), $woocommerce->version, '!=')) {
+      update_option('woocommerce_db_version', $woocommerce->version);
+
+      if(! wc_update_product_lookup_tables_is_running()) {
+        wc_update_product_lookup_tables();
+      }
+    }
+  }
+}
+add_action('init', 'update_woocommerce_version');
+
+add_filter ('yith_wcan_use_wp_the_query_object', '__return_true');
