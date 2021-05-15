@@ -240,21 +240,45 @@ function li__customize_register( $wp_customize ) {
 }
 add_action( 'customize_register', 'li__customize_register' );
 
-
-
-function update_woocommerce_version() {
-  if(class_exists('WooCommerce')) {
-    global $woocommerce;
-
-    if(version_compare(get_option('woocommerce_db_version', null), $woocommerce->version, '!=')) {
-      update_option('woocommerce_db_version', $woocommerce->version);
-
-      if(! wc_update_product_lookup_tables_is_running()) {
-        wc_update_product_lookup_tables();
-      }
-    }
-  }
+// Remove the additional information tab
+function woo_remove_product_tabs($tabs)
+{
+  unset($tabs['reviews']);
+  unset($tabs['additional_information']);
+  return $tabs;
 }
-add_action('init', 'update_woocommerce_version');
 
-add_filter ('yith_wcan_use_wp_the_query_object', '__return_true');
+add_filter('woocommerce_product_tabs', 'woo_remove_product_tabs', 98);
+
+
+/**
+ * Add custom tab
+ */
+function gc_my_simple_custom_product_tab($tabs)
+{
+
+  $tabs['my_custom_tab'] = array(
+    'title' => __('MODO DE USO', 'greencompany'),
+    'callback' => 'gc_my_simple_custom_tab_content',
+    'priority' => 50,
+  );
+
+  return $tabs;
+
+}
+
+add_filter('woocommerce_product_tabs', 'gc_my_simple_custom_product_tab');
+
+/**
+ * Function that displays output for the shipping tab.
+ */
+function gc_my_simple_custom_tab_content($slug, $tab)
+{
+
+  ?>
+  <div style="text-align:left">
+    <p><?php echo get_post_meta(get_the_ID(), 'modo_de_uso', true); ?></p>
+  </div>
+  <?php
+
+}
