@@ -40,7 +40,7 @@ get_header('shop');
   </section>
 
 
-  <div class="product-section search-side-product">
+  <div class="container product-section search-side-product">
     <header class="woocommerce-products-header">
       <?php if (apply_filters('woocommerce_show_page_title', true)) : ?>
         <h2 class="woocommerce-products-header__title page-title text-center"><?php woocommerce_page_title(); ?></h2>

@@ -1,49 +1,49 @@
 @font-face {
-    font-family: 'Tungsten Rounded';
-    src: url('../fonts/TungstenRounded-Bold.eot');
-    src: url('../fonts/TungstenRounded-Bold.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/TungstenRounded-Bold.woff2') format('woff2'),
-        url('../fonts/TungstenRounded-Bold.woff') format('woff'),
-        url('../fonts/TungstenRounded-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
+	font-family: 'Tungsten Rounded';
+	src: url('../fonts/TungstenRounded-Bold.eot');
+	src: url('../fonts/TungstenRounded-Bold.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/TungstenRounded-Bold.woff2') format('woff2'),
+	url('../fonts/TungstenRounded-Bold.woff') format('woff'),
+	url('../fonts/TungstenRounded-Bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
-    font-family: 'Tungsten Rounded light';
-    src: url('../fonts/TungstenRounded-Light.eot');
-    src: url('../fonts/TungstenRounded-Light.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/TungstenRounded-Light.woff2') format('woff2'),
-        url('../fonts/TungstenRounded-Light.woff') format('woff'),
-        url('../fonts/TungstenRounded-Light.ttf') format('truetype');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
+	font-family: 'Tungsten Rounded light';
+	src: url('../fonts/TungstenRounded-Light.eot');
+	src: url('../fonts/TungstenRounded-Light.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/TungstenRounded-Light.woff2') format('woff2'),
+	url('../fonts/TungstenRounded-Light.woff') format('woff'),
+	url('../fonts/TungstenRounded-Light.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
-    font-family: 'Tungsten Rounded semibold';
-    src: url('../fonts/TungstenRounded-Semibold.eot');
-    src: url('../fonts/TungstenRounded-Semibold.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/TungstenRounded-Semibold.woff2') format('woff2'),
-        url('../fonts/TungstenRounded-Semibold.woff') format('woff'),
-        url('../fonts/TungstenRounded-Semibold.ttf') format('truetype');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
+	font-family: 'Tungsten Rounded semibold';
+	src: url('../fonts/TungstenRounded-Semibold.eot');
+	src: url('../fonts/TungstenRounded-Semibold.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/TungstenRounded-Semibold.woff2') format('woff2'),
+	url('../fonts/TungstenRounded-Semibold.woff') format('woff'),
+	url('../fonts/TungstenRounded-Semibold.ttf') format('truetype');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
-    font-family: 'Tungsten Rounded medium';
-    src: url('../fonts/TungstenRounded-Medium.eot');
-    src: url('../fonts/TungstenRounded-Medium.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/TungstenRounded-Medium.woff2') format('woff2'),
-        url('../fonts/TungstenRounded-Medium.woff') format('woff'),
-        url('../fonts/TungstenRounded-Medium.ttf') format('truetype');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
+	font-family: 'Tungsten Rounded medium';
+	src: url('../fonts/TungstenRounded-Medium.eot');
+	src: url('../fonts/TungstenRounded-Medium.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/TungstenRounded-Medium.woff2') format('woff2'),
+	url('../fonts/TungstenRounded-Medium.woff') format('woff'),
+	url('../fonts/TungstenRounded-Medium.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
 }
 
 *,
@@ -65,11 +65,11 @@
 }
 
 h1 {
-    font-size: 6rem;
-    line-height: 5rem;
-  font-family: 'Tungsten Rounded';
-    font-weight: 900;
-    text-transform: uppercase;
+	font-size: 6rem;
+	line-height: 5rem;
+	font-family: 'Tungsten Rounded';
+	font-weight: 900;
+	text-transform: uppercase;
 }
 h2{
 	font-family: 'Tungsten Rounded';
@@ -79,19 +79,19 @@ h2{
 }
 
 h3{
-  font-family: 'Tungsten Rounded';
-  font-size: 2.5rem;
-  text-transform: uppercase;
+	font-family: 'Tungsten Rounded';
+	font-size: 2.5rem;
+	text-transform: uppercase;
 }
 h4{
-  font-family: 'Tungsten Rounded';
-  font-size: 2.5rem;
-  text-transform: uppercase;
+	font-family: 'Tungsten Rounded';
+	font-size: 2.5rem;
+	text-transform: uppercase;
 }
 
 p{
-    font-size: 1rem;
-  
+	font-size: 1rem;
+
 }
 
 
@@ -111,7 +111,7 @@ button{
 button:hover{
 	background-color: #fff;
 	color: var(--red-color);
-	
+
 }
 
 /* ======================== header section Open ================================ */
@@ -129,7 +129,7 @@ button:hover{
 
 .header__logo {
 	width: 100%;
-	max-width: 164px;	
+	max-width: 164px;
 	padding-top: 45px;
 	flex:1;
 
@@ -161,25 +161,25 @@ button:hover{
 
 }
 .header__right .fa-shopping-cart{
-		color: #fff;
+	color: #fff;
 }
 
 .header__right .badge{
 	font-size: 12px;
-    font-weight: 500;
-    position: absolute;
-    bottom: 27px;
-    display: -ms-flexbox;
-    display: flex;
-    width: 25px;
-    height: 25px;
-    color: #fff;
-    border-radius: 50%;
-    background-color: var(--orange-color);
-    -ms-flex-align: center;
-    align-items: center;
-    -ms-flex-pack: center;
-    justify-content: center;
+	font-weight: 500;
+	position: absolute;
+	bottom: 27px;
+	display: -ms-flexbox;
+	display: flex;
+	width: 25px;
+	height: 25px;
+	color: #fff;
+	border-radius: 50%;
+	background-color: var(--orange-color);
+	-ms-flex-align: center;
+	align-items: center;
+	-ms-flex-pack: center;
+	justify-content: center;
 }
 /*search*/
 /*.header__search {
@@ -207,7 +207,7 @@ button:hover{
 	border-radius: 5rem;
 	background: transparent;
 }
- #search:focus{
+#search:focus{
 	width: 25rem;
 	background-color: white;
 
@@ -227,10 +227,10 @@ button:hover{
 .scroll-nav {
 	background-color: var(--red-color);
 	transition: .8s all;
-box-shadow: 0px 2px 7px -1px rgba(0,0,0,0.77);
--webkit-box-shadow: 0px 2px 7px -1px rgba(0,0,0,0.77);
--moz-box-shadow: 0px 2px 7px -1px rgba(0,0,0,0.77);
-padding-bottom: 20px;
+	box-shadow: 0px 2px 7px -1px rgba(0,0,0,0.77);
+	-webkit-box-shadow: 0px 2px 7px -1px rgba(0,0,0,0.77);
+	-moz-box-shadow: 0px 2px 7px -1px rgba(0,0,0,0.77);
+	padding-bottom: 20px;
 }
 .scroll-nav .header__right {
 	padding-top: 20px;
@@ -238,11 +238,11 @@ padding-bottom: 20px;
 .scroll-nav .header__logo{
 	padding-top: 20px;
 }
- .header__menu {
+.header__menu {
 	flex:1;
 }
 .scroll-nav .header__menu .hamburger {
-   top: 30px;
+	top: 30px;
 }
 
 .scroll-nav .header__right .badge {
@@ -256,19 +256,19 @@ padding-bottom: 20px;
 	text-align: center;
 }
 .header__menu .side-logo img{
-   width: 100%;
-   max-width: 150px;
-    animation: roll-logo 3s;
- 
+	width: 100%;
+	max-width: 150px;
+	animation: roll-logo 3s;
+
 
 }
 @keyframes roll-logo {
-  0% {
-    transform: rotate(0);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }
 
 
@@ -279,7 +279,7 @@ padding-bottom: 20px;
 	height: 45px;
 	width: 45px;
 	cursor: pointer;
-	transition: left 0.4s ease;	
+	transition: left 0.4s ease;
 }
 .header__menu .hamburger.click{
 	left: 250px;
@@ -292,7 +292,7 @@ padding-bottom: 20px;
 	color: red;
 	padding: 10px;
 	z-index: 2;
-    position: absolute;
+	position: absolute;
 
 }
 
@@ -301,7 +301,7 @@ padding-bottom: 20px;
 	width: 250px;
 	height: 100%;
 	left: -250px;
-	background: var(--red-color);	
+	background: var(--red-color);
 	transition: left 0.4s ease;
 }
 .header__menu .sidebar.show{
@@ -331,7 +331,7 @@ padding-bottom: 20px;
 	text-decoration: none;
 	border-left: 5px solid transparent;
 	text-transform: uppercase;
-	 font-family: 'Tungsten Rounded';
+	font-family: 'Tungsten Rounded';
 
 }
 
@@ -356,8 +356,8 @@ padding-bottom: 20px;
 .slider__item .slide__info {
 	position: absolute;
 	top: 58%;
-    left: 50%;
-    transform: translate(-50%,-58%);
+	left: 50%;
+	transform: translate(-50%,-58%);
 	text-align: center;
 }
 
@@ -369,15 +369,15 @@ padding-bottom: 20px;
 
 .slider__item .slide__info .slider__btn{
 	padding: 4px 30px;
-    font-size: 2rem;
-    text-transform: uppercase;
-    font-weight: 500;
-    transition: .4s ease;
+	font-size: 2rem;
+	text-transform: uppercase;
+	font-weight: 500;
+	transition: .4s ease;
 }
 
 .slider__item .slide__info .slider__btn:hover{
-  background-color: white;
-  color: var(--red-color);
+	background-color: white;
+	color: var(--red-color);
 }
 
 /* ======================== hero section Close ================================ */
@@ -386,11 +386,11 @@ padding-bottom: 20px;
 
 .offer__item{
 	padding: 10px;
-} 
+}
 .offer__item h2{
 	color: #fff;
-	   font-family: 'Tungsten Rounded semibold';
-	   padding-bottom: 35px;
+	font-family: 'Tungsten Rounded semibold';
+	padding-bottom: 35px;
 }
 .offer__item:first-child{
 	background-color: var(--orange-color);
@@ -433,7 +433,7 @@ padding-bottom: 20px;
 .three-food .ih-item.square.effect4 .mask1, .three-food .ih-item.square.effect4 .mask2{
 	background: rgba(249, 182, 0, 0.5);
 	height:241px;
-    width: 285pxpx;
+	width: 285pxpx;
 }
 .three-food .ih-item.square.effect4 a:hover .info {
 	width: 100%;
@@ -447,7 +447,7 @@ padding-bottom: 20px;
 	bottom: 0;
 	width: 100%;
 	transition: .5s linear;
-	
+
 }
 .three-food .item__name  h2{
 	text-align: center;
@@ -470,7 +470,7 @@ padding-bottom: 20px;
 }
 
 .three-food .item__name h2::first-letter {
-	border-bottom: 7px solid #fff;	
+	border-bottom: 7px solid #fff;
 }
 .three-food .container-fluid {
 	padding-right: 0;
@@ -536,18 +536,18 @@ padding-bottom: 20px;
 	/*visibility:hidden;*/
 	-ms-transform: scale(0);
 	-webkit-transform: scale(0);
-    transform: scale(0);
-      transition:.3s ease;
+	transform: scale(0);
+	transition:.3s ease;
 }
 .otalhante .product:hover button{
 	/*visibility:visible;*/
 	text-align: center;
 	-ms-transform: scale(1);
 	-webkit-transform: scale(1);
-    transform: scale(1); 
+	transform: scale(1);
 }
 
-.otalhante .see-more { 
+.otalhante .see-more {
 	display: flex;
 	justify-content: flex-end;
 	padding-right: 30px;
@@ -606,7 +606,7 @@ padding-bottom: 20px;
 .ocharcuteiro h2::first-letter{
 	padding-right: 10px;
 	border-bottom: 7px solid var(--red-color);
-	
+
 }
 
 .ocharcuteiro .product {
@@ -640,18 +640,18 @@ padding-bottom: 20px;
 	/*visibility:hidden;*/
 	-ms-transform: scale(0);
 	-webkit-transform: scale(0);
-    transform: scale(0);
-      transition:.3s ease;
+	transform: scale(0);
+	transition:.3s ease;
 }
 .ocharcuteiro .product:hover button{
 	/*visibility:visible;*/
 	text-align: center;
 	-ms-transform: scale(1);
 	-webkit-transform: scale(1);
-    transform: scale(1); 
+	transform: scale(1);
 }
 
-.ocharcuteiro .see-more { 
+.ocharcuteiro .see-more {
 	display: flex;
 	justify-content: flex-end;
 	padding-right: 30px;
@@ -716,7 +716,7 @@ padding-bottom: 20px;
 
 .produtos__veggie  h2::first-letter{
 	border-bottom: none;
-		padding-right: unset;
+	padding-right: unset;
 
 }
 
@@ -756,7 +756,7 @@ padding-bottom: 20px;
 
 
 .cabazes__h{
-	
+
 }
 
 .cabazes__h .ocharcuteiro__right__iamge {
@@ -771,7 +771,7 @@ padding-bottom: 20px;
 }
 
 .cabazes__h  h2::first-letter{
-     padding-right: unset;
+	padding-right: unset;
 	border-bottom: none;
 }
 

@@ -37,7 +37,8 @@ function lozaizidoro_scripts()
   // Theme's main stylesheet
   wp_enqueue_style('lozaizidoro-style', get_stylesheet_uri(), array(), filemtime(get_template_directory() . '/style.css'), 'all');
 //  wp_enqueue_style('lozaizidoro-custom-style', get_stylesheet_uri(), array(), filemtime(get_template_directory() . '/css/custom.css'), 'all');
-// wp_enqueue_style('lozaizidoro-responsive-style', get_stylesheet_uri(), array(), filemtime(get_template_directory() . '/css/responsive.css'), 'all');
+
+ wp_enqueue_style('owl-carousel-css', get_template_directory_uri() . '/css/responsive.css', array(), '', 'all');
 
 }
 
