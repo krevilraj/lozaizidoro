@@ -217,6 +217,7 @@ foreach ($slug as $cat_slug) {
             <div class="see-more">
               <a href="#">todos os PRODUTOS <i class="fa fa-long-arrow-right"></i></a>
             </div>
+
           </div>
           <div class="col-md-3">
             <div class="ocharcuteiro__right__iamge">

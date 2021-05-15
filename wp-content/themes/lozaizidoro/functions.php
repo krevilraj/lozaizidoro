@@ -6,7 +6,6 @@ require_once get_template_directory() . '/inc/customposttype/slider.php';
 require_once get_template_directory() . '/inc/sidebar/shop.php';
 
 
-
 /**
  * Enqueue scripts and styles.
  */
@@ -38,7 +37,7 @@ function lozaizidoro_scripts()
   wp_enqueue_style('lozaizidoro-style', get_stylesheet_uri(), array(), filemtime(get_template_directory() . '/style.css'), 'all');
 //  wp_enqueue_style('lozaizidoro-custom-style', get_stylesheet_uri(), array(), filemtime(get_template_directory() . '/css/custom.css'), 'all');
 
- wp_enqueue_style('owl-carousel-css', get_template_directory_uri() . '/css/responsive.css', array(), '', 'all');
+  wp_enqueue_style('owl-carousel-css', get_template_directory_uri() . '/css/responsive.css', array(), '', 'all');
 
 }
 
@@ -109,137 +108,140 @@ function lozaizidoro_config()
 
 
 }
+
 add_action('after_setup_theme', 'lozaizidoro_config', 0);
 
 //Izidoro offer function
 
-function li__customize_register( $wp_customize ) {
+function li__customize_register($wp_customize)
+{
 
 // Create our panels
 
-    $wp_customize->add_panel( 'izidoro_offer_panel', array(
-        'title'          => __('Izidoro Offer Section', 'lojaizidoro'),
-    ) );
+  $wp_customize->add_panel('izidoro_offer_panel', array(
+    'title' => __('Izidoro Offer Section', 'lojaizidoro'),
+  ));
 
 // Create our sections
 
-    $wp_customize->add_section( 'first_offer_section' , array(
-        'title'             => __('First Offer', 'lojaizidoro'),
-        'panel'             => 'izidoro_offer_panel',
-    ) );
+  $wp_customize->add_section('first_offer_section', array(
+    'title' => __('First Offer', 'lojaizidoro'),
+    'panel' => 'izidoro_offer_panel',
+  ));
 
 // Create title offer 1
 
-    $wp_customize->add_setting( 'offer_title_setting' , array(
-        'type'          => 'theme_mod',
-        'transport'     => 'refresh',
-    ) );
-    $wp_customize->add_control( 'offer_title_setting_control', array(
-        'label'      => __('Offer Title', 'lojaizidoro'),
-        'section'    => 'first_offer_section',
-        'settings'   => 'offer_title_setting',
-        'type'       => 'text',
-    ) );
+  $wp_customize->add_setting('offer_title_setting', array(
+    'type' => 'theme_mod',
+    'transport' => 'refresh',
+  ));
+  $wp_customize->add_control('offer_title_setting_control', array(
+    'label' => __('Offer Title', 'lojaizidoro'),
+    'section' => 'first_offer_section',
+    'settings' => 'offer_title_setting',
+    'type' => 'text',
+  ));
 
-    // Create link
+  // Create link
 
-    $wp_customize->add_setting( 'offer_link_setting' , array(
-        'type'          => 'theme_mod',
-        'transport'     => 'refresh',
-    ) );
-    $wp_customize->add_control( 'offer_link_setting_control', array(
-        'label'      => __('Offer Link', 'lojaizidoro'),
-        'description'=> __('Please put the link here', 'lojaizidoro'),
-        'section'    => 'first_offer_section',
-        'settings'   => 'offer_link_setting',
-        'type'       => 'url',
-    ) );
+  $wp_customize->add_setting('offer_link_setting', array(
+    'type' => 'theme_mod',
+    'transport' => 'refresh',
+  ));
+  $wp_customize->add_control('offer_link_setting_control', array(
+    'label' => __('Offer Link', 'lojaizidoro'),
+    'description' => __('Please put the link here', 'lojaizidoro'),
+    'section' => 'first_offer_section',
+    'settings' => 'offer_link_setting',
+    'type' => 'url',
+  ));
 
-    // Create image
+  // Create image
 
-    $wp_customize->add_setting( 'first_offer_image', array(
-        'default' => get_theme_file_uri('img/footer_banner.png'), // Add Default Image URL
-        'sanitize_callback' => 'esc_url_raw'
-    ));
+  $wp_customize->add_setting('first_offer_image', array(
+    'default' => get_theme_file_uri('img/footer_banner.png'), // Add Default Image URL
+    'sanitize_callback' => 'esc_url_raw'
+  ));
 
-    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'footer_logo_control', array(
-        'label' => 'Upload offer image',
-        'section' => 'first_offer_section',
-        'settings' => 'first_offer_image',
-        'button_labels' => array(// All These labels are optional
-            'select' => 'Select  Image',
-            'remove' => 'Remove  Image',
-            'change' => 'Upload  Image',
-        )
-    )));
-
-
-    // it disply pen tool for edit
-    $wp_customize->selective_refresh->add_partial('offer_title_setting', array(
-        'selector' => 'span#first_offer_edit',
-    ));
+  $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'footer_logo_control', array(
+    'label' => 'Upload offer image',
+    'section' => 'first_offer_section',
+    'settings' => 'first_offer_image',
+    'button_labels' => array(// All These labels are optional
+      'select' => 'Select  Image',
+      'remove' => 'Remove  Image',
+      'change' => 'Upload  Image',
+    )
+  )));
 
 
-    // Create second offer section
+  // it disply pen tool for edit
+  $wp_customize->selective_refresh->add_partial('offer_title_setting', array(
+    'selector' => 'span#first_offer_edit',
+  ));
 
-    $wp_customize->add_section( 'second_offer_section' , array(
-        'title'             => __('Second Offer', 'lojaizidoro'),
-        'panel'             => 'izidoro_offer_panel',
-    ) );
+
+  // Create second offer section
+
+  $wp_customize->add_section('second_offer_section', array(
+    'title' => __('Second Offer', 'lojaizidoro'),
+    'panel' => 'izidoro_offer_panel',
+  ));
 
 // Create title
 
-    $wp_customize->add_setting( 'second_offer_title_setting' , array(
-        'type'          => 'theme_mod',
-        'transport'     => 'refresh',
-    ) );
-    $wp_customize->add_control( 'second_offer_title_setting_control', array(
-        'label'      => __('Second Offer Title', 'lojaizidoro'),
-        'section'    => 'second_offer_section',
-        'settings'   => 'second_offer_title_setting',
-        'type'       => 'text',
-    ) );
+  $wp_customize->add_setting('second_offer_title_setting', array(
+    'type' => 'theme_mod',
+    'transport' => 'refresh',
+  ));
+  $wp_customize->add_control('second_offer_title_setting_control', array(
+    'label' => __('Second Offer Title', 'lojaizidoro'),
+    'section' => 'second_offer_section',
+    'settings' => 'second_offer_title_setting',
+    'type' => 'text',
+  ));
 
-    // Create our link
+  // Create our link
 
-    $wp_customize->add_setting( 'second_offer_link_setting' , array(
-        'type'          => 'theme_mod',
-        'transport'     => 'refresh',
-    ) );
-    $wp_customize->add_control( 'second_offer_link_setting_control', array(
-        'label'      => __('Second Offer Link', 'lojaizidoro'),
-        'section'    => 'second_offer_section',
-        'settings'   => 'second_offer_link_setting',
-        'type'       => 'text',
-    ) );
+  $wp_customize->add_setting('second_offer_link_setting', array(
+    'type' => 'theme_mod',
+    'transport' => 'refresh',
+  ));
+  $wp_customize->add_control('second_offer_link_setting_control', array(
+    'label' => __('Second Offer Link', 'lojaizidoro'),
+    'section' => 'second_offer_section',
+    'settings' => 'second_offer_link_setting',
+    'type' => 'text',
+  ));
 
-    // Create second image
+  // Create second image
 
-    $wp_customize->add_setting( 'second_offer_image', array(
-        'default' => get_theme_file_uri('img/footer_banner.png'), // Add Default Image URL
-        'sanitize_callback' => 'esc_url_raw'
-    ));
+  $wp_customize->add_setting('second_offer_image', array(
+    'default' => get_theme_file_uri('img/footer_banner.png'), // Add Default Image URL
+    'sanitize_callback' => 'esc_url_raw'
+  ));
 
-    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'footer_logo_control', array(
-        'label' => 'Upload offer image',
-        'section' => 'second_offer_section',
-        'settings' => 'second_offer_image',
-        'button_labels' => array(// All These labels are optional
-            'select' => 'Select  Image',
-            'remove' => 'Remove  Image',
-            'change' => 'Upload  Image',
-        )
-    )));
+  $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'footer_logo_control', array(
+    'label' => 'Upload offer image',
+    'section' => 'second_offer_section',
+    'settings' => 'second_offer_image',
+    'button_labels' => array(// All These labels are optional
+      'select' => 'Select  Image',
+      'remove' => 'Remove  Image',
+      'change' => 'Upload  Image',
+    )
+  )));
 
 
-    // it disply pen tool for edit
-    $wp_customize->selective_refresh->add_partial('second_offer_title_setting', array(
-        'selector' => 'span#second_offer_edit',
-    ));
+  // it disply pen tool for edit
+  $wp_customize->selective_refresh->add_partial('second_offer_title_setting', array(
+    'selector' => 'span#second_offer_edit',
+  ));
 
 
 }
-add_action( 'customize_register', 'li__customize_register' );
+
+add_action('customize_register', 'li__customize_register');
 
 // Remove the additional information tab
 function woo_remove_product_tabs($tabs)
@@ -252,34 +254,154 @@ function woo_remove_product_tabs($tabs)
 add_filter('woocommerce_product_tabs', 'woo_remove_product_tabs', 98);
 
 
+// Rename a default WooCommerce tab
+add_filter('woocommerce_product_tabs', 'li_change_description_text', 98, 1);
+
+function li_change_description_text($tabs)
+{
+
+  if (isset($tabs['description'])) {
+    $tabs['description']['title'] = 'INGREDIENTES';
+  }
+
+  return $tabs;
+}
+
+
 /**
  * Add custom tab
  */
-function gc_my_simple_custom_product_tab($tabs)
+function li_my_simple_custom_product_tab($tabs)
 {
 
   $tabs['my_custom_tab'] = array(
-    'title' => __('MODO DE USO', 'greencompany'),
-    'callback' => 'gc_my_simple_custom_tab_content',
+    'title' => __('INFORMAÇÃO NUTRICIONAL', 'lojaizidoro'),
+    'callback' => 'li_my_simple_custom_tab_content',
     'priority' => 50,
   );
+  $tabs['my_custom_tab1'] = array(
+    'title' => __('MODO DE PREPARAÇÃO', 'lojaizidoro'),
+    'callback' => 'li_my_simple_custom_tab_content1',
+    'priority' => 50,
+  );
+  $tabs['my_custom_tab2'] = array(
+    'title' => __('CONSERVAÇÃO', 'lojaizidoro'),
+    'callback' => 'li_my_simple_custom_tab_content2',
+    'priority' => 50,
+  );
+  $tabs['my_custom_tab3'] = array(
+    'title' => __('OUTROS', 'lojaizidoro'),
+    'callback' => 'li_my_simple_custom_tab_content3',
+    'priority' => 50,
+  );
+
 
   return $tabs;
 
 }
 
-add_filter('woocommerce_product_tabs', 'gc_my_simple_custom_product_tab');
+add_filter('woocommerce_product_tabs', 'li_my_simple_custom_product_tab');
 
 /**
  * Function that displays output for the shipping tab.
  */
-function gc_my_simple_custom_tab_content($slug, $tab)
+function li_my_simple_custom_tab_content($slug, $tab)
 {
 
   ?>
   <div style="text-align:left">
-    <p><?php echo get_post_meta(get_the_ID(), 'modo_de_uso', true); ?></p>
+    <p><?php echo get_post_meta(get_the_ID(), 'informacao_nutricional', true); ?></p>
   </div>
   <?php
 
 }
+
+function li_my_simple_custom_tab_content1($slug, $tab)
+{
+
+  ?>
+  <div style="text-align:left">
+    <p><?php echo get_post_meta(get_the_ID(), 'modo_de_preparacao', true); ?></p>
+  </div>
+  <?php
+
+}
+
+function li_my_simple_custom_tab_content2($slug, $tab)
+{
+
+  ?>
+  <div style="text-align:left">
+    <p><?php echo get_post_meta(get_the_ID(), 'conservacao', true); ?></p>
+  </div>
+  <?php
+
+}
+
+function li_my_simple_custom_tab_content3($slug, $tab)
+{
+
+  ?>
+  <div style="text-align:left">
+    <p><?php echo get_post_meta(get_the_ID(), 'outros', true); ?></p>
+  </div>
+  <?php
+
+}
+
+// single page add to cart text change
+add_filter('woocommerce_product_single_add_to_cart_text', 'woocommerce_custom_single_add_to_cart_text');
+function woocommerce_custom_single_add_to_cart_text()
+{
+  return __('ADICIONAR', 'woocommerce');
+}
+
+
+// change order of short description
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30);
+
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+
+
+add_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 10);
+add_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20);
+
+
+/**
+ * Change related product text
+ */
+function li_add_subtitle_in_single_page()
+{
+  global $product;
+
+  echo "<p>" . get_post_meta(get_the_ID(), 'subtitle', true) . "</p>";
+}
+
+add_action('woocommerce_single_product_summary', 'li_add_subtitle_in_single_page', 6);
+
+function li_add_icons_in_single_page()
+{
+  global $product;
+  if (have_rows('icons')):?>
+    <div class="product-icon-wrapper d-flex">
+
+
+      <?php
+      while (have_rows('icons')) : the_row();
+        $sub_value = get_sub_field('icon_image'); ?>
+        <div class="product-icon">
+          <img src="<?php echo $sub_value; ?>" alt=""
+               class="img-fluid top-logo">
+        </div>
+
+      <?php
+      endwhile; ?>
+    </div>
+  <?php
+
+  endif;
+}
+
+add_action('woocommerce_single_product_summary', 'li_add_icons_in_single_page', 41);
+
