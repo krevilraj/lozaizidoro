@@ -80,3 +80,28 @@
 .ui-slider-horizontal .ui-slider-range-max {
     right: -1px;
 }
+
+/* ---------------------------------------------------
+    Single Page
+----------------------------------------------------- */
+.single .quantity input::-webkit-outer-spin-button,
+.single .quantity input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+.single .quantity input[type=number] {
+    border: unset;
+    outline: unset;
+    background: unset;
+    -moz-appearance: textfield;
+}
+
+/* ---------------------------------------------------
+ */
+    Cart Page
+----------------------------------------------------- */
+
+.product-quantity .quantity span{
+    display:none;
+}
