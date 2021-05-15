@@ -78,11 +78,36 @@
 		color:red;
 	}
 
+/*	my account*/
+	.woocommerce-Addresses {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.content-area {
+		margin-top: 60px;
+	}
+
+	.woocommerce form .form-row-first, .woocommerce-page form .form-row-first{
+		width: 100%;
+	}
+
+	.woocommerce-page form .form-row-last {
+		width: 100%;
+	}
+
+	.product-caption {
+		display: none;
+	}
+
 }
 
 
 @media (max-width: 767.98px) {
-
+	.product-caption h1{
+		font-size: 3rem;
+		line-height: 2rem;
+	}
 
 }
 
