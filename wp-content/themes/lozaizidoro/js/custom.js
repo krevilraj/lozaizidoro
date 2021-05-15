@@ -48,3 +48,19 @@ $('.owl-carousel').owlCarousel({
 
 
 new WOW().init();
+
+$(document).ready(function () {
+  var value = $('.quantity>.qty').val();
+  $('#qty-minus').click(function () {
+    if (value == 0) return;
+    value--;
+    $('.quantity>.qty').val(value);
+  });
+
+  $('#qty-plus').click(function () {
+    value++;
+    $('.quantity>.qty').val(value);
+  });
+
+
+})

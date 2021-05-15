@@ -405,3 +405,14 @@ function li_add_icons_in_single_page()
 
 add_action('woocommerce_single_product_summary', 'li_add_icons_in_single_page', 41);
 
+/**
+ * Change related product text
+ */
+function gc_change_related_product_text($translated)
+{
+  $translated = str_replace('Related products', 'PRODUTOS RELACIONADOS', $translated);
+  return $translated;
+}
+
+add_filter('gettext', 'gc_change_related_product_text');
+

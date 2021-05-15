@@ -19,7 +19,7 @@
 </head>
 <body <?php body_class(); ?>>
 <!-- open header -->
-<header class="header top-sec fixed-top" id="header">
+<header class="header top-sec fixed-top <?php if ( is_home() || is_front_page()) : ?> home <?php endif;?>" id="header">
   <div class="header__menu">
     <div class="hamburger">
       <span class="fa fa-bars"></span>
