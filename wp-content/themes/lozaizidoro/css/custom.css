@@ -1229,3 +1229,49 @@ nav.woocommerce-MyAccount-navigation ul li a {
 	text-align: unset !important;
 	color:var(--red-color);
 }
+
+
+.woocommerce .woocommerce-MyAccount-navigation, .woocommerce-MyAccount-content{
+	box-shadow:unset;
+}
+
+nav.woocommerce-MyAccount-navigation ul li{
+
+	border: 2px solid #0b0a0a;
+	border-radius: 30px;
+	padding: 3px 0;
+	text-align: center;
+	list-style-type: none;
+	transition: .3s all;
+}
+
+nav.woocommerce-MyAccount-navigation ul li:hover{
+	background-color: var(--red-color);
+	color: white;
+	border: 2px solid var(--red-color);
+}
+
+nav.woocommerce-MyAccount-navigation ul li a{
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #0b0a0a;
+	font-family: 'Tungsten Rounded light';
+	font-size: 1.7rem;
+}
+nav.woocommerce-MyAccount-navigation ul li:hover a{
+
+	color: white;
+}
+
+.woocommerce-MyAccount-content a{
+	color: #5C5C5C;
+	font-weight: bold;
+}
+
+nav.woocommerce-MyAccount-navigation ul li.is-active a{
+	color:#fff;
+}
+nav.woocommerce-MyAccount-navigation ul li.is-active{
+	background-color: var(--red-color);
+	border:2px solid var(--red-color);
+}
