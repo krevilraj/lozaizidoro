@@ -19,7 +19,7 @@
 </head>
 <body <?php body_class(); ?>>
 <!-- open header -->
-<header class="header top-sec fixed-top <?php if (is_home() || is_front_page()) : ?> home <?php endif; ?>" id="header">
+<header class="header top-sec fixed-top <?php if (is_home() || is_front_page()) : ?> home<?php else: ?> navcolor<?php endif; ?>" id="header">
   <div class="header__menu">
     <div class="hamburger">
       <span class="fa fa-bars"></span>
@@ -57,13 +57,14 @@
   <div class="header__right">
     <?php if (is_user_logged_in()) : ?>
       <a href="<?php echo esc_url(wp_logout_url(get_permalink(get_option('woocommerce_myaccount_page_id')))) ?>">Logout</a>
-    <?php else: ?>
-      <div class="header__user">
-        <a href="<?php echo esc_url(get_permalink(get_option('woocommerce_myaccount_page_id'))) ?>"><i
-              class="fa fa-user-o"></i></a>
-      </div>
+
+
     <?php endif; ?>
-    <div class="header__user"><i class="fa fa-user-o"></i></div>
+    <div class="header__user">
+      <a href="<?php echo esc_url(get_permalink(get_option('woocommerce_myaccount_page_id'))) ?>"><i
+            class="fa fa-user-o"></i></a>
+    </div>
+
     <div class="header__cart cart-mini">
       <a href="#">
         <i class="fa fa-shopping-cart"></i>

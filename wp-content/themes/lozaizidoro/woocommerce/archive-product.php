@@ -30,14 +30,31 @@ get_header('shop');
 
 ?>
 
+<?php
+
+$category = get_queried_object();
+if (isset($category->term_id)) {
+  ?>
   <section class="cat-banner">
-    <?php $category = get_queried_object();?>
-      <div class="product-bg"> <img src="<?php the_field('banner_image', 'product_cat_' . $category->term_id); ?>" alt="" class="img-fluid"></div>
-      <div class="container product-caption">
-        <h1><?php the_field('banner_title', 'product_cat_' . $category->term_id); ?></h1>
-        <p><?php the_field('banner_description', 'product_cat_' . $category->term_id); ?></p>
-      </div>
+    <?php $category = get_queried_object(); ?>
+    <div class="product-bg"><img src="<?php the_field('banner_image', 'product_cat_' . $category->term_id); ?>" alt=""
+                                 class="img-fluid"></div>
+    <div class="container product-caption">
+      <h1><?php the_field('banner_title', 'product_cat_' . $category->term_id); ?></h1>
+      <p><?php the_field('banner_description', 'product_cat_' . $category->term_id); ?></p>
+    </div>
   </section>
+
+  <?php } else { ?>
+  <section class="cat-banner">
+    <div class="product-bg"><img src="<?php bloginfo('template_url'); ?>/images/slider.png" alt=""
+                                 class="img-fluid"></div>
+    <div class="container product-caption">
+      <h1>Shop Page</h1>
+
+    </div>
+  </section>
+<?php } ?>
 
 
   <div class="container product-section search-side-product">
