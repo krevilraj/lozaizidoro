@@ -1574,3 +1574,7 @@ a.reset_variations{
 	background-color: var(--purple-color);
 	color: #fff;
 }
+
+.product__name h3 a{
+	color: #fff;
+}
