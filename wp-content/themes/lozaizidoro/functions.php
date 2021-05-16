@@ -362,6 +362,7 @@ remove_action('woocommerce_single_product_summary', 'woocommerce_template_single
 
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20);
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
 
 
 add_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 10);

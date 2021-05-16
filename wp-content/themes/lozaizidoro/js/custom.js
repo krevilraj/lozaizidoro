@@ -63,4 +63,27 @@ $(document).ready(function () {
   });
 
 
-})
+});
+
+
+$('body').on('added_to_cart',function(){
+  $('.cart-mini').addClass('active');
+});
+
+
+$('.cart-img').click(function(){
+  if ($(".cart-mini").hasClass("active")) {
+    $('.cart-mini').addClass('in-active');
+    $('.cart-mini').removeClass('active');
+  }
+});
+
+
+$(document).on({
+  mouseenter: function(){
+    $('.cart-mini').addClass('active');
+  },
+  mouseleave: function(){
+    $('.cart-mini').removeClass('active');
+  }
+}, '.mini-wrapper');

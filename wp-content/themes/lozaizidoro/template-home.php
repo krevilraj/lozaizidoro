@@ -9,18 +9,20 @@ get_header();
 <!-- home hero section open -->
 <section class="slider owl-carousel owl-theme">
 
-  <?php $loop = new WP_Query(array('post_type' => 'slider','posts_per_page' => -1)); ?>
+  <?php $loop = new WP_Query(array('post_type' => 'slider', 'posts_per_page' => -1)); ?>
   <?php while ($loop->have_posts()) : $loop->the_post(); ?>
 
     <div class="slider__item"
          style="background-image: url(<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>); background-position: center center; background-repeat: no-repeat; ">
       <div class="slide__info">
-        <?php the_content()?>
-        <a href="<?php echo get_field('link') ?>"></a><button type="button" class="slider__btn">PRODUTOS</button>
+        <?php the_content() ?>
+        <a href="<?php echo get_field('link') ?>"></a>
+        <button type="button" class="slider__btn">PRODUTOS</button>
       </div>
     </div>
 
-  <?php endwhile; wp_reset_query(); ?>
+  <?php endwhile;
+  wp_reset_query(); ?>
 
 
 </section>
@@ -34,9 +36,10 @@ get_header();
 
           <h2><?php echo get_theme_mod('offer_title_setting'); ?> </h2>
 
-            <button class="offer__btn"><a href="<?php echo get_theme_mod('offer_link_setting_control'); ?> ">VER PRODUTOS</a></button>
-            <!--  show pen for edit  -->
-            <span id="first_offer_edit"></span>
+          <button class="offer__btn"><a href="<?php echo get_theme_mod('offer_link_setting_control'); ?> ">VER
+              PRODUTOS</a></button>
+          <!--  show pen for edit  -->
+          <span id="first_offer_edit"></span>
         </div>
         <div class="offer-image order-1 order-md-2 wow flash" data-wow-duration="4s">
           <img src="<?php echo get_theme_mod('first_offer_image'); ?> " class="img-fluid">
@@ -47,13 +50,14 @@ get_header();
       <div class="col-md-6 d-flex justify-content-center align-items-center offer__item">
         <div class="offer__detail order-2 order-md-1 wow fadeInDown" data-wow-duration="1s">
           <h2><?php echo get_theme_mod('second_offer_title_setting'); ?> </h2>
-          <button class="offer__btn"><a href="<?php echo get_theme_mod('second_offer_link_setting'); ?>">VER PRODUTOS</a></button>
+          <button class="offer__btn"><a href="<?php echo get_theme_mod('second_offer_link_setting'); ?>">VER
+              PRODUTOS</a></button>
 
         </div>
 
         <div class="offer-image order-1 order-md-2 wow flash" data-wow-duration="4s">
-            <!--  show pen for edit  -->
-            <span id="second_offer_edit"></span>
+          <!--  show pen for edit  -->
+          <span id="second_offer_edit"></span>
           <img src="<?php echo get_theme_mod('second_offer_image'); ?>" class="img-fluid">
 
         </div>
@@ -127,15 +131,29 @@ foreach ($slug as $cat_slug) {
   ?>
   <?php if ($i % 2 == 0): ?>
     <!-- otalhante product open -->
-    <section class="otalhante">
+    <section class="otalhante"
+             style="background-color:<?php the_field('background_color', 'product_cat_' . $catObj->term_id); ?>">
       <div class="container-fluid">
         <div class="row no-gutters">
           <div class="col-md-3">
             <div class="otalhante__left__img"></div>
           </div>
           <div class="col-md-9">
-
-            <h2 class="wow bounce" data-wow-duration="4s"><?php echo $catName; ?></h2>
+            <?php
+            $changed_cat_name = $catName;
+            if ($catName[0] == "o" || $catName[0] == "O") {
+              $str1 = substr($catName, 1);
+              $changed_cat_name = '<span>O' . '</span>' . trim($str1);
+            }
+            ?>
+            <h2 class="wow bounce" data-wow-duration="4s"><span id="txt-<?php echo $catObj->slug; ?>"
+                                                                style="color:<?php the_field('text_color', 'product_cat_' . $catObj->term_id); ?>"><?php echo $changed_cat_name; ?></span>
+            </h2>
+            <style>
+                #txt-<?php echo $catObj->slug;?> span {
+                    border-bottom: 7px solid<?php the_field('text_color', 'product_cat_' . $catObj->term_id); ?>
+                }
+            </style>
             <div class="row product-list">
               <?php
               $args = array('post_type' => 'product', 'stock' => 1, 'posts_per_page' => 3, 'product_cat' => $cat_slug, 'orderby' => 'date', 'order' => 'ASC');
@@ -158,7 +176,13 @@ foreach ($slug as $cat_slug) {
                         <p><?php echo $product->get_price_html(); ?></p>
                       </div>
                       <div class="product__btn">
-                        <button class="product__inner__btn">COMPRAR</button>
+                        <a href="<?php echo $product->add_to_cart_url() ?>"
+                           value="<?php echo esc_attr($product->get_id()); ?>"
+                           class="product__inner__btn ajax_add_to_cart add_to_cart_button"
+                           data-product_id="<?php echo get_the_ID(); ?>" data-product_sku="<?php echo esc_attr($sku) ?>"
+                           aria-label="Add “<?php the_title_attribute() ?>” to your cart">
+                          <button class="product__inner__btn">COMPRAR</button>
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -178,11 +202,29 @@ foreach ($slug as $cat_slug) {
 
   <?php else: ?>
     <!-- ocharcuteiro product open -->
-    <section class="ocharcuteiro">
+    <section class="ocharcuteiro"
+             style="background-color:<?php the_field('background_color', 'product_cat_' . $catObj->term_id); ?>">
       <div class="container-fluid">
         <div class="row no-gutters">
           <div class="col-md-9">
-            <h2 class="wow bounce" data-wow-duration="4s"><?php echo $catName; ?></h2>
+
+            <?php
+            $changed_cat_name = $catName;
+            if ($catName[0] == "o" || $catName[0] == "O") {
+              $str1 = substr($catName, 1);
+              $changed_cat_name = '<span>O' . '</span>' . trim($str1);
+            }
+            ?>
+
+            <h2 class="wow bounce" data-wow-duration="4s">
+              <span id="txt-<?php echo $catObj->slug; ?>"
+                    style="color:<?php the_field('text_color', 'product_cat_' . $catObj->term_id); ?>"><?php echo $changed_cat_name; ?></span>
+            </h2>
+            <style>
+                #txt-<?php echo $catObj->slug;?> span {
+                    border-bottom: 7px solid<?php the_field('text_color', 'product_cat_' . $catObj->term_id); ?>
+                }
+            </style>
             <div class="row product-list">
               <?php
               $args = array('post_type' => 'product', 'stock' => 1, 'posts_per_page' => 3, 'product_cat' => $cat_slug, 'orderby' => 'date', 'order' => 'ASC');
@@ -194,18 +236,38 @@ foreach ($slug as $cat_slug) {
                 <div class="col-md-4">
                   <div class="product wow fadeInDown" data-wow-duration="1s">
                     <div class="product__image">
-                      <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>" alt=""
-                           class="img-fluid">
+                      <a href="<?php echo the_permalink(); ?>">
+                        <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>" alt=""
+                             class="img-fluid">
+                      </a>
                     </div>
                     <div class="product__detail">
                       <div class="product__name">
-                        <h3><a href="<?php the_title() ?>"> <?php the_title() ?></a></h3>
+                        <h3><a href="<?php the_permalink() ?>"> <?php the_title() ?></a></h3>
                       </div>
                       <div class="product__price">
                         <p><?php echo $product->get_price_html(); ?></p>
                       </div>
                       <div class="product__btn">
-                        <button class="product__inner__btn">COMPRAR</button>
+                        <?php
+                        if ($product->is_type('variable')):
+                          ?>
+
+                          <a href="<?php the_permalink(); ?>">
+                            <button class="product__inner__btn">COMPRAR</button>
+                          </a>
+                        <?php else: ?>
+                          <a href="<?php echo $product->add_to_cart_url() ?>"
+                             value="<?php echo esc_attr($product->get_id()); ?>"
+                             class="product__inner__btn ajax_add_to_cart add_to_cart_button"
+                             data-product_id="<?php echo get_the_ID(); ?>"
+                             data-product_sku="<?php echo esc_attr($sku) ?>"
+                             aria-label="Add “<?php the_title_attribute() ?>” to your cart">
+                            <button class="product__inner__btn">COMPRAR</button>
+                          </a>
+
+                        <?php endif; ?>
+
                       </div>
                     </div>
                   </div>
