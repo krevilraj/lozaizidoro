@@ -163,7 +163,7 @@ function li__customize_register($wp_customize)
     'sanitize_callback' => 'esc_url_raw'
   ));
 
-  $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'footer_logo_control', array(
+  $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'first_offer_image_control', array(
     'label' => 'Upload offer image',
     'section' => 'first_offer_section',
     'settings' => 'first_offer_image',
@@ -176,7 +176,7 @@ function li__customize_register($wp_customize)
 
 
   // it disply pen tool for edit
-  $wp_customize->selective_refresh->add_partial('offer_title_setting', array(
+  $wp_customize->selective_refresh->add_partial('first_offer_image', array(
     'selector' => 'span#first_offer_edit',
   ));
 
@@ -221,7 +221,7 @@ function li__customize_register($wp_customize)
     'sanitize_callback' => 'esc_url_raw'
   ));
 
-  $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'footer_logo_control', array(
+  $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'second_offer_image_control', array(
     'label' => 'Upload offer image',
     'section' => 'second_offer_section',
     'settings' => 'second_offer_image',
@@ -385,16 +385,20 @@ function li_add_icons_in_single_page()
 {
   global $product;
   if (have_rows('icons')):?>
-    <div class="product-icon-wrapper d-flex">
+    <div class="product-icon-wrapper row">
 
 
       <?php
       while (have_rows('icons')) : the_row();
         $sub_value = get_sub_field('icon_image'); ?>
-        <div class="product-icon">
-          <img src="<?php echo $sub_value; ?>" alt=""
-               class="img-fluid top-logo">
-        </div>
+
+
+             <div class="col-md-3 col-4">
+                 <div class="product-icon">
+                 <img src="<?php echo $sub_value; ?>" alt="" class="img-fluid top-logo">
+             </div>
+         </div>
+
 
       <?php
       endwhile; ?>
