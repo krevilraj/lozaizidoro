@@ -98,10 +98,13 @@
 }
 
 /* ---------------------------------------------------
- */
     Cart Page
 ----------------------------------------------------- */
 
 .product-quantity .quantity span{
     display:none;
+}
+
+.otalhante h2::first-letter,.ocharcuteiro h2::first-letter{
+    border-bottom: unset;
 }
