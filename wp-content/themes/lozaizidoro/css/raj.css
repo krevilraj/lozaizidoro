@@ -108,3 +108,9 @@
 .otalhante h2::first-letter,.ocharcuteiro h2::first-letter{
     border-bottom: unset;
 }
+/* ---------------------------------------------------
+    Cart Page
+----------------------------------------------------- */
+.navcolor{
+    background-color:var(--red-color);
+}

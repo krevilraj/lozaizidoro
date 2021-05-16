@@ -4,6 +4,7 @@
  */
 require_once get_template_directory() . '/inc/customposttype/slider.php';
 require_once get_template_directory() . '/inc/sidebar/shop.php';
+require_once get_template_directory() . '/inc/customizer/homepage_category.php';
 
 
 /**
@@ -409,11 +410,15 @@ add_action('woocommerce_single_product_summary', 'li_add_icons_in_single_page', 
 /**
  * Change related product text
  */
-function gc_change_related_product_text($translated)
+function li_change_related_product_text($translated)
 {
   $translated = str_replace('Related products', 'PRODUTOS RELACIONADOS', $translated);
+  $translated = str_replace('Select options', 'COMPRAR', $translated);
+  $translated = str_replace('Add to cart', 'COMPRAR', $translated);
   return $translated;
 }
 
-add_filter('gettext', 'gc_change_related_product_text');
+add_filter('gettext', 'li_change_related_product_text');
+
+
 
