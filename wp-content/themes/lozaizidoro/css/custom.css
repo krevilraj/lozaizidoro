@@ -946,7 +946,7 @@ button:hover{
 }
 .all-header .page__title h2{
 	font-size: 4rem;
-	color: var(--orange-color);
+	color:#fff;
 }
 
 .content-area .cart_totals h2{
@@ -1577,4 +1577,13 @@ a.reset_variations{
 
 .product__name h3 a{
 	color: #fff;
+}
+
+.woocommerce form .form-row input.input-text{
+	font-family: 'Tungsten Rounded light';
+	font-size: 1.3rem;
+}
+
+.woocommerce-privacy-policy-text {
+	display: none;
 }

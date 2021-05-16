@@ -5,6 +5,7 @@
 require_once get_template_directory() . '/inc/customposttype/slider.php';
 require_once get_template_directory() . '/inc/sidebar/shop.php';
 require_once get_template_directory() . '/inc/customizer/homepage_category.php';
+require_once get_template_directory() . '/inc/woocommerce/addtocart/addtocart.php';
 
 
 /**
@@ -424,5 +425,49 @@ function li_change_related_product_text($translated)
 
 add_filter('gettext', 'li_change_related_product_text');
 
+
+add_filter( 'woocommerce_sale_flash', 'add_percentage_to_sale_bubble', 20 );
+function add_percentage_to_sale_bubble( $html ) {
+  global $product;
+
+  if ($product->is_type('simple')) { //if simple product
+    $percentage = round( ( ( $product->regular_price - $product->sale_price ) / $product->regular_price ) * 100 ).'%';
+    $disc_amt = round( ( ( $product->regular_price - $product->sale_price ) )  ).'';
+  } else { //if variable product
+    $percentage = get_variable_sale_percentage( $product );
+  }
+
+  $output =' <span class="onsale"> Poupe '.$disc_amt.'€</span>';
+  return $output;
+}
+
+
+
+
+// Display Privacy Checkbox on WooCommerce Registration Page
+add_action( 'woocommerce_register_form', 'wpglorify_add_registration_privacy_policy', 11 );
+
+function wpglorify_add_registration_privacy_policy() {
+
+    woocommerce_form_field( 'privacy_policy_reg', array(
+        'type'          => 'checkbox',
+        'class'         => array('form-row privacy'),
+        'label_class'   => array('woocommerce-form__label woocommerce-form__label-for-checkbox checkbox'),
+        'input_class'   => array('woocommerce-form__input woocommerce-form__input-checkbox input-checkbox'),
+        'required'      => true,
+        'label'         => 'I have read and accept the <a href="/politica-de-privacidade/"> Privacy Policy</a>.',
+    ));
+
+}
+
+// Show error if the user does not tick
+add_filter( 'woocommerce_registration_errors', 'wpglorify_validate_privacy_registration', 10, 3 );
+
+function wpglorify_validate_privacy_registration( $errors, $username, $email ) {
+    if ( ! (int) isset( $_POST['privacy_policy_reg'] ) ) {
+        $errors->add( 'privacy_policy_reg_error', __( 'É necessário consentimento da Política de Privacidade!', 'woocommerce' ) );
+    }
+    return $errors;
+}
 
 
