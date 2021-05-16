@@ -386,16 +386,20 @@ function li_add_icons_in_single_page()
 {
   global $product;
   if (have_rows('icons')):?>
-    <div class="product-icon-wrapper d-flex">
+    <div class="product-icon-wrapper row">
 
 
       <?php
       while (have_rows('icons')) : the_row();
         $sub_value = get_sub_field('icon_image'); ?>
-        <div class="product-icon">
-          <img src="<?php echo $sub_value; ?>" alt=""
-               class="img-fluid top-logo">
-        </div>
+
+
+             <div class="col-md-3 col-4">
+                 <div class="product-icon">
+                 <img src="<?php echo $sub_value; ?>" alt="" class="img-fluid top-logo">
+             </div>
+         </div>
+
 
       <?php
       endwhile; ?>

@@ -111,6 +111,17 @@
 	#customer_login > div + div {
 		margin-left: unset;
 	}
+
+	.woocommerce-product-gallery {
+		padding-right: 10%;
+	}
+	.summary{
+		padding-left: 10%;
+	}
+
+	.summary h1 {
+		font-size: 3rem;
+	}
 }
 
 
