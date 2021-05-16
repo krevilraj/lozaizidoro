@@ -163,7 +163,7 @@ function li__customize_register($wp_customize)
     'sanitize_callback' => 'esc_url_raw'
   ));
 
-  $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'footer_logo_control', array(
+  $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'first_offer_image_control', array(
     'label' => 'Upload offer image',
     'section' => 'first_offer_section',
     'settings' => 'first_offer_image',
@@ -176,7 +176,7 @@ function li__customize_register($wp_customize)
 
 
   // it disply pen tool for edit
-  $wp_customize->selective_refresh->add_partial('offer_title_setting', array(
+  $wp_customize->selective_refresh->add_partial('first_offer_image', array(
     'selector' => 'span#first_offer_edit',
   ));
 
@@ -221,7 +221,7 @@ function li__customize_register($wp_customize)
     'sanitize_callback' => 'esc_url_raw'
   ));
 
-  $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'footer_logo_control', array(
+  $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'second_offer_image_control', array(
     'label' => 'Upload offer image',
     'section' => 'second_offer_section',
     'settings' => 'second_offer_image',
