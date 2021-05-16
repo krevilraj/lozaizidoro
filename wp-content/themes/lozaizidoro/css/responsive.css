@@ -99,7 +99,18 @@
 	.product-caption {
 		display: none;
 	}
+/*login regsiter*/
+	#customer_login {
+	 flex-wrap: wrap;
+	}
 
+	#customer_login > div{
+		flex-basis: 100%;
+	}
+
+	#customer_login > div + div {
+		margin-left: unset;
+	}
 }
 
 
