@@ -122,6 +122,12 @@
 	.summary h1 {
 		font-size: 3rem;
 	}
+
+	.sorting{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
 }
 
 
