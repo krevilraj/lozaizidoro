@@ -429,17 +429,39 @@ add_filter('gettext', 'li_change_related_product_text');
 add_filter( 'woocommerce_sale_flash', 'add_percentage_to_sale_bubble', 20 );
 function add_percentage_to_sale_bubble( $html ) {
   global $product;
-
+  $output="";
   if ($product->is_type('simple')) { //if simple product
     $percentage = round( ( ( $product->regular_price - $product->sale_price ) / $product->regular_price ) * 100 ).'%';
     $disc_amt = round( ( ( $product->regular_price - $product->sale_price ) )  ).'';
+    $output =' <span class="onsale"> Poupe '.$disc_amt.'€</span>';
   } else { //if variable product
-    $percentage = get_variable_sale_percentage( $product );
+//    $percentage = get_variable_sale_percentage( $product );
   }
 
-  $output =' <span class="onsale"> Poupe '.$disc_amt.'€</span>';
+
   return $output;
 }
 
+function get_variable_sale_percentage( $product ) {
+  //get variables
+  $variation_min_regular_price    = $product->get_variation_regular_price('min', true);
+  $variation_max_regular_price    = $product->get_variation_regular_price('max', true);
+  $variation_min_sale_price       = $product->get_variation_sale_price('min', true);
+  $variation_max_sale_price       = $product->get_variation_sale_price('max', true);
 
+
+  //get highest and lowest percentages
+  $lower_percentage   = round( ( ( $variation_min_regular_price - $variation_min_sale_price ) / $variation_min_regular_price ) * 100 );
+  $higher_percentage  = round( ( ( $variation_max_regular_price - $variation_max_sale_price ) / $variation_max_regular_price ) * 100 );
+
+  //sort array
+  $percentages = array($lower_percentage, $higher_percentage);
+  sort($percentages);
+
+  if ($percentages[0] != $percentages[1] && $percentages[0]) {
+    return $percentages[0].'% - '.$percentages[1].'%';
+  } else {
+    return $percentages[1].'%';
+  }
+}
 
