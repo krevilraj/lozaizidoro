@@ -3,7 +3,7 @@
 function crispshop_scripts()
 {
   if (is_singular('product')) {
-    wp_enqueue_script('crispshop-single', get_template_directory_uri() . '/inc/js/crispshop-single.js', array('jquery'), '1.0.0', true);
+    wp_enqueue_script('crispshop-single', get_template_directory_uri() . '/inc/woocommerce/addtocart/crispshop-single.js', array('jquery'), '1.0.0', true);
     wp_localize_script('crispshop-single', 'crispshop_ajax_object', array('ajax_url' => admin_url('admin-ajax.php')));
   }
 }

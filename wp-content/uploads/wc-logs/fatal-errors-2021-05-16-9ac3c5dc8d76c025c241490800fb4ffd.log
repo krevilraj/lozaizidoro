@@ -1,0 +1,10 @@
+2021-05-16T14:39:42+00:00 CRITICAL Uncaught Error: Failed opening required '/Applications/MAMP/htdocs/wp_lozaizidoro/wp-content/themes/lozaizidoro/inc/woocommerce/addtocart.php' (include_path='.:/Applications/MAMP/bin/php/php8.0.0/lib/php') in /Applications/MAMP/htdocs/wp_lozaizidoro/wp-content/themes/lozaizidoro/functions.php:8
+Stack trace:
+#0 /Applications/MAMP/htdocs/wp_lozaizidoro/wp-settings.php(528): include()
+#1 /Applications/MAMP/htdocs/wp_lozaizidoro/wp-config.php(90): require_once('/Applications/M...')
+#2 /Applications/MAMP/htdocs/wp_lozaizidoro/wp-load.php(37): require_once('/Applications/M...')
+#3 /Applications/MAMP/htdocs/wp_lozaizidoro/wp-blog-header.php(13): require_once('/Applications/M...')
+#4 /Applications/MAMP/htdocs/wp_lozaizidoro/index.php(17): require('/Applications/M...')
+#5 {main}
+  thrown in /Applications/MAMP/htdocs/wp_lozaizidoro/wp-content/themes/lozaizidoro/functions.php on line 8
+
