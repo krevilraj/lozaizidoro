@@ -405,13 +405,19 @@ button:hover{
 	height: auto;
 }
 
+.offer__detail button {
+	background-color: white;
+
+}
+
 .offer__btn a{
-	color:#fff;
+	color:var(--red-color);
 	text-decoration: none;
 }
 
 .offer__btn a:hover{
 	color:var(--red-color);
+	opacity: 0.8;
 }
 
 /* ======================== offer section  Close ================================ */
@@ -1689,3 +1695,4 @@ a.reset_variations{
 .woocommerce-cart-wrap .cart.shop_table td.actions {
 	padding-top: 44px;
 }
+
