@@ -164,7 +164,7 @@ ins{
 .product-list .product__price p{
     color:#000;
 }
-.woocommerce-Price-amount.amount{
+.home del .woocommerce-Price-amount.amount{
     color:#fff;
 }
 .added_to_cart,.woocommerce ul.products li.product .button{
