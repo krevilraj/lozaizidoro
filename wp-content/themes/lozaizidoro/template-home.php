@@ -121,7 +121,7 @@ get_header();
 <!-- three food close  -->
 
 
-<?php $slug = array('o-talhante', 'o-charcuteiro', 'o-merceeiro', 'produtos-veggie', 'promocoes', 'cabazes') ?>
+<?php $slug = array('izidoro-o-talhante', 'izidoro-o-charcuteiro', 'izidoro-o-merceeiro', 'izidoro-veggie-lovers', 'promocoes', 'cabazes') ?>
 
 <?php
 $i = 0;
