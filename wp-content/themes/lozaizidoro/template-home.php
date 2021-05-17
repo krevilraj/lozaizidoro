@@ -74,7 +74,7 @@ get_header();
         <!-- normal -->
         <div class="ih-item square effect4">
           <a href="<?php echo get_theme_mod('li_category_link1'); ?>">
-            <div class="item__name"><h2><?php echo get_theme_mod('li_category_title1'); ?></h2><span id="li_category_image1"></span></div>
+            <div class="item__name"><h2><?php echo get_theme_mod('li_category_title1'); ?><span id="li_category_image1"></span></h2></div>
             <div class="food__image">
               <img src="<?php echo get_theme_mod('li_category_image1'); ?>" alt="img" class="img-fluid">
             </div>
@@ -89,7 +89,7 @@ get_header();
         <!-- normal -->
         <div class="ih-item square effect4">
           <a href="<?php echo get_theme_mod('li_category_link2'); ?>">
-            <div class="item__name"><h2><?php echo get_theme_mod('li_category_title2'); ?></h2></div>
+            <div class="item__name"><h2><?php echo get_theme_mod('li_category_title2'); ?><span id="li_category_image2"></span></h2></div>
             <div class="food__image">
               <img src="<?php echo get_theme_mod('li_category_image2'); ?>" alt="img" class="img-fluid">
             </div>
@@ -104,7 +104,7 @@ get_header();
         <!-- normal -->
         <div class="ih-item square effect4">
           <a href="<?php echo get_theme_mod('li_category_link3'); ?>">
-            <div class="item__name"><h2><?php echo get_theme_mod('li_category_title3'); ?></h2></div>
+            <div class="item__name"><h2><?php echo get_theme_mod('li_category_title3'); ?> <span id="li_category_image3"></h2></span></div>
             <div class="food__image">
               <img src="<?php echo get_theme_mod('li_category_image3'); ?>" alt="img" class="img-fluid">
             </div>

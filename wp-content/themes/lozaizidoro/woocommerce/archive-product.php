@@ -34,8 +34,10 @@ get_header('shop');
 
 $category = get_queried_object();
 $bg_color= "#fff";
+$txt_color= "#212529";
 if (isset($category->term_id)) {
   $bg_color = get_term_meta($category->term_id, 'background_color',true);
+  $txt_color = get_term_meta($category->term_id, 'category_page_text_color',true);
   ?>
   <section class="cat-banner">
     <?php $category = get_queried_object(); ?>
@@ -58,7 +60,7 @@ if (isset($category->term_id)) {
   </section>
 <?php } ?>
 
-<div style="background-color:<?php echo $bg_color;?>">
+<div style="background-color:<?php echo $bg_color;?>;color:<?php echo $txt_color;?>">
   <div class="container product-section search-side-product">
     <header class="woocommerce-products-header">
       <?php if (apply_filters('woocommerce_show_page_title', true)) : ?>
