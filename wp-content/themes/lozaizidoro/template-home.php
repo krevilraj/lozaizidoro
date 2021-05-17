@@ -73,10 +73,10 @@ get_header();
       <div class="col-md-4">
         <!-- normal -->
         <div class="ih-item square effect4">
-          <a href="#">
-            <div class="item__name"><h2>o takgante</h2></div>
+          <a href="<?php echo get_theme_mod('li_category_link1'); ?>">
+            <div class="item__name"><h2><?php echo get_theme_mod('li_category_title1'); ?></h2></div>
             <div class="food__image">
-              <img src="<?php bloginfo('template_url'); ?>/images/food-1.png" alt="img" class="img-fluid">
+              <img src="<?php echo get_theme_mod('li_category_image1'); ?>" alt="img" class="img-fluid">
             </div>
             <div class="info">
               <button class="product__btn">VER PRODUTOS</button>
@@ -88,10 +88,10 @@ get_header();
       <div class="col-md-4">
         <!-- normal -->
         <div class="ih-item square effect4">
-          <a href="#">
-            <div class="item__name"><h2>o takgante</h2></div>
+          <a href="<?php echo get_theme_mod('li_category_link2'); ?>">
+            <div class="item__name"><h2><?php echo get_theme_mod('li_category_title2'); ?></h2></div>
             <div class="food__image">
-              <img src="<?php bloginfo('template_url'); ?>/images/food-2.png" alt="img" class="img-fluid">
+              <img src="<?php echo get_theme_mod('li_category_image2'); ?>" alt="img" class="img-fluid">
             </div>
             <div class="info">
               <button class="product__btn">VER PRODUTOS</button>
@@ -103,10 +103,10 @@ get_header();
       <div class="col-md-4">
         <!-- normal -->
         <div class="ih-item square effect4">
-          <a href="#">
-            <div class="item__name"><h2>o takgante</h2></div>
+          <a href="<?php echo get_theme_mod('li_category_link3'); ?>">
+            <div class="item__name"><h2><?php echo get_theme_mod('li_category_title3'); ?></h2></div>
             <div class="food__image">
-              <img src="<?php bloginfo('template_url'); ?>/images/food-3.png" alt="img" class="img-fluid">
+              <img src="<?php echo get_theme_mod('li_category_image3'); ?>" alt="img" class="img-fluid">
             </div>
             <div class="info">
               <button class="product__btn">VER PRODUTOS</button>
@@ -156,7 +156,15 @@ foreach ($slug as $cat_slug) {
             </style>
             <div class="row product-list">
               <?php
-              $args = array('post_type' => 'product', 'stock' => 1, 'posts_per_page' => 3, 'product_cat' => $cat_slug, 'orderby' => 'date', 'order' => 'ASC');
+              $meta_query = WC()->query->get_meta_query();
+              $tax_query = WC()->query->get_tax_query();
+              $tax_query[] = array(
+                'taxonomy' => 'product_visibility',
+                'field' => 'name',
+                'terms' => 'featured',
+                'operator' => 'IN',
+              );
+              $args = array('post_type' => 'product', 'stock' => 1, 'posts_per_page' => 3,'tax_query' => $tax_query, 'meta_query' => $meta_query, 'product_cat' => $cat_slug, 'orderby' => 'date', 'order' => 'ASC');
               $loop = new WP_Query($args);
 
               while ($loop->have_posts()) : $loop->the_post();
@@ -227,7 +235,15 @@ foreach ($slug as $cat_slug) {
             </style>
             <div class="row product-list">
               <?php
-              $args = array('post_type' => 'product', 'stock' => 1, 'posts_per_page' => 3, 'product_cat' => $cat_slug, 'orderby' => 'date', 'order' => 'ASC');
+              $meta_query = WC()->query->get_meta_query();
+              $tax_query = WC()->query->get_tax_query();
+              $tax_query[] = array(
+                'taxonomy' => 'product_visibility',
+                'field' => 'name',
+                'terms' => 'featured',
+                'operator' => 'IN',
+              );
+              $args = array('post_type' => 'product', 'stock' => 1, 'posts_per_page' => 3, 'tax_query' => $tax_query, 'meta_query' => $meta_query, 'product_cat' => $cat_slug, 'orderby' => 'date', 'order' => 'ASC');
               $loop = new WP_Query($args);
 
               while ($loop->have_posts()) : $loop->the_post();
