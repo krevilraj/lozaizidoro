@@ -96,6 +96,37 @@
     background: unset;
     -moz-appearance: textfield;
 }
+.basketbox{
+    display:flex;
+    gap:10px;
+    justify-content:center;
+}
+.basketbox li{
+    list-style:none;
+    font-size:18px;
+
+}
+.basketbox li::after{
+    content:" | ";
+    color:#fff;
+    font-size:30px;
+    vertical-align: sub;
+    font-weight:100;
+
+}
+.basketbox li:last-child::after{
+    content:'';
+}
+.basketbox li a{
+    text-decoration:none;
+    color: var(--yellow);
+}
+.basketbox li a:hover{
+    opacity:0.7;
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs{
+    text-align:center;
+}
 
 /* ---------------------------------------------------
     Cart Page
@@ -108,9 +139,7 @@
 .otalhante h2::first-letter,.ocharcuteiro h2::first-letter{
     border-bottom: unset;
 }
-/* ---------------------------------------------------
-    Cart Page
------------------------------------------------------ */
+
 .navcolor{
     background-color:var(--red-color);
 }

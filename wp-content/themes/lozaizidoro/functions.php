@@ -312,7 +312,7 @@ function li_my_simple_custom_tab_content($slug, $tab)
 
   ?>
   <div style="text-align:left">
-    <p><?php echo get_post_meta(get_the_ID(), 'informacao_nutricional', true); ?></p>
+    <p><?php include('nutrition.php'); ?></p>
   </div>
   <?php
 
