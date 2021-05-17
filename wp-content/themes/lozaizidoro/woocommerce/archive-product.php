@@ -33,7 +33,9 @@ get_header('shop');
 <?php
 
 $category = get_queried_object();
+$bg_color= "#fff";
 if (isset($category->term_id)) {
+  $bg_color = get_term_meta($category->term_id, 'background_color',true);
   ?>
   <section class="cat-banner">
     <?php $category = get_queried_object(); ?>
@@ -50,16 +52,17 @@ if (isset($category->term_id)) {
     <div class="product-bg"><img src="<?php bloginfo('template_url'); ?>/images/slider.png" alt=""
                                  class="img-fluid"></div>
     <div class="container product-caption">
-      <h1>Shop Page</h1>
+      <h1>Mercado Izidoro</h1>
 
     </div>
   </section>
 <?php } ?>
 
-
+<div style="background-color:<?php echo $bg_color;?>">
   <div class="container product-section search-side-product">
     <header class="woocommerce-products-header">
       <?php if (apply_filters('woocommerce_show_page_title', true)) : ?>
+
         <h2 class="woocommerce-products-header__title page-title text-center"><?php woocommerce_page_title(); ?></h2>
       <?php endif; ?>
 
@@ -143,7 +146,7 @@ if (isset($category->term_id)) {
       </div>
     </div>
   </div><!--product-content-section-->
-
+</div>
 
 <?php
 /**

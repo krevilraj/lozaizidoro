@@ -1,0 +1,10 @@
+2021-05-17T11:22:45+00:00 CRITICAL Uncaught Error: Call to undefined function get_the_field() in /Applications/MAMP/htdocs/wp_lozaizidoro/wp-content/themes/lozaizidoro/woocommerce/archive-product.php:38
+Stack trace:
+#0 /Applications/MAMP/htdocs/wp_lozaizidoro/wp-content/plugins/woocommerce/includes/wc-core-functions.php(345): include()
+#1 /Applications/MAMP/htdocs/wp_lozaizidoro/wp-content/plugins/woocommerce/templates/taxonomy-product-cat.php(22): wc_get_template('archive-product...')
+#2 /Applications/MAMP/htdocs/wp_lozaizidoro/wp-includes/template-loader.php(106): include('/Applications/M...')
+#3 /Applications/MAMP/htdocs/wp_lozaizidoro/wp-blog-header.php(19): require_once('/Applications/M...')
+#4 /Applications/MAMP/htdocs/wp_lozaizidoro/index.php(17): require('/Applications/M...')
+#5 {main}
+  thrown in /Applications/MAMP/htdocs/wp_lozaizidoro/wp-content/themes/lozaizidoro/woocommerce/archive-product.php on line 38
+

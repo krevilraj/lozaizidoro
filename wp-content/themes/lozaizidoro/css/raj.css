@@ -143,3 +143,27 @@
 .navcolor{
     background-color:var(--red-color);
 }
+ins{
+    text-decoration: none;
+}
+
+/* ---------------------------------------------------
+    Home Page
+----------------------------------------------------- */
+
+.product__price p del{
+    font-family: 'Tungsten Rounded light';
+}
+.product__price p ins span,.product__price p ins span bdi{
+    color:var(--yellow);
+
+}
+.product__price p ins span{
+    margin-left:5px;
+}
+.product-list .product__price p{
+    color:#000;
+}
+.woocommerce-Price-amount.amount{
+    color:#fff;
+}

@@ -128,6 +128,7 @@ $i = 0;
 foreach ($slug as $cat_slug) {
   $catObj = get_term_by('slug', $cat_slug, 'product_cat');
   $catName = $catObj->name;
+  $category_link = get_category_link( $catObj->term_id );
   ?>
   <?php if ($i % 2 == 0): ?>
     <!-- otalhante product open -->
@@ -200,7 +201,7 @@ foreach ($slug as $cat_slug) {
 
             </div>
             <div class="see-more">
-              <a href="#">todos os PRODUTOS <i class="fa fa-long-arrow-right"></i></a>
+              <a href="<?php echo $category_link;?>">todos os PRODUTOS <i class="fa fa-long-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -293,7 +294,7 @@ foreach ($slug as $cat_slug) {
 
             </div>
             <div class="see-more">
-              <a href="#">todos os PRODUTOS <i class="fa fa-long-arrow-right"></i></a>
+              <a href="<?php echo $category_link;?>">todos os PRODUTOS <i class="fa fa-long-arrow-right"></i></a>
             </div>
 
           </div>
