@@ -167,3 +167,25 @@ ins{
 .woocommerce-Price-amount.amount{
     color:#fff;
 }
+.added_to_cart{
+    background-color: red;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 3px 22px;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    transition: 0.4s;
+    transition-timing-function: linear;
+    font-family: 'Tungsten Rounded semibold';
+    text-decoration:none;
+}
+.added_to_cart:hover{
+    text-decoration:none;
+    background-color: #fff;
+    color: var(--red-color);
+
+}
+.add_to_cart_button.added{
+    display:none;
+}
