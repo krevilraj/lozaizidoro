@@ -21,6 +21,12 @@ $(function () {
 });
 
 
+// sub menu js
+$('.menu-item-has-children').click(function (){
+  $('nav ul .sub-menu').toggleClass("show");
+});
+
+
 // home slider
 $('.owl-carousel').owlCarousel({
   loop: true,

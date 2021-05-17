@@ -232,18 +232,12 @@ button:hover{
 	-moz-box-shadow: 0px 2px 7px -1px rgba(0,0,0,0.77);
 	padding-bottom: 20px;
 }
-.scroll-nav .header__right {
-	padding-top: 20px;
-}
-.scroll-nav .header__logo{
-	padding-top: 20px;
-}
+
+
 .header__menu {
 	flex:1;
 }
-.scroll-nav .header__menu .hamburger {
-	top: 30px;
-}
+
 
 .scroll-nav .header__right .badge {
 	background-color: var(--sky-color);
@@ -341,6 +335,57 @@ button:hover{
 	border-left-color: var(--orange-color);
 }
 
+.header__menu nav ul ul {
+	position: static;
+	display: none;
+	background-color: var(--orange-color);
+
+}
+.header__menu nav ul .sub-menu{
+	transition: 0.5s all;
+}
+.header__menu nav ul .sub-menu.show{
+	display: block;
+
+}
+
+.header__menu .menu-item-has-children > a {
+	position: relative;
+}
+.header__menu .menu-item-has-children > a:after{
+	content:"\f0dd";
+	position: absolute;
+	right: 20px;
+	top:-6%;
+	font-family: FontAwesome;
+	font-size:1.9rem ;
+	padding-top: -3px;
+}
+.header__menu .menu-item-has-children > a:hover:after{
+	transform: translateY(6%) rotate(-180deg);
+	transition: transform 0.4s;
+}
+
+
+.header__menu nav ul ul li{
+	line-height: 42px;
+	border-bottom: none;
+}
+.header__menu nav ul ul li a{
+	font-size: 1.4rem;
+	color:#fff;
+	padding-left: 80px;
+}
+
+.header__menu nav ul ul li a:hover{
+	color: #fff;
+}
+.header__menu nav ul ul li a span{
+	position: absolute;
+	top: 50%;
+	right: 20px;
+	font-size: 100px;
+}
 
 
 /* ======================== header section Close ================================ */
@@ -582,6 +627,9 @@ button:hover{
 	background-size: cover;
 	height: 100%;
 	background-repeat: no-repeat;
+}
+.product__name {
+	padding-top:25px;
 }
 
 /* ======================== otalhante product Close ================================ */

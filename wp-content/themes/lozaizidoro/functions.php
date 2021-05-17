@@ -19,6 +19,8 @@ function lozaizidoro_scripts()
   wp_enqueue_style('fontawesome-css', "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 
 
+
+
   // Flexslider Javascript and CSS files
   wp_enqueue_style('animate-css', get_template_directory_uri() . '/css/animate.css', array(), '', 'all');
   wp_enqueue_style('hover-css', get_template_directory_uri() . '/css/ihover.css', array(), '', 'all');
