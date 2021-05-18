@@ -155,14 +155,14 @@ ins{
     font-family: 'Tungsten Rounded light';
 }
 .product__price p ins span,.product__price p ins span bdi{
-    color:var(--yellow);
+    color:#fff;
 
 }
 .product__price p ins span{
     margin-left:5px;
 }
 .product-list .product__price p{
-    color:#000;
+    color:#fff;
 }
 .home del .woocommerce-Price-amount.amount{
     color:#fff;
@@ -192,7 +192,30 @@ ins{
 }
 .woocommerce span.onsale{
     background-color:var(--yellow);
-    border-radius:20px;
+    width: 150px;
+    border-radius: 39px;
+
+    font-family: 'Tungsten Rounded medium';
+    font-size: 1.6rem;
+
+}
+
+.woocommerce span.onsale {
+    top:unset !important;
+    min-height: 4rem;
+    line-height: 4rem;
+}
+
+.woocommerce-cart .woocommerce-Price-amount.amount {
+    color:#000;
+}
+
+.woocommerce-order-received .woocommerce-Price-amount.amount{
+    color:#000;
+}
+
+.woocommerce-order-received h2{
+    font-size: 2.2rem;
 }
 
 .woocommerce ul.products li.product .price del{
@@ -204,7 +227,7 @@ ins{
     font-family: 'Tungsten Rounded light';
 }
 .woocommerce ul.products li.product .price ins span, .woocommerce-Price-amount.amount{
-    color:var(--yellow);
+    color:#fff;
     font-size:1.8rem;
     margin-left:5px;
     font-family: 'Tungsten Rounded medium';
@@ -236,4 +259,28 @@ ins{
 }
 .content-area{
     margin-bottom:0;
+}
+
+.woocommerce ul.products li.product .woocommerce-loop-category__title, .woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce ul.products li.product h3{
+    padding:unset !important;
+}
+
+.woocommerce nav.woocommerce-pagination{
+    padding-bottom: 29px;
+}
+ul.products li.product:hover a button{
+    transform:unset;
+}
+@media screen and (max-width: 993px){
+    .dt-wc-sidebar-collapse .sidebar-right .sidebar .sidebar-content, .dt-wc-sidebar-collapse .sidebar-left .sidebar .sidebar-content {
+        position: relative;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        height: 100%;
+        padding: 30px;
+    }
+}
+/*****************Sidebar*************************/
+.filter-button {
+    display: none;
 }

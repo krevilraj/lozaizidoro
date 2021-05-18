@@ -309,7 +309,8 @@ button:hover{
 	height: 100%;
 	width: 100%;
 	list-style: none;
-	padding-top: 25px;
+	padding-top: 20px;
+	padding-bottom:20px;
 }
 .header__menu nav ul li{
 	line-height: 4rem;
@@ -374,7 +375,7 @@ button:hover{
 .header__menu nav ul ul li a{
 	font-size: 1.4rem;
 	color:#fff;
-	padding-left: 80px;
+
 }
 
 .header__menu nav ul ul li a:hover{
@@ -851,7 +852,7 @@ button:hover{
 	display:none;
 }
 .widget_shopping_cart_content{
-	background: #fff;
+	background: var(--orange-color);
 }
 .mini-wrapper{
 	position: absolute;
@@ -940,8 +941,9 @@ button:hover{
 	content: '';
 }
 .woocommerce-mini-cart__buttons a.button:hover{
-	background-color:#21372cd4;
+
 	color:#fff;
+	border: 1px solid #fff;
 }
 .woocommerce-mini-cart__buttons a.button{
 	background: #21372cff;
@@ -976,9 +978,11 @@ button:hover{
 }
 
 .woocommerce-mini-cart__buttons a.button {
-	background-color:var(--red-color);
+	background-color:#fff;
 	border-radius: 20px;
 	text-decoration: none;
+	color:var(--red-color);
+	border: 1px solid #fff;
 }
 
 .woocommerce-mini-cart__buttons a.button:hover {
@@ -1449,12 +1453,17 @@ nav.woocommerce-MyAccount-navigation ul li.is-active{
 }
 .summary  {
 	padding-right: 10%;
+	padding-left: 10%;
 }
 
 .woocommerce-tabs {
 	background-color: var(--purple-color);
 	margin-top: 88px;
 	padding:5% 5%;
+}
+
+.pswp__caption__center {
+	display:none;
 }
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li.active {
@@ -1501,7 +1510,7 @@ nav.woocommerce-MyAccount-navigation ul li.is-active{
 .summary  h1{
 	color: var(--red-color);
 	font-size: 4rem;
-	line-height: 38px;
+	line-height: 4rem;
 
 }
 
@@ -1693,9 +1702,7 @@ a.reset_variations{
 
 .woocommerce span.onsale {
 	border-radius: unset;
-	width: 120px;
-	border-bottom-left-radius: 20px;
-	border-top-right-radius: 20px;
+
 	left: 10%;
 }
 

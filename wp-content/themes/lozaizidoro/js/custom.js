@@ -68,6 +68,12 @@ $(document).ready(function () {
     $('.quantity>.qty').val(value);
   });
 
+  /****************filter*****************/
+  $('.filter-button').click(function(){
+    $('.left-filter').slideDown();
+
+  });
+
 
 });
 

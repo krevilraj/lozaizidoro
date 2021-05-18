@@ -80,8 +80,8 @@ if (isset($category->term_id)) {
     </header>
     <div class="container-fluid">
       <div class="row cat_list">
-
-        <div class="col-lg-3 push-lg-9 col-md-4 push-md-8 col-sm-5 push-sm-7 col-12">
+        <div class="filter-button">Filter</div>
+        <div class="col-lg-3 push-lg-9 col-md-4 push-md-8 col-sm-5 push-sm-7 col-12 left-filter">
           <div class="product-page-category">
 
 

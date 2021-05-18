@@ -74,7 +74,8 @@ get_header();
         <!-- normal -->
         <div class="ih-item square effect4">
           <a href="<?php echo get_theme_mod('li_category_link1'); ?>">
-            <div class="item__name"><h2><?php echo get_theme_mod('li_category_title1'); ?><span id="li_category_image1"></span></h2></div>
+            <div class="item__name"><h2><?php echo get_theme_mod('li_category_title1'); ?><span
+                    id="li_category_image1"></span></h2></div>
             <div class="food__image">
               <img src="<?php echo get_theme_mod('li_category_image1'); ?>" alt="img" class="img-fluid">
             </div>
@@ -89,7 +90,8 @@ get_header();
         <!-- normal -->
         <div class="ih-item square effect4">
           <a href="<?php echo get_theme_mod('li_category_link2'); ?>">
-            <div class="item__name"><h2><?php echo get_theme_mod('li_category_title2'); ?><span id="li_category_image2"></span></h2></div>
+            <div class="item__name"><h2><?php echo get_theme_mod('li_category_title2'); ?><span
+                    id="li_category_image2"></span></h2></div>
             <div class="food__image">
               <img src="<?php echo get_theme_mod('li_category_image2'); ?>" alt="img" class="img-fluid">
             </div>
@@ -104,7 +106,8 @@ get_header();
         <!-- normal -->
         <div class="ih-item square effect4">
           <a href="<?php echo get_theme_mod('li_category_link3'); ?>">
-            <div class="item__name"><h2><?php echo get_theme_mod('li_category_title3'); ?> <span id="li_category_image3"></h2></span></div>
+            <div class="item__name"><h2><?php echo get_theme_mod('li_category_title3'); ?> <span
+                    id="li_category_image3"></h2></span></div>
             <div class="food__image">
               <img src="<?php echo get_theme_mod('li_category_image3'); ?>" alt="img" class="img-fluid">
             </div>
@@ -128,7 +131,9 @@ $i = 0;
 foreach ($slug as $cat_slug) {
   $catObj = get_term_by('slug', $cat_slug, 'product_cat');
   $catName = $catObj->name;
-  $category_link = get_category_link( $catObj->term_id );
+  $category_link = get_category_link($catObj->term_id);
+  $cat_thumb_id = get_term_meta($catObj->term_id, 'thumbnail_id', true);
+  $img_atts = wp_get_attachment_image_src($cat_thumb_id, 'full');
   ?>
   <?php if ($i % 2 == 0): ?>
     <!-- otalhante product open -->
@@ -137,7 +142,8 @@ foreach ($slug as $cat_slug) {
       <div class="container-fluid">
         <div class="row no-gutters">
           <div class="col-md-3">
-            <div class="otalhante__left__img"></div>
+
+            <div class="otalhante__left__img" style="background-image:url(<?php echo $img_atts[0]; ?>)"></div>
           </div>
           <div class="col-md-9">
             <?php
@@ -165,7 +171,7 @@ foreach ($slug as $cat_slug) {
                 'terms' => 'featured',
                 'operator' => 'IN',
               );
-              $args = array('post_type' => 'product', 'stock' => 1, 'posts_per_page' => 3,'tax_query' => $tax_query, 'meta_query' => $meta_query, 'product_cat' => $cat_slug, 'orderby' => 'date', 'order' => 'ASC');
+              $args = array('post_type' => 'product', 'stock' => 1, 'posts_per_page' => 3, 'tax_query' => $tax_query, 'meta_query' => $meta_query, 'product_cat' => $cat_slug, 'orderby' => 'date', 'order' => 'ASC');
               $loop = new WP_Query($args);
 
               while ($loop->have_posts()) : $loop->the_post();
@@ -174,8 +180,9 @@ foreach ($slug as $cat_slug) {
                 <div class="col-md-4">
                   <div class="product wow fadeInDown" data-wow-duration="1s">
                     <div class="product__image">
-                      <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>"
-                           alt="<?php the_title() ?>" class="img-fluid">
+                      <a href="<?php echo the_permalink(); ?>"> <img
+                            src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>"
+                            alt="<?php the_title() ?>" class="img-fluid"></a>
                     </div>
                     <div class="product__detail">
                       <div class="product__name">
@@ -185,12 +192,17 @@ foreach ($slug as $cat_slug) {
                         <p><?php echo $product->get_price_html(); ?></p>
                       </div>
                       <div class="product__btn">
-                        <a href="<?php echo $product->add_to_cart_url() ?>"
-                           value="<?php echo esc_attr($product->get_id()); ?>"
-                           class="product__inner__btn ajax_add_to_cart add_to_cart_button"
-                           data-product_id="<?php echo get_the_ID(); ?>" data-product_sku="<?php echo esc_attr($sku) ?>"
-                           aria-label="Add “<?php the_title_attribute() ?>” to your cart">
-                          <button class="product__inner__btn">COMPRAR</button>
+                        <!--                        <a href="--><?php //echo $product->add_to_cart_url() ?><!--"-->
+                        <!--                           value="--><?php //echo esc_attr($product->get_id()); ?><!--"-->
+                        <!--                           class="product__inner__btn ajax_add_to_cart add_to_cart_button"-->
+                        <!--                           data-product_id="-->
+                        <?php //echo get_the_ID(); ?><!--" data-product_sku="--><?php //echo esc_attr($sku) ?><!--"-->
+                        <!--                           aria-label="Add “-->
+                        <?php //the_title_attribute() ?><!--” to your cart">-->
+                        <!--                          <button class="product__inner__btn">COMPRAR</button>-->
+                        <!--                        </a>-->
+                        <a href="<?php the_permalink(); ?>">
+                          <button class="product__inner__btn">Ver Produto</button>
                         </a>
                       </div>
                     </div>
@@ -201,7 +213,7 @@ foreach ($slug as $cat_slug) {
 
             </div>
             <div class="see-more">
-              <a href="<?php echo $category_link;?>">todos os PRODUTOS <i class="fa fa-long-arrow-right"></i></a>
+              <a href="<?php echo $category_link; ?>">todos os PRODUTOS <i class="fa fa-long-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -266,24 +278,27 @@ foreach ($slug as $cat_slug) {
                         <p><?php echo $product->get_price_html(); ?></p>
                       </div>
                       <div class="product__btn">
+                        <a href="<?php the_permalink(); ?>">
+                          <button class="product__inner__btn">Ver Produto</button>
+                        </a>
                         <?php
-                        if ($product->is_type('variable')):
-                          ?>
+                        /*                        if ($product->is_type('variable')):
+                                                  */ ?><!--
 
-                          <a href="<?php the_permalink(); ?>">
+                          <a href="<?php /*the_permalink(); */ ?>">
                             <button class="product__inner__btn">COMPRAR</button>
                           </a>
-                        <?php else: ?>
-                          <a href="<?php echo $product->add_to_cart_url() ?>"
-                             value="<?php echo esc_attr($product->get_id()); ?>"
+                        <?php /*else: */ ?>
+                          <a href="<?php /*echo $product->add_to_cart_url() */ ?>"
+                             value="<?php /*echo esc_attr($product->get_id()); */ ?>"
                              class="product__inner__btn ajax_add_to_cart add_to_cart_button"
-                             data-product_id="<?php echo get_the_ID(); ?>"
-                             data-product_sku="<?php echo esc_attr($sku) ?>"
-                             aria-label="Add “<?php the_title_attribute() ?>” to your cart">
+                             data-product_id="<?php /*echo get_the_ID(); */ ?>"
+                             data-product_sku="<?php /*echo esc_attr($sku) */ ?>"
+                             aria-label="Add “<?php /*the_title_attribute() */ ?>” to your cart">
                             <button class="product__inner__btn">COMPRAR</button>
                           </a>
 
-                        <?php endif; ?>
+                        --><?php /*endif; */ ?>
 
                       </div>
                     </div>
@@ -294,12 +309,12 @@ foreach ($slug as $cat_slug) {
 
             </div>
             <div class="see-more">
-              <a href="<?php echo $category_link;?>">todos os PRODUTOS <i class="fa fa-long-arrow-right"></i></a>
+              <a href="<?php echo $category_link; ?>">todos os PRODUTOS <i class="fa fa-long-arrow-right"></i></a>
             </div>
 
           </div>
           <div class="col-md-3">
-            <div class="ocharcuteiro__right__iamge">
+            <div class="ocharcuteiro__right__iamge" style="background-image:url(<?php echo $img_atts[0]; ?>)">
             </div>
             <!-- <img src="<?php bloginfo('template_url'); ?>/images/ocharcuteiro-img.png" alt="" class="img-fluid"> -->
           </div>

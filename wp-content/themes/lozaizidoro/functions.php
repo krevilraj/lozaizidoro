@@ -494,4 +494,18 @@ function wpglorify_validate_privacy_registration( $errors, $username, $email ) {
     return $errors;
 }
 
+//Add to cart to view product
+
+add_filter( 'woocommerce_loop_add_to_cart_link', 'ts_replace_add_to_cart_button', 10, 2 );
+function ts_replace_add_to_cart_button( $button, $product ) {
+  if (is_product_category() || is_shop()) {
+    $button_text = __("Ver Produto", "woocommerce");
+    $button_link = $product->get_permalink();
+
+    $button = '<a href="' . $button_link . '">
+                          <button class="product__inner__btn">Ver Produto</button>
+                        </a>';
+    return $button;
+  }
+}
 
