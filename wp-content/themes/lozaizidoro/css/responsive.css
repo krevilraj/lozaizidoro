@@ -193,6 +193,7 @@
         transform: translateX(0);
     }
     .filtros{
+        display: block;
         position: absolute;
         top: 40%;
         right: -44px;
