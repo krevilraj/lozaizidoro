@@ -6,6 +6,8 @@ require_once get_template_directory() . '/inc/customposttype/slider.php';
 require_once get_template_directory() . '/inc/sidebar/shop.php';
 require_once get_template_directory() . '/inc/customizer/homepage_category.php';
 require_once get_template_directory() . '/inc/woocommerce/addtocart/addtocart.php';
+require_once get_template_directory() . '/inc/woocommerce/order/newsletter.php';
+
 
 
 /**
@@ -96,7 +98,7 @@ function lozaizidoro_config()
   // This theme is WooCommerce compatible, so we're adding support to WooCommerce
   add_theme_support('woocommerce', array(
     'thumbnail_image_width' => 255,
-    'single_image_width' => 255,
+    'single_image_width' => 1024,
     'product_grid' => array(
       'default_rows' => 10,
       'min_rows' => 6,
@@ -325,7 +327,7 @@ function li_my_simple_custom_tab_content1($slug, $tab)
 
   ?>
   <div style="text-align:left">
-    <p><?php echo get_post_meta(get_the_ID(), 'modo_de_preparacao', true); ?></p>
+    <p><?php echo wpautop(get_post_meta(get_the_ID(), 'modo_de_preparacao', true)); ?></p>
   </div>
   <?php
 
@@ -336,7 +338,7 @@ function li_my_simple_custom_tab_content2($slug, $tab)
 
   ?>
   <div style="text-align:left">
-    <p><?php echo get_post_meta(get_the_ID(), 'conservacao', true); ?></p>
+    <p><?php echo wpautop(get_post_meta(get_the_ID(), 'conservacao', true)); ?></p>
   </div>
   <?php
 
@@ -347,7 +349,7 @@ function li_my_simple_custom_tab_content3($slug, $tab)
 
   ?>
   <div style="text-align:left">
-    <p><?php echo get_post_meta(get_the_ID(), 'outros', true); ?></p>
+    <p><?php echo wpautop(get_post_meta(get_the_ID(), 'outros', true)); ?></p>
   </div>
   <?php
 
