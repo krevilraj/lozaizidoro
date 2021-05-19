@@ -16,7 +16,7 @@
 $datas = array();
 
 if (!has_term(33, 'product_cat')) {
-  echo get_post_meta(get_the_ID(), 'informacao_nutricional_produto', true);
+  echo wpautop(get_post_meta(get_the_ID(), 'informacao_nutricional_produto', true));
 } else {
 
   if (have_rows('informacao_nutricional')):?>

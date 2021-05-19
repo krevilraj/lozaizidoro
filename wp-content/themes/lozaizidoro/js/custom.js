@@ -69,8 +69,8 @@ $(document).ready(function () {
   });
 
   /****************filter*****************/
-  $('.filter-button').click(function(){
-    $('.left-filter').slideDown();
+  $('.filtros').click(function(){
+    $(this).parent().toggleClass('active');
 
   });
 
@@ -99,3 +99,5 @@ $(document).on({
     $('.cart-mini').removeClass('active');
   }
 }, '.mini-wrapper');
+
+

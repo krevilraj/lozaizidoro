@@ -78,10 +78,9 @@ if (isset($category->term_id)) {
       do_action('woocommerce_archive_description');
       ?>
     </header>
-    <div class="container-fluid">
       <div class="row cat_list">
-        <div class="filter-button">Filter</div>
         <div class="col-lg-3 push-lg-9 col-md-4 push-md-8 col-sm-5 push-sm-7 col-12 left-filter">
+          <div class="filtros" id="filtros">FILTROS</div>
           <div class="product-page-category">
 
 
@@ -92,7 +91,7 @@ if (isset($category->term_id)) {
         </div>
         <!--col-lg-9 pull-lg-3 col-md-8 pull-md-4 col-sm-7 pull-sm-5 col-12 shop-product-list 			 -->
         <div
-            class=" col-lg-9 pull-lg-3 col-md-8 pull-md-4 col-sm-7 pull-sm-5 col-12 shop-product-list category-product">
+            class=" col-lg-9 pull-lg-3 col-md-12 pull-md-4 col-sm-12 pull-sm-5 col-12 shop-product-list category-product">
           <div class="sorting">
             <?php
             if (woocommerce_product_loop()) {
@@ -146,7 +145,6 @@ if (isset($category->term_id)) {
           ?>
         </div>
       </div>
-    </div>
   </div><!--product-content-section-->
 </div>
 
