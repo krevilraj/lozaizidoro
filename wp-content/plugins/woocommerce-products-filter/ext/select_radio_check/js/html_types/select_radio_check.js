@@ -83,7 +83,7 @@ function woof_init_select_radio_check() {
                 jQuery.each(txt_results, function (i, txt) {
                     panel.find('ul').append(
                             jQuery('<li>').append(
-                            jQuery('<a>').attr('href', "").attr('data-tax', index).attr('data-slug',v_results[i]).append(
+                            jQuery('<a>').attr('href', v_results[i]).attr('data-tax', index).append(
                             jQuery('<span>').attr('class', 'woof_remove_ppi').append(txt)
                             )));
                 });

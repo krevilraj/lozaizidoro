@@ -43,7 +43,7 @@
     -webkit-border-radius: 200px;
     -moz-border-radius: 200px;
     border-radius: 200px;
-    min-width: 17px;
+    width: 17px;
     height: 17px;
     line-height: 17px !important;
     color: wheat;

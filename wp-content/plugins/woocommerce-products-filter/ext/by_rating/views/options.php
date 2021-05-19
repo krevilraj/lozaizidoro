@@ -24,50 +24,6 @@ if (!defined('ABSPATH'))
             <option value="1" <?php echo selected($show, 1) ?>><?php _e('Yes', 'woocommerce-products-filter') ?></option>
         </select>
     </div>
-    
-    <input type="button" value="<?php _e('additional options', 'woocommerce-products-filter') ?>" data-key="<?php echo $key ?>" data-name="<?php _e("Search by rating", 'woocommerce-products-filter'); ?>" class="woof-button js_woof_options js_woof_options_<?php echo $key ?>" />
-
-
-    <?php
-    if (!isset($woof_settings[$key]['use_star']))
-    {
-        $woof_settings[$key]['use_star'] = 0;
-    }
-    ?>
-
-    <input type="hidden" name="woof_settings[<?php echo $key ?>][use_star]" value="<?php echo $woof_settings[$key]['use_star'] ?>" />
-
-
-    <div id="woof-modal-content-<?php echo $key ?>" style="display: none;">
-
-        <div class="woof-form-element-container">
-
-            <div class="woof-name-description">
-                <strong><?php _e('Show  stars in drop-down', 'woocommerce-products-filter') ?></strong>               
-            </div>
-
-            <div class="woof-form-element">
-                <?php
-                $use_star = array(
-                    0 => __('No', 'woocommerce-products-filter'),
-                    1 => __('Yes', 'woocommerce-products-filter')
-                );
-                ?>
-                <div class="select-wrap">
-                    <select class="woof_popup_option" data-option="use_star">
-                        <?php foreach ($use_star as $key => $value) : ?>
-                            <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-
-            </div>
-
-        </div>
-
-
-
-    </div>    
 
 </li>
 

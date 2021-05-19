@@ -2,6 +2,7 @@
 if (!defined('ABSPATH'))
     die('No direct access allowed');
 
+//18-04-2016
 final class WOOF_EXT_PRODS_MESSENGER extends WOOF_EXT {
 
     public $type = 'by_html_type';
@@ -69,10 +70,7 @@ final class WOOF_EXT_PRODS_MESSENGER extends WOOF_EXT {
     public function get_ext_path() {
 	return plugin_dir_path(__FILE__);
     }
-    public function get_ext_override_path()
-    {
-        return get_stylesheet_directory(). DIRECTORY_SEPARATOR ."woof". DIRECTORY_SEPARATOR ."ext". DIRECTORY_SEPARATOR .$this->html_type. DIRECTORY_SEPARATOR;
-    }
+
     public function get_ext_link() {
 	return plugin_dir_url(__FILE__);
     }
@@ -297,7 +295,7 @@ final class WOOF_EXT_PRODS_MESSENGER extends WOOF_EXT {
             $subscr=array();
         }
 	if (count($subscr) >= $this->subscr_count) {
-	     die('<li class="woof_pm_max_count" >'.__('Сount is max', 'woocommerce-products-filter').'</li>'); // Check limit count on backend
+	    die('count is max'); // Check limit count on backend
 	}
         //+++
 	$data['subscr_lang'] = apply_filters('woof_subscribe_lang', $this->subscribe_lang); //Text of  the subscriptions
@@ -463,9 +461,6 @@ final class WOOF_EXT_PRODS_MESSENGER extends WOOF_EXT {
 	    'in_filter' => 0
 			), $args);
         global $WOOF;
-        if(file_exists($this->get_ext_override_path(). 'views' . DIRECTORY_SEPARATOR . 'shortcodes' . DIRECTORY_SEPARATOR . 'woof_products_messenger.php')){
-            return $WOOF->render_html($this->get_ext_override_path() . 'views' . DIRECTORY_SEPARATOR . 'shortcodes' . DIRECTORY_SEPARATOR . 'woof_products_messenger.php', $data);
-        }
         return $WOOF->render_html($this->get_ext_path() . 'views' . DIRECTORY_SEPARATOR . 'shortcodes'. DIRECTORY_SEPARATOR.'woof_products_messenger.php',$data);
     }
 

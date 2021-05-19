@@ -123,7 +123,7 @@ function check_next_prev_btn(){
             jQuery('.woof_step_filter_next').prop( "disabled", true );
         }        
     });
-     jQuery('body').on('change','.woof_step .woof_price_filter_txt', function () {
+     jQuery('.woof_step .woof_price_filter_txt').life('change', function () {
         if(woof_step_filter_check_state(jQuery(this).parents(".woof_step_filter_current")).has){
             jQuery('.woof_step_filter_next').prop( "disabled", false ); 
         }else{
@@ -245,11 +245,7 @@ function check_next_prev_btn(){
     if(!curr_el.length){       
         //jQuery('.woof_container.woof_step_hide').last().show();
         var prev_btn = jQuery('.woof_step .woof_step_filter_prev').clone();
-        var isset_btn=jQuery('.woof_step .woof_submit_search_form_container').find('.woof_step_filter_prev');
-        if(!isset_btn.length){
-            prev_btn.prependTo('.woof_step .woof_submit_search_form_container'); 
-        }
-               
+        prev_btn.prependTo('.woof_step .woof_submit_search_form_container');        
         jQuery('.woof_step_next_back_btn').hide();
             //turbo
             if(typeof WoofTurboMode!='undefined'){
@@ -272,7 +268,6 @@ function woof_step_filter_check_items(type){
     var woof_current_values_temp={};
     var hide=false;
     var first=0;
-
 
     //turbo
     if(typeof WoofTurboMode!='undefined'){
@@ -371,8 +366,7 @@ function woof_step_filter_check_items(type){
     });
     woof_current_values=woof_current_values_temp;    
     
-    woof_step_filter_image(); 
-    
+
 }
 
 function woof_step_filter_check_items_(){
@@ -459,7 +453,6 @@ function woof_step_filter_check_state(_this){
         }else if(jQuery(_this).hasClass(('woof_container_'+i))){
                 stat.has = true;
                 stat.key = [i];
-                
                 if(jQuery(_this).hasClass("woof_container_select_hierarchy")){
                     if(jQuery(_this).find(".woof_block_html_items select:last").val()==0){
                         stat.has = false;
@@ -535,42 +528,6 @@ function woof_step_filter_submit(){
     }
     
     
-}
-
-function woof_step_filter_image(){
-    jQuery('.woof_step_filter_image').remove();
-    var image_input=jQuery("input.woof_step_filter_images");
-    var image="";
-    if(image_input.length){
-        var behavior= jQuery(image_input).data("behavior");
-        var selector= jQuery(image_input).data("selector");
-        var images=JSON.parse(atob(jQuery(image_input).val())); 
-        
-        var current_item=jQuery(".woof_step_filter_current");
-        if(jQuery(current_item).hasClass('woof_price_filter')){
-            if(typeof images['by_price']!='undefined'){
-                image=images['by_price'];
-            }
-        }else if(typeof images['by_rating']!='undefined'){
-            if(typeof images['by_rating']!='undefined'){
-                image=images['by_rating'];
-            }                           
-        }else{
-            jQuery.each(images,function(key,img){
-
-                if(jQuery('.woof_container_'+key).hasClass("woof_step_filter_current")){
-                   
-                    image=img;
-                }
-            });
-        }
-        if("append"==behavior){
-            jQuery(selector).append(image);
-        }else{
-            jQuery(selector).prepend(image);
-        }
-        
-    }
 }
 
 

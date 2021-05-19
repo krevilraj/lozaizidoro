@@ -2,6 +2,7 @@
 if (!defined('ABSPATH'))
     die('No direct access allowed');
 
+//03-09-2019
 final class WOOF_EXT_TURBO_MODE extends WOOF_EXT {
 
     public $type = 'application';
@@ -20,7 +21,7 @@ final class WOOF_EXT_TURBO_MODE extends WOOF_EXT {
     public $dir_link = "";
     protected $file = null;
     protected $storing = 0;
-    protected $attr_taxonomies = array();
+
     //+++
 
     public function __construct() {
@@ -71,11 +72,10 @@ final class WOOF_EXT_TURBO_MODE extends WOOF_EXT {
         */
 
         add_action($this->crone_hook, array($this, 'do_recreate_file'), 10, 3);
-        add_filter($this->crone_filter, array($this, 'get_cron_ids'), 10, 2);		
+        add_filter($this->crone_filter, array($this, 'get_cron_ids'), 10, 2);
         $this->cron_obj = new PN_WP_CRON_WOOF_TURBO_MODE('woof_turbo_init_wpcrone_', $this->crone_hook, $this->crone_filter);
         add_action('init', array($this, 'init_crone'), 100000);
-		
-		add_filter('woof_set_shortcode_taxonomyattr_behaviour',array($this, 'check_shortcode_att_taxonomies'));
+
         $this->init();
 
         add_action('admin_head', function() {
@@ -93,10 +93,7 @@ final class WOOF_EXT_TURBO_MODE extends WOOF_EXT {
     public function get_ext_path() {
         return plugin_dir_path(__FILE__);
     }
-    public function get_ext_override_path()
-    {
-        return get_stylesheet_directory(). DIRECTORY_SEPARATOR ."woof". DIRECTORY_SEPARATOR ."ext". DIRECTORY_SEPARATOR .$this->folder_name. DIRECTORY_SEPARATOR;
-    }
+
     public function get_ext_link() {
         return plugin_dir_url(__FILE__);
     }
@@ -104,9 +101,9 @@ final class WOOF_EXT_TURBO_MODE extends WOOF_EXT {
     public function init() {
 
         add_action('woof_print_applications_tabs_' . $this->folder_name, array($this, 'woof_print_applications_tabs'), 10, 1);
-        add_action('woof_print_applications_tabs_content_' . $this->folder_name, array($this, 'woof_print_applications_tabs_content'), 10, 1);        
+        add_action('woof_print_applications_tabs_content_' . $this->folder_name, array($this, 'woof_print_applications_tabs_content'), 10, 1);
+        self::$includes['css']['woof_' . $this->folder_name . '_html_items'] = $this->get_ext_link() . 'css/' . $this->folder_name . '.css';
         if ($this->enable) {
-            self::$includes['css']['woof_' . $this->folder_name . '_html_items'] = $this->get_ext_link() . 'css/' . $this->folder_name . '.css';
             add_action('wp_footer', array($this, 'wp_footer'), 12);
             add_filter('woof_print_content_before_search_form', array($this, 'add_overlay_buffer'));
             add_filter('wc_settings_tab_woof_settings', array($this, 'change_options'));
@@ -158,9 +155,8 @@ final class WOOF_EXT_TURBO_MODE extends WOOF_EXT {
             'sale_ids' => wc_get_product_ids_on_sale(),
             'settings' => $this->woof_settings,
             'current_tax' => $curr_tax,
-			'additional_tax'=>$this->attr_taxonomies,
             'show_count' => get_option('woof_show_count_turbo_mode', 0),
-            'hide_count' => 0,
+            'hide_count' => isset($this->woof_settings['hide_terms_count_txt']) ? $this->woof_settings['hide_terms_count_txt'] : 0,
             'hide_empty_term' => get_option('woof_hide_dynamic_empty_pos_turbo_mode', 0),
             'dynamic_recount' => $dynamic_recount,
         );
@@ -426,41 +422,8 @@ final class WOOF_EXT_TURBO_MODE extends WOOF_EXT {
         }
         return false;
     }
-	
-	public function check_shortcode_att_taxonomies($taxonomies){
-		$this->attr_taxonomies=array();
-		if (!empty($taxonomies)) {
-            $t = explode('+', $taxonomies);
-            if (!empty($t) AND is_array($t)) {
-                foreach ($t as $string) {
-                    $tmp = explode(':', $string);
-                    $tax_slug = $tmp[0];
-                    $tax_terms = explode(',', $tmp[1]);
-                    $slugs = array();
-					
-                    foreach ($tax_terms as $term_id) {
-                        $term = get_term(intval($term_id), $tax_slug);
-						
-                        if (is_object($term)) {
-                            $slugs[] = $term->slug;
-                        }
-                    }
 
-                    //***
-					
-                    if (!empty($slugs)) {
-                        $this->attr_taxonomies[] = array(
-                            'tax' => $tax_slug,
-                            'terms' => implode(',',$slugs)
-                        );
-                    }
-                }
-            }
-        }
-		
-	}
-
-	public function get_post_id_by_lang($post_id, $lang_code, $type = 'product') {
+    public function get_post_id_by_lang($post_id, $lang_code, $type = 'product') {
         if (class_exists('SitePress')) {
             return icl_object_id($post_id, $type, false, $lang_code);
         }
@@ -604,7 +567,7 @@ final class WOOF_EXT_TURBO_MODE extends WOOF_EXT {
             $key = 'weekly';
         }
 
-        if (isset($schedules[$key])) {
+        if (!empty($key)) {
             return $schedules[$key];
         }
 
@@ -617,12 +580,10 @@ final class WOOF_EXT_TURBO_MODE extends WOOF_EXT {
         //$this->cron_obj->remove($id);
         $cron = $this->get_woof_cron_schedules($this->wp_cron_period);
 
-        if ($cron!=-1 AND $cron) {
+        if ($cron) {
             if (!$this->cron_obj->is_attached($id, $cron)) {
                 $this->cron_obj->attach($id, time(), $cron);
             }
-        }else{
-             $this->cron_obj->remove($id);
         }
         $this->cron_obj->process();
     }

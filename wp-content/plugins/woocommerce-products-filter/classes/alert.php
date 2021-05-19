@@ -1,8 +1,5 @@
 <?php
 
-if (!defined('ABSPATH'))
-    die('No direct access allowed');
-
 class WOOF_ADV {
 
     public $notices_list = array();
@@ -27,7 +24,6 @@ class WOOF_ADV {
         $this->notices_list = array(
             'woocommerce_currency_switcher' => 'woocommerce-currency-switcher',
             'woocommerce_bulk_editor' => 'woo-bulk-editor',
-            'woot_products_tables'=>'profit-products-tables-for-woocommerce',
                 //'func_name'=>'plugin_dir_name'
         );
         $this->notices_list = array_merge($this->notices_list, $alert_list);
@@ -95,9 +91,9 @@ class WOOF_ADV {
         ?>
         <div class="notice notice-info is-dismissible" id="woof_alert_woocs">
             <p class="plugin-card-woocommerce-currency-switcher"<?php if ($screen->id != 'plugin-install') echo ' id="plugin-filter"' ?>>
-                <?php echo __('For more <b>marketing attraction</b> of the shop WOOF team recommends you to install', 'woocommerce-products-filter') ?> <a href="<?php echo network_admin_url('plugin-install.php?tab=plugin-information') ?>&amp;plugin=woocommerce-currency-switcher&amp;TB_iframe=true&amp;width=600&amp;height=550" class="thickbox open-plugin-details-modal" aria-label="WOOF team recommends" data-title="WOOCS">WOOCS - WooCommerce Currency Switcher </a>.
-                <a href="<?php echo network_admin_url('plugin-install.php?tab=plugin-information') ?>&amp;plugin=woocommerce-currency-switcher&amp;TB_iframe=true&amp;width=600&amp;height=550" class="thickbox open-plugin-details-modal button" aria-label="More information about WOOCS" data-title="WOOCS" id="woof_alert_install_button"><?php echo __('Install', 'woocommerce-products-filter') ?></a>
-                <a class="install-now button" data-slug="woocommerce-currency-switcher" href="<?php echo network_admin_url('update.php?action=install-plugin') ?>&amp;plugin=woocommerce-currency-switcher&amp;_wpnonce=<?php echo wp_create_nonce('install-plugin-woocommerce-currency-switcher') ?>" aria-label="Install woocommerce currency switcher now" data-name="WOOCS - Woocommerce currency switcher" style="display:none"><?php echo __('Install Now', 'woocommerce-products-filter') ?></a>
+                For more <b>marketing attraction</b> of the shop WOOF team recommends you to install  <a href="<?php echo network_admin_url('plugin-install.php?tab=plugin-information') ?>&amp;plugin=woocommerce-currency-switcher&amp;TB_iframe=true&amp;width=600&amp;height=550" class="thickbox open-plugin-details-modal" aria-label="WOOF team recommends" data-title="WOOCS">WooCommerce Currency Switcher </a>.
+                <a href="<?php echo network_admin_url('plugin-install.php?tab=plugin-information') ?>&amp;plugin=woocommerce-currency-switcher&amp;TB_iframe=true&amp;width=600&amp;height=550" class="thickbox open-plugin-details-modal button" aria-label="More information about WOOCS" data-title="WOOCS" id="woof_alert_install_button">Install</a>
+                <a class="install-now button" data-slug="woocommerce-currency-switcher" href="<?php echo network_admin_url('update.php?action=install-plugin') ?>&amp;plugin=woocommerce-currency-switcher&amp;_wpnonce=<?php echo wp_create_nonce('install-plugin-woocommerce-currency-switcher') ?>" aria-label="Install woocommerce currency switcher now" data-name="Woocommerce currency switcher" style="display:none">Install Now</a>
             </p>
         </div>
         <script>
@@ -140,9 +136,9 @@ class WOOF_ADV {
         ?>
         <div class="notice notice-info is-dismissible" id="woof_alert_woobe">
             <p class="plugin-card-woo-bulk-editor"<?php if ($screen->id != 'plugin-install') echo ' id="plugin-woobe"' ?>>
-                <?php _e('Try new plugin for managing and bulk edit WooCommerce Products data in robust and flexible way', 'woocommerce-products-filter') ?>: <a href="<?php echo network_admin_url('plugin-install.php?tab=plugin-information') ?>&amp;plugin=woo-bulk-editor&amp;TB_iframe=true&amp;width=600&amp;height=550" class="thickbox open-plugin-details-modal" aria-label="WOOF team recommends" data-title="BEAR">BEAR - WooCommerce Bulk Editor Professional</a>.
-                <a href="<?php echo network_admin_url('plugin-install.php?tab=plugin-information') ?>&amp;plugin=woo-bulk-editor&amp;TB_iframe=true&amp;width=600&amp;height=550" class="thickbox open-plugin-details-modal button" aria-label="More information about BEAR" data-title="BEAR" id="woof_alert_install_button_woobe"><?php echo __('Install', 'woocommerce-products-filter') ?></a>
-                <a class="install-now button" data-slug="woo-bulk-editor" href="<?php echo network_admin_url('update.php?action=install-plugin') ?>&amp;plugin=woo-bulk-editor&amp;_wpnonce=<?php echo wp_create_nonce('install-plugin-woo-bulk-editor') ?>" aria-label="Install woocommerce bulk editor now" data-name="Woocommerce bulk editor" style="display:none"><?php echo __('Install Now', 'woocommerce-products-filter') ?></a>
+                Try new plugin for managing and bulk edit WooCommerce Products data in robust and flexible way: <a href="<?php echo network_admin_url('plugin-install.php?tab=plugin-information') ?>&amp;plugin=woo-bulk-editor&amp;TB_iframe=true&amp;width=600&amp;height=550" class="thickbox open-plugin-details-modal" aria-label="WOOF team recommends" data-title="WOOBE">WOOBE - WooCommerce Bulk Editor Professional</a>.
+                <a href="<?php echo network_admin_url('plugin-install.php?tab=plugin-information') ?>&amp;plugin=woo-bulk-editor&amp;TB_iframe=true&amp;width=600&amp;height=550" class="thickbox open-plugin-details-modal button" aria-label="More information about WOOBE" data-title="WOOBE" id="woof_alert_install_button_woobe">Install</a>
+                <a class="install-now button" data-slug="woo-bulk-editor" href="<?php echo network_admin_url('update.php?action=install-plugin') ?>&amp;plugin=woo-bulk-editor&amp;_wpnonce=<?php echo wp_create_nonce('install-plugin-woo-bulk-editor') ?>" aria-label="Install woocommerce bulk editor now" data-name="Woocommerce bulkeditor" style="display:none">Install Now</a>
             </p>
         </div>
         <script>
@@ -180,50 +176,5 @@ class WOOF_ADV {
         <?php
         wp_print_request_filesystem_credentials_modal();
     }
-    public function alert_woot_products_tables() {
-        $screen = get_current_screen();
-        ?>
-        <div class="notice notice-info is-dismissible" id="woof_alert_woot">
-            <p class="plugin-card-profit-products-tables-for-woocommerce"<?php if ($screen->id != 'plugin-install') echo ' id="plugin-woot"' ?>>
-                <?php echo __('Try new WooCommerce plugin for displaying your shop products in table format', 'woocommerce-products-filter') ?>: <a href="<?php echo network_admin_url('plugin-install.php?tab=plugin-information') ?>&amp;plugin=profit-products-tables-for-woocommerce&amp;TB_iframe=true&amp;width=600&amp;height=550" class="thickbox open-plugin-details-modal" aria-label="WOOF team recommends" data-title="WOOT">WOOT (PROTAS)</a>.
-                <a href="<?php echo network_admin_url('plugin-install.php?tab=plugin-information') ?>&amp;plugin=profit-products-tables-for-woocommerce&amp;TB_iframe=true&amp;width=600&amp;height=550" class="thickbox open-plugin-details-modal button" aria-label="More information about WOOT" data-title="WOOT" id="woof_alert_install_button_woot"><?php echo __('Install', 'woocommerce-products-filter') ?></a>
-                <a class="install-now button" data-slug="woot-products-tables" href="<?php echo network_admin_url('update.php?action=install-plugin') ?>&amp;plugin=profit-products-tables-for-woocommerce&amp;_wpnonce=<?php echo wp_create_nonce('install-plugin-woot-products-tables') ?>" aria-label="Install woot now" data-name="Woocommerce woot" style="display:none"><?php echo __('Install Now', 'woocommerce-products-filter') ?></a>
-            </p>
-        </div>
-        <script>
-            jQuery('#woof_alert_woot .open-plugin-details-modal').on('click', function () {
-                jQuery('#woof_alert_install_button_woot').hide().next().show();
-                return true;
-            });
-            jQuery(function ($) {
-                var alert_w = $('#woof_alert_woot');
-                alert_w.on('click', '.notice-dismiss', function (e) {
-                    //e.preventDefault 
-
-                    $.post(ajaxurl, {
-                        action: 'woof_dismiss_alert',
-                        alert: 'woot_products_tables',
-                        sec: <?php echo json_encode(wp_create_nonce('woof_dissmiss_alert')) ?>
-                    });
-                });
-
-        <?php if ($screen->id == 'plugin-install'): ?>
-                    $('#plugin-woot').prepend(alert_w.css('margin-bottom', '10px').addClass('inline'));
-        <?php endif ?>
-
-                $(document).on('tb_unload', function () {
-                    if (jQuery('#woof_alert_install_button_woot').next().hasClass('updating-message'))
-                        return;
-
-                    jQuery('#woof_alert_install_button_woot').show().next().hide();
-                });
-                $(document).on('credential-modal-cancel', function () {
-                    jQuery('#woof_alert_install_button_woot').show().next().hide();
-                });
-            });
-        </script>
-        <?php
-        wp_print_request_filesystem_credentials_modal();
-    }    
 
 }

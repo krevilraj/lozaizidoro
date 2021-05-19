@@ -13,28 +13,25 @@ function woof_init_meta_datepicker() {
                     isRTL: false,
                     showAnim:'fadeIn',
                     onSelect: function (selectedDate, self) {
+                        var date = new Date(parseInt(self.currentYear, 10), parseInt(self.currentMonth, 10), parseInt(self.currentDay, 10), 23, 59, 59);
+                       console.log(date);
+                        var mktime = (date.getTime() / 1000);
                         var css_class = 'woof_calendar_from';
                         var meta_key=jQuery(this).data("meta-key");
                         if (jQuery(this).hasClass('woof_calendar_from')) {
-                            var date = new Date(parseInt(self.currentYear, 10), parseInt(self.currentMonth, 10), parseInt(self.currentDay, 10), 0, 0, 1);
-                            var mktime = (date.getTime() / 1000);                          
                             css_class = 'woof_calendar_to';
                             jQuery(this).parent().find('.' + css_class).datepicker("option", "minDate", selectedDate);
                             jQuery(this).prev('input[name='+meta_key+'_from]').val(mktime);
                         } else {
-                            var date = new Date(parseInt(self.currentYear, 10), parseInt(self.currentMonth, 10), parseInt(self.currentDay, 10), 23, 59, 59);
-                            var mktime = (date.getTime() / 1000);   
                             jQuery(this).parent().find('.' + css_class).datepicker("option", "maxDate", selectedDate);
                             jQuery(this).prev('input[name='+meta_key+'_to]').val(mktime);
 
                         }
-                        
                         woof_meta_datepicker_check_data(meta_key);
                         //***
                         woof_ajax_page_num = 1;
                         woof_meta_datepicker_reset_check();
-                        
-                        if (woof_autosubmit ) {
+                        if (woof_autosubmit || jQuery(input).within('.woof').length == 0) {
                             woof_submit_link(woof_get_submit_link());
                         }
                         
@@ -48,11 +45,47 @@ function woof_init_meta_datepicker() {
             
         });
         
-
+//        jQuery(".woof_calendar").datepicker(
+//                {
+//                    showWeek: true,
+//                    firstDay: 1,
+//                    changeMonth: true,
+//                    changeYear: true,
+//                    dateFormat:jQuery(".woof_calendar").data('format'),
+//                    showButtonPanel: true,
+//                    isRTL: false,
+//                    showAnim:'fadeIn',
+//                    onSelect: function (selectedDate, self) {
+//                        var date = new Date(parseInt(self.currentYear, 10), parseInt(self.currentMonth, 10), parseInt(self.currentDay, 10), 23, 59, 59);
+//                        var mktime = (date.getTime() / 1000);
+//                        var css_class = 'woof_calendar_from';
+//                        var meta_key=jQuery(this).data("meta-key");
+//                        if (jQuery(this).hasClass('woof_calendar_from')) {
+//                            css_class = 'woof_calendar_to';
+//                            jQuery(this).parent().find('.' + css_class).datepicker("option", "minDate", selectedDate);
+//                            jQuery(this).prev('input[name='+meta_key+'_from]').val(mktime);
+//                        } else {
+//                            jQuery(this).parent().find('.' + css_class).datepicker("option", "maxDate", selectedDate);
+//                            jQuery(this).prev('input[name='+meta_key+'_to]').val(mktime);
+//                        }
+//                        console.log(jQuery(this).data('format'));
+//                        woof_meta_datepicker_check_data(meta_key);
+//
+//                        //***
+//                        woof_ajax_page_num = 1;
+//
+//                        if (woof_autosubmit || jQuery(input).within('.woof').length == 0) {
+//                         //   woof_submit_link(woof_get_submit_link());
+//                        }
+//                        return false;
+//
+//                    }
+//                }
+//        );
 
 
         //+++
-        jQuery('body').on('keyup',".woof_calendar", function (e) {
+        jQuery(".woof_calendar").life('keyup', function (e) {
             if (e.keyCode == 8 || e.keyCode == 46) {
                 jQuery.datepicker._clearDate(this);
                 jQuery(this).prev('input[type=hidden]').val("");
@@ -61,7 +94,7 @@ function woof_init_meta_datepicker() {
 
             }
         });
-        jQuery('body').on('click',".woof_meta_datepicker_reset", function (e) {
+        jQuery(".woof_meta_datepicker_reset").life('click', function (e) {
             var name=jQuery(this).data('name');
             jQuery("input[name='"+name+"']").val("");
             jQuery(this).prev('input.woof_calendar').datepicker('setDate', null);
@@ -122,7 +155,7 @@ function woof_init_meta_datepicker() {
             var mktime = parseInt(jQuery(this).prev('input[type=hidden]').val(), 10);
             if (mktime > 0) {
                 var date = new Date(mktime * 1000);
-                jQuery(this).datepicker('setDate', new Date(date));    
+                jQuery(this).datepicker('setDate', new Date(date));
                 //+++
                 var css_class = 'woof_calendar_from';
                 var selectedDate = jQuery(this).datepicker('getDate');
@@ -134,7 +167,6 @@ function woof_init_meta_datepicker() {
                 }
             }
         });
-        jQuery('#ui-datepicker-div').hide();
         woof_meta_datepicker_reset_check();
     } catch (e) {
 

@@ -1,35 +1,12 @@
 var woof_text_do_submit = false;
 function woof_init_text() {
-    jQuery(".woof_show_text_search").bind("paste", function(e){
-        var pastedData = e.originalEvent.clipboardData.getData('text');
-        woof_text_process_value(pastedData,this,e);
-
-    });
     jQuery('.woof_show_text_search').keyup(function (e) {
-        var val = jQuery(this).val();
-        woof_text_process_value(val,this,e);
-
-    });
-
-    //+++
-    jQuery('body').on('click','.woof_text_search_go', function () {
-        var uid = jQuery(this).data('uid');
-        woof_text_do_submit = true;
         
-        var val=jQuery('.woof_show_text_search.' + uid).val();
-        //var val =jQuery(this).siblings(".woof_show_text_search").val();
-        val=val.replace("\"","\&quot;");
-        woof_text_direct_search('woof_text', val);
-    });
-}
-function woof_text_process_value(value,_this,e){
-        var val = value;
+        var val = jQuery(this).val();
         val=val.replace("\'","\&#039;");
         val=val.replace("\"","\&quot;");
-        var uid = jQuery(_this).data('uid');
-
+        var uid = jQuery(this).data('uid');
         if (e.keyCode == 13 /*&& val.length > 0*/) {
-            
             woof_text_do_submit = true;
             woof_text_direct_search('woof_text', val);
             return true;
@@ -54,10 +31,10 @@ function woof_text_process_value(value,_this,e){
         //http://easyautocomplete.com/examples
         if (val.length >= 3 && woof_text_autocomplete) {
             //http://stackoverflow.com/questions/1574008/how-to-simulate-target-blank-in-javascript
-            jQuery('body').on('click','.easy-autocomplete a', function () {
+            jQuery('.easy-autocomplete a').life('click', function () {
                 
                 if(!how_to_open_links){
-                    window.open(jQuery(_this).attr('href'), '_blank');
+                    window.open(jQuery(this).attr('href'), '_blank');
                     return false;
                 }
                 
@@ -65,7 +42,7 @@ function woof_text_process_value(value,_this,e){
             });
             //***
             //http://easyautocomplete.com/examples
-            var input_id = jQuery(_this).attr('id');
+            var input_id = jQuery(this).attr('id');
             var options = {
                 url: function (phrase) {
                     return woof_ajaxurl;
@@ -89,7 +66,6 @@ function woof_text_process_value(value,_this,e){
                     jQuery("#" + input_id).parents('.woof_show_text_search_container').find('.woof_show_text_search_loader').show();
                     //***
                     data.phrase = jQuery("#" + input_id).val();
-
                     data.auto_res_count = jQuery("#" + input_id).data('auto_res_count');
                     data.auto_search_by = jQuery("#" + input_id).data('auto_search_by');
                     return data;
@@ -136,9 +112,21 @@ function woof_text_process_value(value,_this,e){
                 console.log(e);
             }
             jQuery("#" + input_id).focus();
-        }    
-    
+        }
+    });
+
+    //+++
+    jQuery('.woof_text_search_go').life('click', function () {
+        var uid = jQuery(this).data('uid');
+        woof_text_do_submit = true;
+        
+        var val=jQuery('.woof_show_text_search.' + uid).val();
+        //var val =jQuery(this).siblings(".woof_show_text_search").val();
+        val=val.replace("\"","\&quot;");
+        woof_text_direct_search('woof_text', val);
+    });
 }
+
 function woof_text_direct_search(name, slug) {
      slug = encodeURIComponent(slug);
     jQuery.each(woof_current_values, function (index, value) {
@@ -154,7 +142,7 @@ function woof_text_direct_search(name, slug) {
     woof_ajax_page_num = 1;
     if (woof_autosubmit || woof_text_do_submit) {
         woof_text_do_submit = false;
-        woof_submit_link(woof_get_submit_link(),0);
+        woof_submit_link(woof_get_submit_link());
     }
 }
 

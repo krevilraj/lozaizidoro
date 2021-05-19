@@ -1,6 +1,10 @@
 <?php
 // Display Newsletter Subscription option before I agree Terms and Condition in Checkout Page
-add_action('woocommerce_review_order_before_submit', 'dc_add_checkout_privacy_policy', 5);
+add_action('woocommerce_review_order_before_payment', 'dc_add_text_above_payment', 7);
+function dc_add_text_above_payment(){
+  echo "<h3>Selecione o Método de Pagamento</h3>";
+}
+add_action('woocommerce_checkout_terms_and_conditions', 'dc_add_checkout_privacy_policy', 7);
 
 function dc_add_checkout_privacy_policy()
 {
@@ -72,7 +76,7 @@ function dc_show_dawn_option_checkout_field_order($order)
 
 // Display other field
 
-add_action('woocommerce_review_order_before_submit', 'dc_add_deliveries_option', 6);
+add_action('woocommerce_checkout_terms_and_conditions', 'dc_add_deliveries_option', 6);
 
 function dc_add_deliveries_option()
 {
@@ -119,8 +123,7 @@ function dc_add_deliveries_option()
           text-transform: unset;
       }
   </style>
-  <p><strong>BO- Entregas:</strong></p>
-  <p>mais informações sobre encomedas <a href="#" data-toggle="modal" data-target="#exampleModal">aqui</a></p>
+  <p>Mais informações sobre encomedas <a href="#" data-toggle="modal" data-target="#exampleModal">aqui</a></p>
 
 
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

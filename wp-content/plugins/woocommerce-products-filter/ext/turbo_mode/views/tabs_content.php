@@ -16,7 +16,7 @@ global $WOOF;
 
                 <em><?php _e('Boost speed of products filtering. This mode allows to avoid generating big MySQL queries while products filtering on the site front what makes less loading to the server and getting filtering results more quick', 'woocommerce-products-filter') ?></em>
 
-                <a href="https://products-filter.com/extencion/turbo-mode/" target="_blank" class="button-primary"><?php echo __('More about extension', 'woocommerce-products-filter') ?></a><br />
+                <a href="https://products-filter.com/extencion/turbo-mode/" target="_blank" class="button-primary"><?php echo __('About extension', 'woocommerce-products-filter') ?></a><br />
 
                 <br />
 
@@ -127,7 +127,7 @@ global $WOOF;
                                 'twicemonthly' => __('twicemonthly', 'woocommerce-products-filter'),
                                 'month' => __('monthly', 'woocommerce-products-filter'),
                                 'no' => __('without update', 'woocommerce-products-filter'),
-                                //'min1' => __('min1', 'woocommerce-products-filter')
+                                    //'min1' => __('min1', 'woocommerce-products-filter')
                             );
 
                             if (!isset($woof_settings['woof_turbo_mode']['wp_cron_period'])) {

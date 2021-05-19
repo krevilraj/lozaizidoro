@@ -5,7 +5,7 @@ function woof_init_image() {
         var image = jQuery(this).data('image');
         var styles = jQuery(this).data('styles');
         if (image.length > 0) {
-            styles += '; background-image: url(' + image + ');';
+            styles += '; background-image: url(' + image + '); ';
         } else {
             styles += '; background-color: #ffffff;';
         }

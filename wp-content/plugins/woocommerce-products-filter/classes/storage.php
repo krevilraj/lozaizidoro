@@ -25,10 +25,8 @@ final class WOOF_STORAGE {
             }
         }
         //$this->user_ip = $_SERVER['REMOTE_ADDR'];
-        if (isset($_SERVER['REMOTE_ADDR'])) {
-            $this->user_ip = filter_var($_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP);
-            $this->transient_key = md5($this->user_ip . 'woof_salt');
-        }
+        $this->user_ip = filter_var($_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP);
+        $this->transient_key = md5($this->user_ip . 'woof_salt');
     }
 
     public function set_val($key, $value) {

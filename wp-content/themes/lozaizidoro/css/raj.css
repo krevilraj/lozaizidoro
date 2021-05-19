@@ -285,4 +285,15 @@ ul.products li.product:hover a button{
     display: none;
 }
 
+/*******************checkout*********************/
+.woocommerce-checkout #payment {
+    background: #f9b600;
+    border-radius: 5px;
+}
+.woocommerce form .form-row label.checkbox, .woocommerce-page form .form-row label.checkbox {
+    display: inline;
+    font-family: inherit;
+    font-size: 16px;
+    text-transform: unset;
+}
 

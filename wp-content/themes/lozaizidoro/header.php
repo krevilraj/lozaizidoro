@@ -62,7 +62,7 @@
             class="fa fa-user-o"></i></a>
 
       <ul class="account-dropdown">
-        <li><a href="<?php echo esc_url(get_permalink(get_option('woocommerce_myaccount_page_id'))) ?>">My account</a>
+        <li><a href="<?php echo esc_url(get_permalink(get_option('woocommerce_myaccount_page_id'))) ?>">A minha conta</a>
         </li>
         <li><?php if (is_user_logged_in()) : ?>
             <a href="<?php echo esc_url(wp_logout_url(get_permalink(get_option('woocommerce_myaccount_page_id')))) ?>">Logout</a>

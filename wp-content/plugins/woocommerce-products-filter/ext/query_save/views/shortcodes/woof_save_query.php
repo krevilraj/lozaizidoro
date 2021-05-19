@@ -14,21 +14,13 @@ if (is_user_logged_in() AND isset($WOOF->settings['query_save']) ) {
         $adding_class="query_save_shortcode";
     }
     //var_dump($WOOF->settings['query_save']);
-        $show_notice=0;
     if (isset($WOOF->settings['query_save'])AND ! empty($WOOF->settings['query_save'])) {
 	$query_count = $WOOF->settings['query_save']['search_count'];
 	$p = $WOOF->settings['query_save']['label'];
         $placeholder=$WOOF->settings['query_save']['placeholder'];
         $btn_label=$WOOF->settings['query_save']['btn_label'];
-        
-        if (isset($WOOF->settings['query_save']['show_notice'])AND ! empty($WOOF->settings['query_save']['show_notice'])) {
-            $show_notice=$WOOF->settings['query_save']['show_notice'];
-        } 
     }
 
-
- 
-    
     $cur_user_id = get_current_user_id();
     //if($cur_user_id==0)return;
     $user_data_queries = get_user_meta($cur_user_id, 'woof_user_search_query', true);
@@ -52,7 +44,6 @@ if (is_user_logged_in() AND isset($WOOF->settings['query_save']) ) {
 		    $counter = 1;
 		    foreach ($user_data_queries as $data) {
 			//echo date('D, d M Y H:i:s',$data['date']),"*****",$data['count'],"<br>";
-                        $data['show_notice']=$show_notice;
 			echo $this->render_html(WOOF_EXT_PATH . 'query_save/views/item_list_query.php', $data);
 			$counter++;
 		    }
@@ -66,11 +57,7 @@ if (is_user_logged_in() AND isset($WOOF->settings['query_save']) ) {
             if(isset($WOOF->settings['items_order'])){
                 $key_array=explode(',',$WOOF->settings['items_order']);
                 $by_only_array=array('woof_text','stock','onsales','woof_sku','product_visibility');
-                $tax_array=array_keys($WOOF->settings['excluded_terms']);
-                foreach($tax_array as &$item ){
-                        $item=$WOOF->check_slug($item);
-                }
-                $key_array= array_merge($by_only_array, $key_array,$tax_array);		
+                $key_array= array_merge($by_only_array, $key_array);
 
                 $real_query=array_intersect(array_keys($get_array),$key_array);
                 if(count($real_query)){
@@ -78,7 +65,7 @@ if (is_user_logged_in() AND isset($WOOF->settings['query_save']) ) {
                 }
 
                 $meta_filter=array();
-                if(isset($WOOF->settings['meta_filter']) AND is_array($WOOF->settings['meta_filter'])){
+                if(is_array($WOOF->settings['meta_filter'])){
                     $meta_filter = $WOOF->settings['meta_filter'];
                 }
                 foreach ($meta_filter as $item) {

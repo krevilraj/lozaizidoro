@@ -6,7 +6,7 @@ function woof_init_products_messenger() {
     woof_messenger_init++;
     jQuery('#woof_add_subscr').attr('data-href', location.href);
 
-    jQuery('body').on('click','#woof_add_subscr', function () {
+    jQuery('#woof_add_subscr').life('click', function () {
 	var data = {
 	    action: "woof_messenger_add_subscr",
 	    user_id: jQuery(this).attr('data-user'),
@@ -17,14 +17,13 @@ function woof_init_products_messenger() {
 	    // alert(jQuery.parseJSON(content));
 	    if (content) {
 		var req = content;
-                jQuery('.woof_pm_max_count').remove();
 		woof_redraw_subscr(req);
 	    }
 	});
 
 	return false;
     });
-    jQuery('body').on('click','.woof_remove_subscr', function () {
+    jQuery('.woof_remove_subscr').life('click', function () {
 	if (!confirm(woof_confirm_lang)) {
 	    return false;
 	}

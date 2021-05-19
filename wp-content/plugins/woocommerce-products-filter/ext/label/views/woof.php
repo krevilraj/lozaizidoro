@@ -2,9 +2,15 @@
 <?php
 global $WOOF;
 $_REQUEST['additional_taxes'] = $additional_taxes;
-$_REQUEST['hide_terms_count_txt'] = 0;
+$_REQUEST['hide_terms_count_txt'] = isset($this->settings['hide_terms_count_txt']) ? $this->settings['hide_terms_count_txt'] : 0;
 //***
-$_REQUEST['hide_terms_count_txt']=0;
+if(isset($_REQUEST['hide_terms_count_txt_short']) AND $_REQUEST['hide_terms_count_txt_short']!=-1){
+    if((int)$_REQUEST['hide_terms_count_txt_short']==1){
+        $_REQUEST['hide_terms_count_txt']=1;
+    }else{
+        $_REQUEST['hide_terms_count_txt']=0;
+    }
+}
 //***
 if (!function_exists('woof_draw_label_childs'))
 {
@@ -23,9 +29,9 @@ if (!function_exists('woof_draw_label_childs'))
         $current_request = array();
         global $WOOF;
         $request = $WOOF->get_request_data();
-        if ($WOOF->is_isset_in_request_data($WOOF->check_slug($tax_slug)))
+        if ($WOOF->is_isset_in_request_data($tax_slug))
         {
-            $current_request = $request[$WOOF->check_slug($tax_slug)];
+            $current_request = $request[$tax_slug];
             $current_request = explode(',', urldecode($current_request));
         }
         //***
@@ -83,18 +89,13 @@ if (!function_exists('woof_draw_label_childs'))
                     }
 
                     //excluding hidden terms
-                    $inreverse=true;
-                    if (isset($WOOF->settings['excluded_terms_reverse'][$tax_slug]) AND $WOOF->settings['excluded_terms_reverse'][$tax_slug])
-                    {
-                         $inreverse=!$inreverse;
-                    }  
-                    if (in_array($term['term_id'], $hidden_terms)==$inreverse)
+                    if (in_array($term['term_id'], $hidden_terms))
                     {
                         continue;
                     }
                     ?>
                     <li <?php if ($WOOF->settings['dispay_in_row'][$tax_slug] AND empty($term['childs'])): ?>style="display: inline-block !important;"<?php endif; ?>>
-                        <input type="checkbox" <?php if (!$count AND ! in_array($term['slug'], $current_request) AND $show_count): ?>disabled=""<?php endif; ?> id="<?php echo 'woof_' . $term['term_id'] . '_' . $inique_id ?>" class="woof_label_term" data-tax="<?php echo $WOOF->check_slug($tax_slug) ?>" name="<?php echo $term['slug'] ?>" value="<?php echo $term['term_id'] ?>" <?php echo checked(in_array($term['slug'], $current_request)) ?> />&nbsp;<label for="<?php echo 'woof_' . $term['term_id'] . '_' . $inique_id ?>" <?php if (checked(in_array($term['slug'], $current_request))): ?>style="font-weight: bold;"<?php endif; ?>><?php
+                        <input type="checkbox" <?php if (!$count AND ! in_array($term['slug'], $current_request) AND $show_count): ?>disabled=""<?php endif; ?> id="<?php echo 'woof_' . $term['term_id'] . '_' . $inique_id ?>" class="woof_label_term" data-tax="<?php echo $tax_slug ?>" name="<?php echo $term['slug'] ?>" value="<?php echo $term['term_id'] ?>" <?php echo checked(in_array($term['slug'], $current_request)) ?> />&nbsp;<label for="<?php echo 'woof_' . $term['term_id'] . '_' . $inique_id ?>" <?php if (checked(in_array($term['slug'], $current_request))): ?>style="font-weight: bold;"<?php endif; ?>><?php
                             if (has_filter('woof_before_term_name'))
                                 echo apply_filters('woof_before_term_name', $term, $taxonomy_info);
                             else
@@ -106,7 +107,7 @@ if (!function_exists('woof_draw_label_childs'))
                             woof_draw_label_childs($taxonomy_info, $tax_slug, $term['childs'], $show_count, $show_count_dynamic, $hide_dynamic_empty_pos);
                         }
                         ?>
-                        <input type="hidden" value="<?php echo $term['name'] ?>" data-anchor="woof_n_<?php echo $WOOF->check_slug($tax_slug) ?>_<?php echo $term['slug'] ?>" />
+                        <input type="hidden" value="<?php echo $term['name'] ?>" data-anchor="woof_n_<?php echo $tax_slug ?>_<?php echo $term['slug'] ?>" />
 
                     </li>
                 <?php endforeach; ?>
@@ -122,9 +123,9 @@ if (!function_exists('woof_draw_label_childs'))
     $woof_tax_values = array();
     $current_request = array();
     $request = $this->get_request_data();
-    if ($this->is_isset_in_request_data($this->check_slug($tax_slug)))
+    if ($this->is_isset_in_request_data($tax_slug))
     {
-        $current_request = $request[$this->check_slug($tax_slug)];
+        $current_request = $request[$tax_slug];
         $current_request = explode(',', urldecode($current_request));
     }
 
@@ -189,12 +190,7 @@ if (!function_exists('woof_draw_label_childs'))
             }
 
             //excluding hidden terms
-            $inreverse=true;
-            if (isset($WOOF->settings['excluded_terms_reverse'][$tax_slug]) AND $WOOF->settings['excluded_terms_reverse'][$tax_slug])
-            {
-                 $inreverse=!$inreverse;
-            }  
-            if (in_array($term['term_id'], $hidden_terms)==$inreverse)
+            if (in_array($term['term_id'], $hidden_terms))
             {
                 continue;
             }
@@ -210,8 +206,8 @@ if (!function_exists('woof_draw_label_childs'))
                 <?php echo $count_string ?>
                 <span class="checkbox woof_label_term <?php if ($checked) echo 'checked'; ?>">
                     <?php echo $term['name']; ?>
-                    <input style="display: none;" type="checkbox" <?php if (!$count AND ! in_array($term_slug, $current_request) AND $show_count): ?>disabled=""<?php endif; ?> id="<?php echo 'woof_' . $term['term_id'] . '_' . $inique_id ?>" class="woof_label_term woof_label_term_<?php echo $term['term_id'] ?>" data-tax="<?php echo $this->check_slug($tax_slug) ?>" name="<?php echo $term_slug ?>" data-name="<?php echo $term['name'] ?>" data-term-id="<?php echo $term['term_id'] ?>" value="<?php echo $term['term_id'] ?>" <?php echo checked($checked) ?> />
-                    <input type="hidden" value="<?php echo $term['name'] ?>" data-anchor="woof_n_<?php echo $this->check_slug($tax_slug) ?>_<?php echo $term['slug'] ?>" />
+                    <input style="display: none;" type="checkbox" <?php if (!$count AND ! in_array($term_slug, $current_request) AND $show_count): ?>disabled=""<?php endif; ?> id="<?php echo 'woof_' . $term['term_id'] . '_' . $inique_id ?>" class="woof_label_term woof_label_term_<?php echo $term['term_id'] ?>" data-tax="<?php echo $tax_slug ?>" name="<?php echo $term_slug ?>" data-name="<?php echo $term['name'] ?>" data-term-id="<?php echo $term['term_id'] ?>" value="<?php echo $term['term_id'] ?>" <?php echo checked($checked) ?> />
+                    <input type="hidden" value="<?php echo $term['name'] ?>" data-anchor="woof_n_<?php echo $tax_slug ?>_<?php echo $term['slug'] ?>" />
                 </span>
                 <?php
                 if (!empty($term['childs']))

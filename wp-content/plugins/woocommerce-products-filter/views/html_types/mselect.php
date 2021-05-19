@@ -3,11 +3,17 @@
 global $WOOF;
 $collector = array();
 $_REQUEST['additional_taxes'] = $additional_taxes;
-$_REQUEST['hide_terms_count_txt'] = 0;
+$_REQUEST['hide_terms_count_txt'] = isset($this->settings['hide_terms_count_txt']) ? $this->settings['hide_terms_count_txt'] : 0;
 //***
-$_REQUEST['hide_terms_count_txt']=0;
+if(isset($_REQUEST['hide_terms_count_txt_short']) AND $_REQUEST['hide_terms_count_txt_short']!=-1){
+    if((int)$_REQUEST['hide_terms_count_txt_short']==1){
+        $_REQUEST['hide_terms_count_txt']=1;
+    }else{
+        $_REQUEST['hide_terms_count_txt']=0;
+    }
+}
 //***
-$woof_hide_dynamic_empty_pos = 0;
+$woof_hide_dynamic_empty_pos = get_option('woof_hide_dynamic_empty_pos');
 if (!function_exists('woof_draw_mselect_childs'))
 {
 
@@ -24,12 +30,12 @@ if (!function_exists('woof_draw_mselect_childs'))
 
         global $WOOF;
         $request = $WOOF->get_request_data();
-        $woof_hide_dynamic_empty_pos = 0;
+        $woof_hide_dynamic_empty_pos = get_option('woof_hide_dynamic_empty_pos');
 
         $current_request = array();
-        if ($WOOF->is_isset_in_request_data($WOOF->check_slug($tax_slug)))
+        if ($WOOF->is_isset_in_request_data($tax_slug))
         {
-            $current_request = $request[$WOOF->check_slug($tax_slug)];
+            $current_request = $request[$tax_slug];
             $current_request = explode(',', urldecode($current_request));
         }
 
@@ -79,12 +85,7 @@ if (!function_exists('woof_draw_mselect_childs'))
                 }
 
                 //excluding hidden terms
-                $inreverse=true;
-                if (isset($WOOF->settings['excluded_terms_reverse'][$tax_slug]) AND $WOOF->settings['excluded_terms_reverse'][$tax_slug])
-                {
-                     $inreverse=!$inreverse;
-                }  
-                if (in_array($term['term_id'], $hidden_terms)==$inreverse)
+                if (in_array($term['term_id'], $hidden_terms))
                 {
                     continue;
                 }
@@ -114,16 +115,16 @@ if (!function_exists('woof_draw_mselect_childs'))
 
 }
 ?>
-<select class="woof_mselect woof_mselect_<?php echo $tax_slug ?>" data-placeholder="<?php echo WOOF_HELPER::wpml_translate($taxonomy_info) ?>" multiple="" size="<?php echo($this->is_woof_use_chosen() ? 1 : '') ?>" name="<?php echo $this->check_slug($tax_slug) ?>">
+<select class="woof_mselect woof_mselect_<?php echo $tax_slug ?>" data-placeholder="<?php echo WOOF_HELPER::wpml_translate($taxonomy_info) ?>" multiple="" size="<?php echo($this->is_woof_use_chosen() ? 1 : '') ?>" name="<?php echo $tax_slug ?>">
     <option value="0"></option>
     <?php
     $woof_tax_values = array();
     $current_request = array();
     $request = $this->get_request_data();
     $shown_options_tags = 0;
-    if ($this->is_isset_in_request_data($this->check_slug($tax_slug)))
+    if ($this->is_isset_in_request_data($tax_slug))
     {
-        $current_request = $request[$this->check_slug($tax_slug)];
+        $current_request = $request[$tax_slug];
         $current_request = explode(',', urldecode($current_request));
     }
 
@@ -171,14 +172,8 @@ if (!function_exists('woof_draw_mselect_childs'))
             {
                 $count_string = "";
             }
-            
-            //excluding hidden terms
-            $inreverse=true;
-            if (isset($WOOF->settings['excluded_terms_reverse'][$tax_slug]) AND $WOOF->settings['excluded_terms_reverse'][$tax_slug])
-            {
-                 $inreverse=!$inreverse;
-            }  
-            if (in_array($term['term_id'], $hidden_terms)==$inreverse)
+
+            if (in_array($term['term_id'], $hidden_terms))
             {
                 continue;
             }
@@ -228,7 +223,7 @@ if (!empty($collector))
             foreach ($values as $value)
             {
                 ?>
-                <input type="hidden" value="<?php echo $value['name'] ?>" data-anchor="woof_n_<?php echo $this->check_slug($ts) ?>_<?php echo $value['slug'] ?>" />
+                <input type="hidden" value="<?php echo $value['name'] ?>" data-anchor="woof_n_<?php echo $ts ?>_<?php echo $value['slug'] ?>" />
                 <?php
             }
         }

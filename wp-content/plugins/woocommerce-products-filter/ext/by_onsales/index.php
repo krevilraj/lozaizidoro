@@ -2,6 +2,7 @@
 if (!defined('ABSPATH'))
     die('No direct access allowed');
 
+//29-11-2016
 final class WOOF_EXT_BY_ONSALES extends WOOF_EXT {
 
     public $type = 'by_html_type';
@@ -19,10 +20,7 @@ final class WOOF_EXT_BY_ONSALES extends WOOF_EXT {
     {
         return plugin_dir_path(__FILE__);
     }
-    public function get_ext_override_path()
-    {
-        return get_stylesheet_directory(). DIRECTORY_SEPARATOR ."woof". DIRECTORY_SEPARATOR ."ext". DIRECTORY_SEPARATOR .$this->html_type. DIRECTORY_SEPARATOR;
-    }
+
     public function get_ext_link()
     {
         return plugin_dir_url(__FILE__);
@@ -44,8 +42,6 @@ final class WOOF_EXT_BY_ONSALES extends WOOF_EXT {
         self::$includes['js']['woof_' . $this->html_type . '_html_items'] = $this->get_ext_link() . 'js/' . $this->html_type . '.js';
         self::$includes['css']['woof_' . $this->html_type . '_html_items'] = $this->get_ext_link() . 'css/' . $this->html_type . '.css';
         self::$includes['js_init_functions'][$this->html_type] = 'woof_init_onsales';
-		
-		add_filter('woof_dynamic_count_attr', array($this, 'dynamic_recount'), 30, 2);
     }
 
     public function wp_head()
@@ -71,18 +67,8 @@ final class WOOF_EXT_BY_ONSALES extends WOOF_EXT {
                 )
         );
     }
-    public function dynamic_recount($args, $type) {
-		if( 'onsale' == $type){
-			$all_ids = wc_get_product_ids_on_sale() ;
-			if(!isset($args['post__in'])){
-				$args['post__in'] = $all_ids ;
-			}else{
-				$args['post__in'] = array_map($args['post__in'], $all_ids);
-			}
-		}		
-		return $args;
-	}
-	public function assemble_query_params(&$meta_query, &$query = NULL)
+
+    public function assemble_query_params(&$meta_query, &$query = NULL)
     {
         global $WOOF;
         $request = $WOOF->get_request_data();

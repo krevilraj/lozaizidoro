@@ -2,7 +2,6 @@
 var woof_turbo_mode_file = [];
 
 var WoofTurboMode_obj = function (data) {
-    
     this.file_link = data.link;
     this.preload = data.pre_load;
     this.products_data = [];
@@ -21,55 +20,46 @@ var WoofTurboMode_obj = function (data) {
     if (typeof data.current_tax.tax !== undefined) {
         this.curr_tax = data.current_tax;
     }
-    
-    this.additional_tax = {};
-    if (typeof data.additional_tax !== undefined &&  data.additional_tax.length) {
-        this.additional_tax = data.additional_tax;
-    }
 
     this.keys_array = function (data) {
         var array_keys = {};
         array_keys['taxonomies'] = [];
-        
         jQuery.each(data.settings.excluded_terms, function (i, item) {
             var logic = "OR";
-
-            if (data.settings.comparison_logic[i] != undefined ) {
-                logic = data.settings.comparison_logic[i];
+            if (data.settings.comparison_logic[i] != undefined && data.settings.comparison_logic[i] == "AND") {
+                logic = "AND";
             }
             array_keys['taxonomies'][i] = logic;
         });
         array_keys['meta'] = [];
-        if(typeof data.settings.meta_filter != 'undefined'){
-            jQuery.each(data.settings.meta_filter, function (i, item) {
-                var search_logic = "OR";
-                var checkbox_logic = "";
-                var text_conditional = "";
-                if (data.settings[i] != undefined && data.settings[i]['search_logic'] != undefined && data.settings[i]['search_logic'] == "AND") {
-                    search_logic = "AND";
-                }
-                if (data.settings[i] != undefined) {
-                    if (data.settings[i]['search_option'] != undefined && data.settings[i]['search_option'] == 1) {
+        jQuery.each(data.settings.meta_filter, function (i, item) {
+            var search_logic = "OR";
+            var checkbox_logic = "";
+            var text_conditional = "";
+            if (data.settings[i] != undefined && data.settings[i]['search_logic'] != undefined && data.settings[i]['search_logic'] == "AND") {
+                search_logic = "AND";
+            }
+            if (data.settings[i] != undefined) {
+                if (data.settings[i]['search_option'] != undefined && data.settings[i]['search_option'] == 1) {
+                    checkbox_logic = "exist";
+                } else if (data.settings[i]['search_option'] != undefined && data.settings[i]['search_value'] != undefined && data.settings[i]['search_option'] == 0) {
+                    if (data.settings[i]['search_value'].length) {
+                        checkbox_logic = data.settings[i]['search_value'];
+                    } else {
                         checkbox_logic = "exist";
-                    } else if (data.settings[i]['search_option'] != undefined && data.settings[i]['search_value'] != undefined && data.settings[i]['search_option'] == 0) {
-                        if (data.settings[i]['search_value'].length) {
-                            checkbox_logic = data.settings[i]['search_value'];
-                        } else {
-                            checkbox_logic = "exist";
-                        }
                     }
-                    if (data.settings[i]['text_conditional'] != undefined) {
-                        checkbox_logic = data.settings[i]['text_conditional'];
-                    }
-
                 }
-                item['search_logic'] = search_logic;
-                item['checkbox_logic'] = checkbox_logic;
-                item['text_conditional'] = checkbox_logic;
-                array_keys['meta'][item["search_view"] + "_" + i] = item;
+                if (data.settings[i]['text_conditional'] != undefined) {
+                    checkbox_logic = data.settings[i]['text_conditional'];
+                }
 
-            });
-        }
+            }
+            item['search_logic'] = search_logic;
+            item['checkbox_logic'] = checkbox_logic;
+            item['text_conditional'] = checkbox_logic;
+            array_keys['meta'][item["search_view"] + "_" + i] = item;
+
+        });
         var only = ['max_price', 'woof_text', 'min_rating', 'woof_author', 'woof_sku', 'stock', 'backorder', 'onsales'];
         array_keys['only'] = {};
         jQuery.each(only, function (i, item) {
@@ -135,11 +125,7 @@ var WoofTurboMode_obj = function (data) {
                                 last = false;
                                 var res = {};
                                 if (!item.current) {
-                                    var recount=false;
-                                    if(typeof _this.possible_terms.taxonomies[item.key.replace('rev_','')] !='undefined' && _this.possible_terms.taxonomies[item.key.replace('rev_','')]=="NOT IN"){                                            
-                                        recount=true;
-                                    }                                     
-                                    res = _this.search(item.query,recount);
+                                    res = _this.search(item.query);
                                     //array unique
                                     res = res.filter((v, i, a) => a.indexOf(v) === i);
                                 } else {
@@ -414,7 +400,7 @@ var WoofTurboMode_obj = function (data) {
         return  ids;
 
     }
-    this.get_query = function (query, possible_terms, inlude_var,recount) {
+    this.get_query = function (query, possible_terms, inlude_var) {
 
         var query_tmp = [];
         var tax_q = this.taxonomy_query;
@@ -423,17 +409,9 @@ var WoofTurboMode_obj = function (data) {
         var visibility_q = this.get_visibility_tax;
         var variation_q = this.without_variation;
 
-
         /* to add  current  category */
         if (typeof this.curr_tax.tax != 'undefined') {
             query_tmp.push(tax_q(this.curr_tax.tax, this.curr_tax.slug, possible_terms['taxonomies'][this.curr_tax.tax]));
-        }
-        /* to add  additional tax */
-        
-        if(this.additional_tax.length){
-            jQuery.each(this.additional_tax,function(i,add_tax){
-                query_tmp.push(tax_q(add_tax.tax, add_tax.terms, possible_terms['taxonomies'][add_tax.tax]));
-            });
         }
 
         if (typeof inlude_var == 'undefined' || !inlude_var) {
@@ -441,16 +419,8 @@ var WoofTurboMode_obj = function (data) {
         }
 
         jQuery.each(query, function (i, item) {
-            
-            if (possible_terms['taxonomies'][i] != undefined || possible_terms['taxonomies'][i.replace('rev_','')] != undefined) {
-                i=i.replace('rev_','');
-                var logic=possible_terms['taxonomies'][i];
-                
-                if (typeof recount != 'undefined' && recount==true && possible_terms['taxonomies'][i]=="NOT IN") {
-                    //console.log(item)
-                    logic="OR";
-                }
-                query_tmp.push(tax_q(i, item,logic ));
+            if (possible_terms['taxonomies'][i] != undefined) {
+                query_tmp.push(tax_q(i, item, possible_terms['taxonomies'][i]));
             } else if (possible_terms['meta'][i] != undefined) {
                 query_tmp.push(meta_q(i, item, possible_terms['meta'][i]));
             } else if (possible_terms['only'][i] != undefined) {
@@ -483,16 +453,9 @@ var WoofTurboMode_obj = function (data) {
         var query = [];
         data = data + "";
         var data_arr = data.split(',');
-        if(logic=="NOT IN"){
-            jQuery.each(data_arr, function (i, item) {
-                query.push(" taxonomies->('" + key + "')->indexOf('" + item + "')== -1 ");
-            }); 
-            logic="AND";
-        }else{
-            jQuery.each(data_arr, function (i, item) {
-                query.push(" taxonomies->('" + key + "')->indexOf('" + item + "')> -1 ");
-            });            
-        }
+        jQuery.each(data_arr, function (i, item) {
+            query.push(" taxonomies->('" + key + "')->indexOf('" + item + "')> -1 ");
+        });
 
         return "( " + query.join(logic) + " )";
     }
@@ -532,7 +495,7 @@ var WoofTurboMode_obj = function (data) {
 
                 break;
             case "slider":
-                var data_arr = data.split('^');
+                var data_arr = data.split('-');
                 if (data_arr.length > 1) {
                     query = " (meta_data->('" + settings["meta_key"] + "') BETWEEN '" + data_arr[0] + "' AND '" + data_arr[1] + "') ";
                 } else {
@@ -598,11 +561,8 @@ var WoofTurboMode_obj = function (data) {
 
                     var res = alasql("SELECT COLUMN parent FROM ? AS d WHERE " + instock_g + " AND (parent!='-1' AND stock='outofstock')", [woof_turbo_mode_file]);
                     res = res.filter((v, i, a) => a.indexOf(v) === i);
-                    if(res.length){
-                        query = "( (stock='instock' ) OR check_id(id," + res + ")=true )";
-                    }else{
-                        query = " (stock='instock')";
-                    }
+
+                    query = "( (stock='instock' ) OR check_id(id," + res + ")=true )";
                 }
 
                 break;
@@ -721,9 +681,9 @@ var WoofTurboMode_obj = function (data) {
         return show;
     }
 
-    this. search = function (query,recount) {
+    this.search = function (query) {
 
-        return this.do_query(this.get_query(query, this.possible_terms,false,recount));
+        return this.do_query(this.get_query(query, this.possible_terms));
     }
     /* recount */
     this.add_query_recount = function (query, key, value) {
@@ -1415,8 +1375,8 @@ var WoofTurboMode_obj = function (data) {
                     } else {
                         var count_query = Object.assign({}, jQuery.parseJSON(query));
                     }
-                    count_query[meta] = from + "^" + to;
- 
+                    count_query[meta] = from + "-" + to;
+
                     filters_data[index][index_f][0] = {};
                     filters_data[index][index_f][0] = {
                         key: meta,
@@ -1465,7 +1425,6 @@ var WoofTurboMode_obj = function (data) {
                         } else {
                             count_query[tax] = val;
                         }
-
                         filters_data[index][index_f][i] = {};
                         filters_data[index][index_f][i] = {
                             key: tax,
@@ -1598,7 +1557,7 @@ var WoofTurboMode_obj = function (data) {
 
         if (!woof_ajax_redraw) {
 
-            var res_array = this.search(woof_current_values,false);
+            var res_array = this.search(woof_current_values);
             var res = res_array.join(",");
             if (res.length < 1) {
                 res = -1;
@@ -1610,7 +1569,12 @@ var WoofTurboMode_obj = function (data) {
                 return false;
             }
 
-
+            /* compatibility found products count*/
+            var found_count = jQuery('.woof_found_count');
+            jQuery(found_count).show();
+            if (found_count.length > 0) {
+                jQuery(found_count).text(res_array.length);
+            }
             /****/
             woof_show_info_popup(woof_lang_loading);
             woof_ajax_first_done = true;
@@ -1650,19 +1614,6 @@ var WoofTurboMode_obj = function (data) {
                     }
                     jQuery(item).removeAttr('id');
                 });
-                
-                /* compatibility found products count*/
-                var found_count = jQuery('.woof_found_count');
-                jQuery(found_count).show();
-                if (found_count.length > 0) {
-                    var count_prod=jQuery("#woof_results_by_ajax").data('count');
-                    if(typeof count_prod!="undefined"){
-                        jQuery(found_count).text(count_prod);
-                    }
-                    
-                }  
-                
-                
                 //infinite scroll
                 woof_infinite();
                 //*** script after ajax loading here
@@ -1680,10 +1631,7 @@ var WoofTurboMode_obj = function (data) {
                 WoofTurboMode.check_save_query_btn(WoofTurboMode);
                 /*dynamic recount*/
                 if ((WoofTurboMode.show_count && WoofTurboMode.dynamic_recount_val) || (woof_reset_btn_action && WoofTurboMode.show_count)) {
-                    
-                    
                     var filters = WoofTurboMode.dynamic_recount(woof_current_values);
-                   
                     jQuery.each(filters, function (i, filter) {
                         jQuery(".woof_turbo_mode_overlay").show();
                         var filter_count = 0;
@@ -1693,19 +1641,13 @@ var WoofTurboMode_obj = function (data) {
                             if (Object.keys(items).length) {
                                 filter_count = ind;
                             }
-                           
                             jQuery.each(items, function (indx, item) {
                                 /* split streams */
                                 setTimeout(function () {
                                     last = false;
                                     var res = {};
-                                    
                                     if (!item.current) {
-                                        var recount=false;
-                                        if(typeof WoofTurboMode.possible_terms.taxonomies[item.key.replace('rev_','')] !='undefined' && WoofTurboMode.possible_terms.taxonomies[item.key.replace('rev_','')]=="NOT IN"){                                            
-                                            recount=true;
-                                        }                                        
-                                        res = WoofTurboMode.search(item.query,recount);  
+                                        res = WoofTurboMode.search(item.query);
                                         //array unique
                                         res = res.filter((v, i, a) => a.indexOf(v) === i);
                                     } else {
@@ -1768,12 +1710,7 @@ var WoofTurboMode_obj = function (data) {
                                     last = false;
                                     var res = {};
                                     if (!item.current) {
-                                        var recount=false;
-                                        if(typeof WoofTurboMode.possible_terms.taxonomies[item.key.replace('rev_','')] !='undefined' && WoofTurboMode.possible_terms.taxonomies[item.key.replace('rev_','')]=="NOT IN"){                                            
-                                            recount=true;
-                                        }                                        
-                                        res = WoofTurboMode.search(item.query,recount);
-                                        
+                                        res = WoofTurboMode.search(item.query);
                                         //array unique
                                         res = res.filter((v, i, a) => a.indexOf(v) === i);
                                     } else {

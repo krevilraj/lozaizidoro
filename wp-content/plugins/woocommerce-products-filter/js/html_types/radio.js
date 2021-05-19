@@ -18,7 +18,6 @@ function woof_init_radios() {
             var term_id = jQuery(this).data('term-id');
             woof_radio_direct_search(term_id, name, slug);
         });
-        
 
         //this script should be, because another way wrong way of working if to click on the label - removed
         /*
@@ -32,8 +31,7 @@ function woof_init_radios() {
         */
         //***
 
-  
-         
+
     } else {
         jQuery('.woof_radio_term').on('change', function (event) {
             jQuery(this).attr("checked", true);
@@ -61,6 +59,9 @@ function woof_init_radios() {
     });
 }
 
+function woof_radio_check_reset(){
+	
+}
 
 function woof_radio_direct_search(term_id, name, slug) {
 

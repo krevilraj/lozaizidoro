@@ -28,10 +28,7 @@ if (!defined('ABSPATH'))
     public function get_meta_filter_path(){
         return plugin_dir_path(__FILE__);
     }
-    public function get_meta_filter_override_path()
-    {
-        return get_stylesheet_directory(). DIRECTORY_SEPARATOR ."woof". DIRECTORY_SEPARATOR ."ext". DIRECTORY_SEPARATOR .'meta_filter'. DIRECTORY_SEPARATOR ."html_types". DIRECTORY_SEPARATOR .$this->type. DIRECTORY_SEPARATOR;
-    }
+
     public function get_meta_filter_link(){
         return plugin_dir_url(__FILE__);
     }
@@ -53,12 +50,7 @@ if (!defined('ABSPATH'))
         $data['meta_options']= (isset($this->type_options["options"]))?$this->type_options["options"]:"";
         $data['meta_settings']=(isset($this->woof_settings[$this->meta_key]))?$this->woof_settings[$this->meta_key]:"";
         if($this->woof_settings[$this->meta_key]["show"]){
-            if(file_exists($this->get_meta_filter_override_path(). 'views' . DIRECTORY_SEPARATOR . 'woof.php')){
-                echo $this->render_html($this->get_meta_filter_override_path() . 'views' .DIRECTORY_SEPARATOR . 'woof.php', $data);
-            }else{
-                echo  $this->render_html($this->get_meta_filter_path().'/views/woof.php', $data);
-            }              
-            
+            echo  $this->render_html($this->get_meta_filter_path().'/views/woof.php', $data);
         }
     }   
     protected function check_current_request(){

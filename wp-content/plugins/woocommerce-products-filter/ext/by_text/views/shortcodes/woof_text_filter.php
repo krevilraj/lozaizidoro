@@ -9,8 +9,7 @@
 
         if (isset($request['woof_text']))
         {
-            $woof_text = stripslashes($request['woof_text']);
-			//$woof_text = $request['woof_text'];
+            $woof_text = $request['woof_text'];
         }
         //+++
         if (!isset($placeholder))

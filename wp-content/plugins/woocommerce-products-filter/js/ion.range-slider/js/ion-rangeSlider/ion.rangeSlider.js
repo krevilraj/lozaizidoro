@@ -314,8 +314,7 @@
             onStart: null,
             onChange: null,
             onFinish: null,
-            onUpdate: null,
-	    onRedraw: null
+            onUpdate: null
         };
 
 
@@ -1278,8 +1277,6 @@
             if (this.coords.w_rs !== this.coords.w_rs_old) {
                 this.target = "base";
                 this.is_resize = true;
-
-
             }
 
             if (this.coords.w_rs !== this.coords.w_rs_old || this.force_redraw) {
@@ -1354,9 +1351,6 @@
                 if (!this.is_resize && !this.is_update && !this.is_start && !this.is_finish) {
                     this.callOnChange();
                 }
-		if(this.is_resize){
-		    this.callOnRedraw();
-		}
                 if (this.is_key || this.is_click) {
                     this.is_key = false;
                     this.is_click = false;
@@ -1588,11 +1582,6 @@
                 this.options.onUpdate(this.result);
             }
         },
-        callOnRedraw: function () {
-            if (this.options.onRedraw && typeof this.options.onRedraw === "function") {
-                this.options.onRedraw(this.result);
-            }
-        },	
 
 
 

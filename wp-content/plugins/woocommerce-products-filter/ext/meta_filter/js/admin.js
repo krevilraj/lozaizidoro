@@ -1,5 +1,5 @@
 jQuery(function ($) {
-    $('body').on('click','.woof_meta_delete', function () {
+    $('.woof_meta_delete').life('click', function () {
         $(this).parents('li').remove();
         return false;
     });
@@ -50,6 +50,7 @@ jQuery(function ($) {
                     product_id: id
                 },
                 success: function (keys) {
+                    console.log(keys);
                     if (keys.length > 0) {
                         keys = JSON.parse(keys);
                         var html = $('#woof_meta_li_tpl').html();
@@ -80,7 +81,7 @@ jQuery(function ($) {
 
     //***
 
-    $('body').on('change','.woof_meta_view_selector', function () {
+    $('.woof_meta_view_selector').life('change', function () {
         var value = $(this).val();
         var type_selector = $(this).parents('li').find('.woof_meta_type_selector');
         var show_options=$(this).find("option:selected").attr("data-show-options");
@@ -108,7 +109,7 @@ jQuery(function ($) {
         return true;
     });
 	
-	$('body').on('change','.woof_meta_type_selector', function () {
+	$('.woof_meta_type_selector').life('change', function () {
 		 var value = $(this).val();
 		 var type_selector = $(this).parents('li').find('.woof_meta_view_selector');
 		 var curr_type=$(type_selector).find("option:selected");

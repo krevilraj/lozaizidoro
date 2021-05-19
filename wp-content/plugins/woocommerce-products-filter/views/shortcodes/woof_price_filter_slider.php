@@ -109,25 +109,4 @@ if (isset($this->settings['by_price']['price_tax']) AND $this->settings['by_pric
     $max = $max_tax;
 }
 ?>
-<?php
-if($min==$max){
-?>    
-<style>
-    .woof_price_filter{
-        display: none;
-    }
-</style>    
-<?php }?>
-<?php
-
-if(isset($this->settings['by_price']['show_text_input']) AND  $this->settings['by_price']['show_text_input']) {?>
-	<div class="woof_price_filter_txt_slider">
-		<input type="number" class="woof_price_filter_txt woof_price_filter_txt_from" placeholder="<?php echo $min ?>" data-value="<?php echo $min ?>" value="<?php echo $min_price ?>" />&nbsp;
-		<input type="number" class="woof_price_filter_txt woof_price_filter_txt_to" placeholder="<?php echo $max ?>" name="max_price" data-value="<?php echo $max ?>" value="<?php echo $max_price ?>" />
-		<?php if (class_exists('WOOCS')): ?>
-			&nbsp;(<?php echo get_woocommerce_currency_symbol() ?>)
-		<?php endif; ?>
-		<div style="float: none;"></div>	
-	</div>	
-<?php } ?>
 <input class="woof_range_slider" id="<?php echo $uniqid ?>" data-taxes="<?php echo $tax ?>" data-min="<?php echo $min ?>" data-max="<?php echo $max ?>" data-min-now="<?php echo $min_price ?>" data-max-now="<?php echo $max_price ?>" data-step="<?php echo $slider_step ?>" data-slider-prefix="<?php echo $slider_prefix ?>" data-slider-postfix="<?php echo $slider_postfix ?>" value="" />

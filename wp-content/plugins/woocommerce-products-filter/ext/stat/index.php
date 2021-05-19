@@ -2,6 +2,7 @@
 if (!defined('ABSPATH'))
     die('No direct access allowed');
 
+//20-06-2018
 final class WOOF_EXT_STAT extends WOOF_EXT {
 
     private $table_stat_buffer = 'woof_stat_buffer';
@@ -143,10 +144,7 @@ final class WOOF_EXT_STAT extends WOOF_EXT {
     {
         return plugin_dir_path(__FILE__);
     }
-    public function get_ext_override_path()
-    {
-        return get_stylesheet_directory(). DIRECTORY_SEPARATOR ."woof". DIRECTORY_SEPARATOR ."ext". DIRECTORY_SEPARATOR .$this->folder_name. DIRECTORY_SEPARATOR;
-    }
+
     public function get_ext_link()
     {
         return plugin_dir_url(__FILE__);

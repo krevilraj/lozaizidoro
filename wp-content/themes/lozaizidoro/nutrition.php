@@ -14,6 +14,16 @@
 
 <?php
 $datas = array();
+if(get_post_meta(get_the_ID(), 'informacao_nutricional_produto', true)=="" &&  !have_rows('informacao_nutricional')){
+  ?>
+  <style>
+    #tab-title-my_custom_tab{
+        display:none;
+    }
+  </style>
+    <?php
+}
+
 
 if (!has_term(33, 'product_cat')) {
   echo wpautop(get_post_meta(get_the_ID(), 'informacao_nutricional_produto', true));

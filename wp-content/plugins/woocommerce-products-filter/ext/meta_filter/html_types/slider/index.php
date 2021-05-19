@@ -5,10 +5,10 @@ if (!defined('ABSPATH'))
  class WOOF_META_FILTER_SLIDER extends WOOF_META_FILTER_TYPE {
     public $type='slider';
     public $js_func_name="woof_init_meta_slider";
-    public $range="1^100";
+    public $range="1-100";
     public function __construct($key,$options,$woof_settings) {
         parent::__construct($key,$options,$woof_settings);
-        $this->init(); 
+        $this->init();
     } 
     public  function init(){
         add_action('woof_print_html_type_options_' . $this->meta_key,array($this, 'draw_meta_filter_structure'));
@@ -17,7 +17,7 @@ if (!defined('ABSPATH'))
         if(isset($this->woof_settings[$this->meta_key]['range'])){
             $this->range=$this->woof_settings[$this->meta_key]['range'];
         }else{
-            $this->woof_settings[$this->meta_key]['range']="1^100";
+            $this->woof_settings[$this->meta_key]['range']="1-100";
             $this->woof_settings[$this->meta_key]['step']=1;
             $this->woof_settings[$this->meta_key]['prefix']=$this->woof_settings[$this->meta_key]['postfix']="";
         }
@@ -27,10 +27,7 @@ if (!defined('ABSPATH'))
     public function get_meta_filter_path(){
         return plugin_dir_path(__FILE__);
     }
-    public function get_meta_filter_override_path()
-    {
-        return get_stylesheet_directory(). DIRECTORY_SEPARATOR ."woof". DIRECTORY_SEPARATOR ."ext". DIRECTORY_SEPARATOR .'meta_filter'. DIRECTORY_SEPARATOR ."html_types". DIRECTORY_SEPARATOR .$this->type. DIRECTORY_SEPARATOR;
-    }
+
     public function get_meta_filter_link(){
         return plugin_dir_url(__FILE__);
     }
@@ -53,12 +50,7 @@ if (!defined('ABSPATH'))
         $data['meta_settings']= $data['meta_options']= (isset($this->woof_settings[$this->meta_key]))?$this->woof_settings[$this->meta_key]:"";
         $data['range']=$this->range;
         if(isset($this->woof_settings[$this->meta_key]["show"]) AND $this->woof_settings[$this->meta_key]["show"]){
-
-            if(file_exists($this->get_meta_filter_override_path(). 'views' . DIRECTORY_SEPARATOR . 'woof.php')){
-                echo $this->render_html($this->get_meta_filter_override_path() . 'views' .DIRECTORY_SEPARATOR . 'woof.php', $data);
-            }else{
-                echo  $this->render_html($this->get_meta_filter_path().'/views/woof.php', $data);
-            }
+            echo  $this->render_html($this->get_meta_filter_path().'/views/woof.php', $data);
         }
     }    
     protected function draw_additional_options(){
@@ -79,14 +71,14 @@ if (!defined('ABSPATH'))
         $curr_request=$this->check_current_request();
         if($curr_request){  
             $curr_range=array();
-            $curr_range=explode("^",$curr_request);
+            $curr_range=explode("-",$curr_request);
             $from=0;
             $to=0;
             $from= floatval($curr_range[0]); 
             if(count($curr_range)>1){
                 $to= floatval($curr_range[1]);                 
             }else{
-                $range=explode("^",$this->range,2);
+                $range=explode("-",$this->range,2);
                 $to=$range[1];
             }
             $type=apply_filters('woof_slider_meta_query_type','numeric',$this->meta_key);
@@ -109,7 +101,7 @@ if (!defined('ABSPATH'))
         $value_txt="";
         $prefix="";
         $postfix="";
-        $arr_val= explode("^", $value,2);
+        $arr_val= explode("-", $value,2);
         if(count($arr_val)>1){
             if($key){
                 $meta_key=str_replace("slider_", "",$key);

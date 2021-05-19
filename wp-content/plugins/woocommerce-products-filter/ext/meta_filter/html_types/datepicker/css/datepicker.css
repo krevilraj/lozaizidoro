@@ -221,6 +221,3 @@ table.ui-datepicker-calendar th{
 .woof_meta_datepicker_container{
     position: relative;
 }
-body .ui-datepicker{
-    z-index: 99999 !important;
-}
