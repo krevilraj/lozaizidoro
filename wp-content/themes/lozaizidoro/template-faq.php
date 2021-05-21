@@ -14,16 +14,14 @@ if (have_posts()):
   // Load posts loop
   while (have_posts()): the_post();
     ?>
-    <section class="all-header">
+    <section class="all-header__faq">
       <h1><?php the_title() ?></h1>
     </section>
-    <div class="content-area">
+    <div class="content-area__faq">
       <main class=" default-page1">
         <div class="container">
-
-
           <section class="izidoro__faq">
-            <h2><i class="fa fa-question-circle"></i>PRODUTOS</h2>
+            <h2><i class="fa fa-question"></i>PRODUTOS</h2>
             <?php if (have_rows('produtos_faq')): ?>
               <div class="accordian">
                 <div class="panel-group" id="accordion">
@@ -58,7 +56,7 @@ if (have_posts()):
           </section>
 
           <section class="izidoro__faq">
-            <h2><i class="fa fa-question-circle"></i>ENTREGA</h2>
+            <h2><i class="fa fa-question"></i>ENTREGA</h2>
             <?php if (have_rows('entrega_faq')): ?>
               <div class="accordian">
                 <div class="panel-group" id="accordion1">
@@ -92,7 +90,7 @@ if (have_posts()):
             <?php endif; ?>
           </section>
           <section class="izidoro__faq">
-            <h2><i class="fa fa-question-circle"></i>PAGAMENTOS</h2>
+            <h2><i class="fa fa-question"></i>PAGAMENTOS</h2>
             <?php if (have_rows('entrega_faq')): ?>
               <div class="accordian">
                 <div class="panel-group" id="accordion2">

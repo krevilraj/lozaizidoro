@@ -676,7 +676,7 @@ button:hover{
 .ocharcuteiro .product-list{
 	padding-right: 30px;
 	padding-left: 30px;
-	padding-top: 17%;
+	padding-top: 15%;
 }
 .ocharcuteiro .product-list h3{
 	color: #fff;
@@ -1793,8 +1793,8 @@ a.reset_variations{
 	margin-bottom: 55px;
 }
 
-.izidoro__faq h2 i {
-	padding-right: 20px;
+.izidoro__faq h2 i{
+	margin-right: 20px;
 }
 .izidoro__faq h2{
 	font-weight: 900;
@@ -1802,6 +1802,7 @@ a.reset_variations{
 	text-transform: uppercase;
 	color: red;
 	font-family: 'Tungsten Rounded semibold';
+
 }
 
 .izidoro__faq a {
@@ -1810,4 +1811,38 @@ a.reset_variations{
 	text-decoration: none;
 	font-size: 2rem;
 }
+.izidoro__faq p {
+	font-size: 1.3rem;
+}
+.izidoro__faq  .panel  {
+	border-bottom: 1px solid #f39a96;
+}
 
+.izidoro__faq .fa-question{
+	border: 2px solid red;
+	text-align: center;
+	height: 50px;
+	width: 50px;
+	height: 50px;
+	width: 50px;
+	line-height: 50px;
+	border-radius: 50px;
+}
+
+.izidoro__faq  .pull-right {
+	color: var(--red-color);
+}
+
+.all-header__faq {
+	margin-top: 20%;
+	text-align: center;
+	padding-bottom: 5%;
+}
+
+.all-header__faq h1{
+	color: var(--red-color);
+	font-size: 3rem;
+}
+.coupon {
+	display: flex;
+}

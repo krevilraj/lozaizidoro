@@ -100,6 +100,7 @@
     display:flex;
     gap:10px;
     justify-content:center;
+    flex-wrap: wrap;
 }
 .basketbox li{
     list-style:none;
@@ -334,6 +335,7 @@ width: 100%;
 	
 	.woocommerce-page table.cart td.actions .coupon .button {
 		width:90%;
+        float: unset !important
 	}
 	.woocommerce-page table.cart td.actions .button{
 		width:90%;
