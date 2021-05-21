@@ -172,5 +172,28 @@ function dc_add_deliveries_option()
   </div>
   <?php
 
+  /**
+   * Add a custom field (in an order) to the emails
+   */
+  add_filter( 'woocommerce_email_order_meta_fields', 'custom_woocommerce_email_order_morning_option', 10, 3 );
+
+  function custom_woocommerce_email_order_morning_option( $fields, $sent_to_admin, $order ) {
+    $fields['morning_option'] = array(
+      'label' => __( 'Manhã 9h-12h' ),
+      'value' => get_post_meta( $order->id, 'morning_option', true ),
+    );
+    return $fields;
+  }
+
+  add_filter( 'woocommerce_email_order_meta_fields', 'custom_woocommerce_email_order_dawn_option', 10, 3 );
+
+  function custom_woocommerce_email_order_dawn_option( $fields, $sent_to_admin, $order ) {
+    $fields['dawn_option'] = array(
+      'label' => __( 'Tarde 16h-20h' ),
+      'value' => get_post_meta( $order->id, 'dawn_option', true ),
+    );
+    return $fields;
+  }
+
 }
 

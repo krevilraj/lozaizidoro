@@ -25,7 +25,7 @@ do_action('woocommerce_before_cart'); ?>
     <form class="woocommerce-cart-form col-12 col-sm-12 col-md-8" action="<?php echo esc_url(wc_get_cart_url()); ?>"
           method="post">
       <a href="<?php echo wc_get_page_permalink('shop') ?>">
-        <button class="button continue-btn"><i class="fa fa-angle-double-left"></i> Continuar a Comprar</button>
+        <button class="button continue-btn" type="button"><i class="fa fa-angle-double-left"></i> Continuar a Comprar</button>
       </a>
       <?php do_action('woocommerce_before_cart_table'); ?>
 
