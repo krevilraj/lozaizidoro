@@ -83,6 +83,16 @@ $(document).ready(function () {
     return false;
   });
 
+  $("#searchicon").click(function(e){
+
+    var searchtext = $('input[name=s]').val();
+    if(searchtext ===""){
+      $('#search-wrapper').slideToggle();
+    }else{
+      $('#search-wrapper').find('form').submit();
+    }
+  });
+
 });
 
 
