@@ -176,16 +176,20 @@ do_action('woocommerce_before_cart'); ?>
 
     <?php do_action('woocommerce_before_cart_collaterals'); ?>
 
-    <div class="cart-collaterals1 col-12 col-sm-12 col-md-4">
-      <?php
-      /**
-       * Cart collaterals hook.
-       *
-       * @hooked woocommerce_cross_sell_display
-       * @hooked woocommerce_cart_totals - 10
-       */
-      do_action('woocommerce_cart_collaterals');
-      ?>
+
+    <div class="col-12 col-sm-12 col-md-4 cart__class_new">
+        <div class="cart-collaterals1 ">
+        <?php
+        /**
+         * Cart collaterals hook.
+         *
+         * @hooked woocommerce_cross_sell_display
+         * @hooked woocommerce_cart_totals - 10
+         */
+        do_action('woocommerce_cart_collaterals');
+        ?>
+    </div>
+
     </div>
   </div>
 </div>

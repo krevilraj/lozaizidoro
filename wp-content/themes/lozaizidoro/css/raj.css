@@ -303,7 +303,7 @@ ul.products li.product:hover a button{
 max-width: 80px;
 width: 100%;
 }
-@media (max-width: 575.98px) { 
+@media (max-width: 767.98px) {
 
 	.related ul {
 		display:flex;

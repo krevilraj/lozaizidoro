@@ -164,9 +164,18 @@
 	.offer__item:first-child{
 		text-align:center;
 	}
-	
 
+/*    new*/
 
+    .cart__class_new {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .checkout__class_new{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 
 }
 
