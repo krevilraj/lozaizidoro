@@ -1762,12 +1762,52 @@ a.reset_variations{
 		color:#fff;
 	}
 
-#some-heading{
+.fancybox-content{
 	width: 50%;
-	background: rgb(255,165,0);
-	background: linear-gradient(90deg, rgba(255,165,0,1) 0%, rgba(255,195,85,1) 46%, rgba(255,165,0,1) 100%);
+	background: rgb(255,165,0) !important;
+	background: linear-gradient(90deg, rgba(255,165,0,1) 0%, rgba(255,195,85,1) 46%, rgba(255,165,0,1) 100%) !important;
 	color:#fff;
 }
 
+/* onsale-home */
 
+.onsale-home {
+	background-color: var(--yellow);
+	width: 150px;
+	border-radius: 39px;
+	font-family: 'Tungsten Rounded medium';
+	font-size: 1.9rem;
+	text-transform: uppercase;
+	left: unset;
+	top: 26px !important;
+	min-height: 4rem;
+	line-height: 4rem;
+	padding: unset;
+	right: 0;
+	position: absolute;
+}
+
+
+/*  ============= Faq page Css  ================  */
+.izidoro__faq {
+	margin-bottom: 55px;
+}
+
+.izidoro__faq h2 i {
+	padding-right: 20px;
+}
+.izidoro__faq h2{
+	font-weight: 900;
+	font-size: 2.75rem;
+	text-transform: uppercase;
+	color: red;
+	font-family: 'Tungsten Rounded semibold';
+}
+
+.izidoro__faq a {
+	font-family: 'Tungsten Rounded light';
+	color: #000;
+	text-decoration: none;
+	font-size: 2rem;
+}
 

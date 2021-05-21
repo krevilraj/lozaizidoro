@@ -22,7 +22,7 @@ if (have_posts()):
         <div class="container">
 
 
-          <section>
+          <section class="izidoro__faq">
             <h2><i class="fa fa-question-circle"></i>PRODUTOS</h2>
             <?php if (have_rows('produtos_faq')): ?>
               <div class="accordian">
@@ -37,13 +37,16 @@ if (have_posts()):
                           <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
                              href="#produtos_<?php echo $i; ?>">
                             <?php echo $question; ?>
-                          </a><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
-                                 href="#produtos_<?php echo $i; ?>"><i class="indicator fa fa-caret-down  pull-right"></i></a>
+                          </a>
+                          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
+                             href="#produtos_<?php echo $i; ?>">
+                            <i class="indicator fa fa-caret-down  pull-right"></i>
+                          </a>
                         </h4>
                       </div>
                       <div id="produtos_<?php echo $i; ?>" class="panel-collapse collapse in">
                         <div class="panel-body">
-                          <?php echo $answer; ?>
+                          <p> <?php echo $answer; ?></p>
                         </div>
                       </div>
                     </div>
@@ -54,7 +57,7 @@ if (have_posts()):
             <?php endif; ?>
           </section>
 
-          <section>
+          <section class="izidoro__faq">
             <h2><i class="fa fa-question-circle"></i>ENTREGA</h2>
             <?php if (have_rows('entrega_faq')): ?>
               <div class="accordian">
@@ -73,11 +76,12 @@ if (have_posts()):
                           <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
                              href="#entrega_<?php echo $i; ?>"><i
                                 class="indicator fa fa-caret-down  pull-right"></i></a>
+
                         </h4>
                       </div>
                       <div id="entrega_<?php echo $i; ?>" class="panel-collapse collapse in">
                         <div class="panel-body">
-                          <?php echo $answer; ?>
+                          <p><?php echo $answer; ?></p>
                         </div>
                       </div>
                     </div>
@@ -87,8 +91,7 @@ if (have_posts()):
               </div>
             <?php endif; ?>
           </section>
-
-          <section>
+          <section class="izidoro__faq">
             <h2><i class="fa fa-question-circle"></i>PAGAMENTOS</h2>
             <?php if (have_rows('entrega_faq')): ?>
               <div class="accordian">
@@ -103,8 +106,9 @@ if (have_posts()):
                           <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
                              href="#pagamentos_<?php echo $i; ?>">
                             <?php echo $question; ?>
-                          </a><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
-                                 href="#pagamentos_<?php echo $i; ?>"><i class="indicator fa fa-caret-down  pull-right"></i></a>
+                          </a>
+                          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
+                             href="#pagamentos_<?php echo $i; ?>"><i class="indicator fa fa-caret-down  pull-right"></i></a>
                         </h4>
                       </div>
                       <div id="pagamentos_<?php echo $i; ?>" class="panel-collapse collapse in">

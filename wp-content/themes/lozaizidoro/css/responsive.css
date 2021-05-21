@@ -150,16 +150,8 @@
         justify-content: center;
     }
 
-    .shop-product-list .products {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
 
-    .woocommerce ul.products[class*="columns-"] li.product, .woocommerce-page ul.products[class*="columns-"] li.product {
-        width: 80%;
-    }
+
 
 	.offer__item:first-child{
 		text-align:center;

@@ -186,7 +186,7 @@ foreach ($slug as $cat_slug) {
                         if($product->sale_price!=""){
                           $percentage = round( ( ( doubleval($product->regular_price) - doubleval($product->sale_price )) / doubleval($product->regular_price )) * 100 ).'%';
                           $disc_amt = round( ( ( doubleval($product->regular_price) - doubleval($product->sale_price) ) )  ).'';
-                          $output =' <span class="onsale"> Poupe '.$disc_amt.'€</span>';
+                          $output =' <span class="onsale-home"> Poupe '.$disc_amt.'€</span>';
                           echo $output;
                         }
 
@@ -284,7 +284,7 @@ foreach ($slug as $cat_slug) {
                         if($product->sale_price!=""){
                           $percentage = round( ( ( doubleval($product->regular_price) - doubleval($product->sale_price )) / doubleval($product->regular_price )) * 100 ).'%';
                           $disc_amt = round( ( ( doubleval($product->regular_price) - doubleval($product->sale_price) ) )  ).'';
-                          $output =' <span class="onsale"> Poupe '.$disc_amt.'€</span>';
+                          $output =' <span class="onsale-home"> Poupe '.$disc_amt.'€</span>';
                           echo $output;
                         }
 
