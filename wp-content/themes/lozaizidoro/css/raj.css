@@ -197,15 +197,16 @@ ins{
     font-family: 'Tungsten Rounded medium';
     font-size: 1.9rem;
     text-transform: uppercase;
-
-}
-
-.woocommerce span.onsale {
-    top:unset !important;
+    left:unset;
+    top: 26px !important;
     min-height: 4rem;
     line-height: 4rem;
     padding: unset;
+    right: 0;
+
 }
+
+
 
 .woocommerce-cart .woocommerce-Price-amount.amount {
     color:#000;
