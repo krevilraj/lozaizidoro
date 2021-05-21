@@ -36,7 +36,7 @@ get_header();
 
           <h2><?php echo get_theme_mod('offer_title_setting'); ?> </h2>
 
-          <button class="offer__btn"><a href="<?php echo get_theme_mod('offer_link_setting_control'); ?> ">VER
+          <button class="offer__btn"><a href="<?php echo get_theme_mod('offer_link_setting'); ?> ">VER
               PRODUTOS</a></button>
           <!--  show pen for edit  -->
           <span id="first_offer_edit"></span>

@@ -3,6 +3,11 @@ var $ = jQuery.noConflict();
 $('.hamburger').click(function () {
   $(this).toggleClass("click");
   $('.sidebar').toggleClass('show');
+  if ($(".sidebar").hasClass("show")) {
+    $('#filtros').delay(2000).hide();
+  }else{
+    $('#filtros').delay(2000).show();
+  }
 });
 
 // this if for menu after slide 
