@@ -348,3 +348,12 @@ width: 100%;
 
 }
 
+/********************Shop page **************************/
+
+.cat_shop .price del span{
+    color:#212529;
+    opacity:0.7;
+}
+.cat_shop .price ins span,.cat_shop .price span,.cat_shop .woocommerce-loop-product__title{
+    color:#212529 !important;
+}

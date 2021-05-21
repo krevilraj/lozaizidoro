@@ -333,7 +333,7 @@ function li_my_simple_custom_tab_content1($slug, $tab)
               display:none;
           }
       </style>
-  <?php endif;?>
+    <?php endif;?>
     <p><?php echo wpautop(get_post_meta(get_the_ID(), 'modo_de_preparacao', true)); ?></p>
   </div>
   <?php
@@ -422,11 +422,11 @@ function li_add_icons_in_single_page()
         $sub_value = get_sub_field('icon_image'); ?>
 
 
-             <div class="col-md-3 col-4">
-                 <div class="product-icon">
-                 <img src="<?php echo $sub_value; ?>" alt="" class="img-fluid top-logo">
-             </div>
-         </div>
+        <div class="col-md-3 col-4">
+          <div class="product-icon">
+            <img src="<?php echo $sub_value; ?>" alt="" class="img-fluid top-logo">
+          </div>
+        </div>
 
 
       <?php
@@ -498,14 +498,14 @@ add_action( 'woocommerce_register_form', 'wpglorify_add_registration_privacy_pol
 
 function wpglorify_add_registration_privacy_policy() {
 
-    woocommerce_form_field( 'privacy_policy_reg', array(
-        'type'          => 'checkbox',
-        'class'         => array('form-row privacy'),
-        'label_class'   => array('woocommerce-form__label woocommerce-form__label-for-checkbox checkbox'),
-        'input_class'   => array('woocommerce-form__input woocommerce-form__input-checkbox input-checkbox'),
-        'required'      => true,
-        'label'         => 'I have read and accept the <a href="/politica-de-privacidade/"> Privacy Policy</a>.',
-    ));
+  woocommerce_form_field( 'privacy_policy_reg', array(
+    'type'          => 'checkbox',
+    'class'         => array('form-row privacy'),
+    'label_class'   => array('woocommerce-form__label woocommerce-form__label-for-checkbox checkbox'),
+    'input_class'   => array('woocommerce-form__input woocommerce-form__input-checkbox input-checkbox'),
+    'required'      => true,
+    'label'         => 'I have read and accept the <a href="/politica-de-privacidade/"> Privacy Policy</a>.',
+  ));
 
 }
 
@@ -513,10 +513,10 @@ function wpglorify_add_registration_privacy_policy() {
 add_filter( 'woocommerce_registration_errors', 'wpglorify_validate_privacy_registration', 10, 3 );
 
 function wpglorify_validate_privacy_registration( $errors, $username, $email ) {
-    if ( ! (int) isset( $_POST['privacy_policy_reg'] ) ) {
-        $errors->add( 'privacy_policy_reg_error', __( 'É necessário consentimento da Política de Privacidade!', 'woocommerce' ) );
-    }
-    return $errors;
+  if ( ! (int) isset( $_POST['privacy_policy_reg'] ) ) {
+    $errors->add( 'privacy_policy_reg_error', __( 'É necessário consentimento da Política de Privacidade!', 'woocommerce' ) );
+  }
+  return $errors;
 }
 
 //Add to cart to view product
@@ -534,3 +534,29 @@ function ts_replace_add_to_cart_button( $button, $product ) {
   }
 }
 
+//order minium amount
+
+add_action( 'woocommerce_check_cart_items', 'required_min_cart_subtotal_amount' );
+function required_min_cart_subtotal_amount() {
+
+  // HERE Set minimum cart total amount
+  $minimum_amount = 10;
+
+  // Total (before taxes and shipping charges)
+  $cart_subtotal = WC()->cart->subtotal;
+
+  // Add an error notice is cart total is less than the minimum required
+  if( $cart_subtotal < $minimum_amount  ) {
+    // Display an error message
+    wc_add_notice( '<strong>' . sprintf( __("A encomenda minima e %s."), wc_price($minimum_amount) ) . '<strong>', 'error' );
+  }
+}
+add_filter( 'woocommerce_get_image_size_gallery_thumbnail', function( $size ) {
+  return array(
+    'width' => 150,
+    'height' => 150,
+    'crop' => 0,
+  );
+} );
+//force shop to show 3 column
+add_filter('loop_shop_columns',function(){return 3;});

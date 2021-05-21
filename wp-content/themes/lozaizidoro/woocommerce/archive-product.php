@@ -91,7 +91,7 @@ if (isset($category->term_id)) {
         </div>
         <!--col-lg-9 pull-lg-3 col-md-8 pull-md-4 col-sm-7 pull-sm-5 col-12 shop-product-list 			 -->
         <div
-            class=" col-lg-9 pull-lg-3 col-md-12 pull-md-4 col-sm-12 pull-sm-5 col-12 shop-product-list category-product">
+            class=" col-lg-9 pull-lg-3 col-md-12 pull-md-4 col-sm-12 pull-sm-5 col-12 shop-product-list category-product <?php if (!isset($category->term_id)) {echo 'cat_shop';}?>">
           <div class="sorting">
             <?php
             if (woocommerce_product_loop()) {
