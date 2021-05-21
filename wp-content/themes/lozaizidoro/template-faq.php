@@ -22,7 +22,7 @@ if (have_posts()):
         <div class="container">
 
 
-          <section>
+          <section class="izidoro__faq">
             <h2><i class="fa fa-question-circle"></i>PRODUTOS</h2>
             <?php if (have_rows('produtos_faq')): ?>
               <div class="accordian">
@@ -53,7 +53,7 @@ if (have_posts()):
             <?php endif; ?>
           </section>
 
-          <section>
+          <section class="izidoro__faq">
             <h2><i class="fa fa-question-circle"></i>ENTREGA</h2>
             <?php if (have_rows('entrega_faq')): ?>
               <div class="accordian">
@@ -83,8 +83,7 @@ if (have_posts()):
               </div>
             <?php endif; ?>
           </section>
-
-          <section>
+          <section class="izidoro__faq">
             <h2><i class="fa fa-question-circle"></i>PAGAMENTOS</h2>
             <?php if (have_rows('entrega_faq')): ?>
               <div class="accordian">
@@ -104,7 +103,7 @@ if (have_posts()):
                       </div>
                       <div id="pagamentos_<?php echo $i;?>" class="panel-collapse collapse in">
                         <div class="panel-body">
-                          <?php echo $answer; ?>
+                        <?php echo $answer; ?>
                         </div>
                       </div>
                     </div>

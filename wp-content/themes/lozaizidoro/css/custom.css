@@ -1786,5 +1786,28 @@ a.reset_variations{
 	right: 0;
 	position: absolute;
 }
+
+
+/*  ============= Faq page Css  ================  */
+.izidoro__faq {
+	margin-bottom: 55px;
+}
+
+.izidoro__faq h2 i {
+	padding-right: 20px;
+}
+.izidoro__faq h2{
+	font-weight: 900;
+	font-size: 2.75rem;
+	text-transform: uppercase;
+	color: red;
+	font-family: 'Tungsten Rounded semibold';
+}
+
+.izidoro__faq a {
+	font-family: 'Tungsten Rounded light';
+	color: #000;
+	text-decoration: none;
+	font-size: 2rem;
 }
 
