@@ -194,9 +194,9 @@ ins{
     background-color:var(--yellow);
     width: 150px;
     border-radius: 39px;
-
     font-family: 'Tungsten Rounded medium';
-    font-size: 1.6rem;
+    font-size: 1.9rem;
+    text-transform: uppercase;
 
 }
 
@@ -204,6 +204,7 @@ ins{
     top:unset !important;
     min-height: 4rem;
     line-height: 4rem;
+    padding: unset;
 }
 
 .woocommerce-cart .woocommerce-Price-amount.amount {
@@ -296,6 +297,24 @@ ul.products li.product:hover a button{
     font-size: 16px;
     text-transform: unset;
 }
+/******************Search***********************/
+.dgwt-wcas-sf-wrapp input[type=search].dgwt-wcas-search-input{
+    height:51px;
+    border-radius:5rem;
+}
+.search-wrapper{
+    position: absolute;
+    right: 64px;
+    top: -18px;
+    display:none;
+}
+.dgwt-wcas-suggestions-wrapp{
+    margin-top:5px;
+    border-radius:15px;
+}
+.dgwt-wcas-open .dgwt-wcas-sf-wrapp input[type=search].dgwt-wcas-search-input{
+    border-radius:5rem;
+}
 
 
 .woocommerce-checkout-payment img{
@@ -303,7 +322,8 @@ ul.products li.product:hover a button{
 max-width: 80px;
 width: 100%;
 }
-@media (max-width: 767.98px) {
+
+@media (max-width: 575.98px) {
 
 	.related ul {
 		display:flex;
