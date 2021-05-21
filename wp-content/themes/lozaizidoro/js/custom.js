@@ -131,3 +131,9 @@ function toggleChevron(e) {
 }
 $('#accordion').on('hidden.bs.collapse', toggleChevron);
 $('#accordion').on('shown.bs.collapse', toggleChevron);
+
+$('#accordion1').on('hidden.bs.collapse', toggleChevron);
+$('#accordion1').on('shown.bs.collapse', toggleChevron);
+
+$('#accordion2').on('hidden.bs.collapse', toggleChevron);
+$('#accordion2').on('shown.bs.collapse', toggleChevron);

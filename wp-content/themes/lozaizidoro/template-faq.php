@@ -27,7 +27,7 @@ if (have_posts()):
             <?php if (have_rows('produtos_faq')): ?>
               <div class="accordian">
                 <div class="panel-group" id="accordion">
-                  <?php $i = 0;?>
+                  <?php $i = 0; ?>
                   <?php while (have_rows('produtos_faq')) : the_row();
                     $question = get_sub_field('question');
                     $answer = get_sub_field('answer'); ?>
@@ -35,18 +35,19 @@ if (have_posts()):
                       <div class="panel-heading">
                         <h4 class="panel-title">
                           <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
-                             href="#produtos_<?php echo $i;?>">
+                             href="#produtos_<?php echo $i; ?>">
                             <?php echo $question; ?>
-                          </a><i class="indicator fa fa-caret-down  pull-right"></i>
+                          </a><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
+                                 href="#produtos_<?php echo $i; ?>"><i class="indicator fa fa-caret-down  pull-right"></i></a>
                         </h4>
                       </div>
-                      <div id="produtos_<?php echo $i;?>" class="panel-collapse collapse in">
+                      <div id="produtos_<?php echo $i; ?>" class="panel-collapse collapse in">
                         <div class="panel-body">
                           <?php echo $answer; ?>
                         </div>
                       </div>
                     </div>
-                  <?php $i++; endwhile; ?>
+                    <?php $i++; endwhile; ?>
 
                 </div>
               </div>
@@ -57,8 +58,8 @@ if (have_posts()):
             <h2><i class="fa fa-question-circle"></i>ENTREGA</h2>
             <?php if (have_rows('entrega_faq')): ?>
               <div class="accordian">
-                <div class="panel-group" id="accordion">
-                  <?php $i = 0;?>
+                <div class="panel-group" id="accordion1">
+                  <?php $i = 0; ?>
                   <?php while (have_rows('entrega_faq')) : the_row();
                     $question = get_sub_field('question1');
                     $answer = get_sub_field('answer1'); ?>
@@ -66,18 +67,21 @@ if (have_posts()):
                       <div class="panel-heading">
                         <h4 class="panel-title">
                           <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
-                             href="#entrega_<?php echo $i;?>">
+                             href="#entrega_<?php echo $i; ?>">
                             <?php echo $question; ?>
-                          </a><i class="indicator fa fa-caret-down  pull-right"></i>
+                          </a>
+                          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
+                             href="#entrega_<?php echo $i; ?>"><i
+                                class="indicator fa fa-caret-down  pull-right"></i></a>
                         </h4>
                       </div>
-                      <div id="entrega_<?php echo $i;?>" class="panel-collapse collapse in">
+                      <div id="entrega_<?php echo $i; ?>" class="panel-collapse collapse in">
                         <div class="panel-body">
                           <?php echo $answer; ?>
                         </div>
                       </div>
                     </div>
-                  <?php $i++; endwhile; ?>
+                    <?php $i++; endwhile; ?>
 
                 </div>
               </div>
@@ -88,8 +92,8 @@ if (have_posts()):
             <h2><i class="fa fa-question-circle"></i>PAGAMENTOS</h2>
             <?php if (have_rows('entrega_faq')): ?>
               <div class="accordian">
-                <div class="panel-group" id="accordion">
-                  <?php $i = 0;?>
+                <div class="panel-group" id="accordion2">
+                  <?php $i = 0; ?>
                   <?php while (have_rows('pagamentos_faq')) : the_row();
                     $question = get_sub_field('question2');
                     $answer = get_sub_field('answer2'); ?>
@@ -97,18 +101,19 @@ if (have_posts()):
                       <div class="panel-heading">
                         <h4 class="panel-title">
                           <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
-                             href="#pagamentos_<?php echo $i;?>">
+                             href="#pagamentos_<?php echo $i; ?>">
                             <?php echo $question; ?>
-                          </a><i class="indicator fa fa-caret-down  pull-right"></i>
+                          </a><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
+                                 href="#pagamentos_<?php echo $i; ?>"><i class="indicator fa fa-caret-down  pull-right"></i></a>
                         </h4>
                       </div>
-                      <div id="pagamentos_<?php echo $i;?>" class="panel-collapse collapse in">
+                      <div id="pagamentos_<?php echo $i; ?>" class="panel-collapse collapse in">
                         <div class="panel-body">
-                          <?php echo $answer; ?>
+                          <p><?php echo $answer; ?></p>
                         </div>
                       </div>
                     </div>
-                  <?php $i++; endwhile; ?>
+                    <?php $i++; endwhile; ?>
 
                 </div>
               </div>
