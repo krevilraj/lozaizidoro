@@ -1769,5 +1769,22 @@ a.reset_variations{
 	color:#fff;
 }
 
+/* onsale-home */
 
+.onsale-home {
+	background-color: var(--yellow);
+	width: 150px;
+	border-radius: 39px;
+	font-family: 'Tungsten Rounded medium';
+	font-size: 1.9rem;
+	text-transform: uppercase;
+	left: unset;
+	top: 26px !important;
+	min-height: 4rem;
+	line-height: 4rem;
+	padding: unset;
+	right: 0;
+	position: absolute;
+}
+}
 
