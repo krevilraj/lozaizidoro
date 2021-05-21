@@ -87,6 +87,7 @@ $(document).ready(function () {
 
     var searchtext = $('input[name=s]').val();
     if(searchtext ===""){
+      $('#search-wrapper').find('.js-dgwt-wcas-enable-mobile-form').click();
       $('#search-wrapper').slideToggle();
     }else{
       $('#search-wrapper').find('form').submit();
@@ -120,3 +121,13 @@ $(document).on({
 
 
 
+function toggleChevron(e) {
+  $(e.target)
+    .prev('.panel-heading')
+    .find("i.indicator")
+    .toggleClass('fa-caret-up');
+
+
+}
+$('#accordion').on('hidden.bs.collapse', toggleChevron);
+$('#accordion').on('shown.bs.collapse', toggleChevron);
