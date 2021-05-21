@@ -327,6 +327,13 @@ function li_my_simple_custom_tab_content1($slug, $tab)
 
   ?>
   <div style="text-align:left">
+    <?php if(get_post_meta(get_the_ID(), 'modo_de_preparacao', true)=="" ):?>
+      <style>
+          #tab-title-my_custom_tab1{
+              display:none;
+          }
+      </style>
+  <?php endif;?>
     <p><?php echo wpautop(get_post_meta(get_the_ID(), 'modo_de_preparacao', true)); ?></p>
   </div>
   <?php
@@ -338,6 +345,13 @@ function li_my_simple_custom_tab_content2($slug, $tab)
 
   ?>
   <div style="text-align:left">
+    <?php if(get_post_meta(get_the_ID(), 'conservacao', true)=="" ):?>
+      <style>
+          #tab-title-my_custom_tab2{
+              display:none;
+          }
+      </style>
+    <?php endif;?>
     <p><?php echo wpautop(get_post_meta(get_the_ID(), 'conservacao', true)); ?></p>
   </div>
   <?php
@@ -349,6 +363,13 @@ function li_my_simple_custom_tab_content3($slug, $tab)
 
   ?>
   <div style="text-align:left">
+    <?php if(get_post_meta(get_the_ID(), 'outros', true)=="" ):?>
+      <style>
+          #tab-title-my_custom_tab3{
+              display:none;
+          }
+      </style>
+    <?php endif;?>
     <p><?php echo wpautop(get_post_meta(get_the_ID(), 'outros', true)); ?></p>
   </div>
   <?php
