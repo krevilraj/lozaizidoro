@@ -87,6 +87,7 @@
     <div class="search-container searchbox__header">
       <label for="search" class="fa fa-search"></label>
       <input type="search" name="" placeholder="Search" id="search">
+      <?php echo do_shortcode('[fibosearch]'); ?>
     </div>
   </div>
 </header>

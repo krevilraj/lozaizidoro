@@ -161,6 +161,10 @@
         width: 80%;
     }
 
+	.offer__item:first-child{
+		text-align:center;
+	}
+	
 
 
 

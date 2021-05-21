@@ -236,7 +236,7 @@ ins{
 .woocommerce ul.products li.product .woocommerce-loop-category__title, .woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce ul.products li.product h3{
     font-size:2.3rem !important;
     font-family: 'Tungsten Rounded medium';
-    color: var(--purple-color)
+    color: #fff;
 }
 .single .woocommerce-Price-amount.amount{
     color:var(--red);
@@ -295,5 +295,35 @@ ul.products li.product:hover a button{
     font-family: inherit;
     font-size: 16px;
     text-transform: unset;
+}
+
+
+.woocommerce-checkout-payment img{
+	height: auto;
+max-width: 80px;
+width: 100%;
+}
+@media (max-width: 575.98px) { 
+
+	.related ul {
+		display:flex;
+		justify-content:center;
+		flex-wrap:wrap;
+	}
+	
+	.woocommerce-page table.cart td.actions .coupon .button {
+		width:90%;
+	}
+	.woocommerce-page table.cart td.actions .button{
+		width:90%;
+		margin:auto;
+	}
+	
+	.woocommerce-cart table.cart td.actions .coupon .input-text {
+		width:90%;
+		max-width:unset;
+	}
+
+
 }
 

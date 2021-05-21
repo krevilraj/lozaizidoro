@@ -297,6 +297,7 @@ button:hover{
 	left: -250px;
 	background: var(--red-color);
 	transition: left 0.4s ease;
+	z-index: 99999;
 }
 .header__menu .sidebar.show{
 	left: 0px;
@@ -927,6 +928,7 @@ button:hover{
 .widget_shopping_cart_content ul li a {
 	display: block;
 	font-size: 14px;
+	font-weight:bold !important;
 }
 .widget_shopping_cart_content:before {
 	position: absolute;
@@ -1750,4 +1752,14 @@ a.reset_variations{
 .woocommerce-cart-wrap .cart.shop_table td.actions {
 	padding-top: 44px;
 }
+
+
+
+	.offer__item:first-child button{
+		background-color:red;
+	}
+.offer__item:first-child button a{
+		color:#fff;
+	}
+
 
