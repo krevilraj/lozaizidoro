@@ -280,10 +280,14 @@ foreach ($slug as $cat_slug) {
                     <div class="product__image">
                       <?php
                       if ($product->is_type('simple')) { //if simple product
+                        $output = "";
+                        if($product->sale_price!=""){
+                          $percentage = round( ( ( doubleval($product->regular_price) - doubleval($product->sale_price )) / doubleval($product->regular_price )) * 100 ).'%';
+                          $disc_amt = round( ( ( doubleval($product->regular_price) - doubleval($product->sale_price) ) )  ).'';
+                          $output =' <span class="onsale"> Poupe '.$disc_amt.'€</span>';
+                          echo $output;
+                        }
 
-                        $percentage = round( ( ( floatval($product->regular_price) - floatval($product->sale_price )) / floatval($product->regular_price )) * 100 ).'%';
-                        $disc_amt = round( ( ( floatval($product->regular_price) - floatval($product->sale_price) ) )  ).'';
-                        $output =' <span class="onsale"> Poupe '.$disc_amt.'€</span>';
                       }
 
                       ?>
