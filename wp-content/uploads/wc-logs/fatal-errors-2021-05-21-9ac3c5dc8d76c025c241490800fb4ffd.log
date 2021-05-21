@@ -1,0 +1,8 @@
+2021-05-21T10:53:35+00:00 CRITICAL Uncaught TypeError: Unsupported operand types: string - string in /Applications/MAMP/htdocs/wp_lozaizidoro/wp-content/themes/lozaizidoro/template-home.php:270
+Stack trace:
+#0 /Applications/MAMP/htdocs/wp_lozaizidoro/wp-includes/template-loader.php(106): include()
+#1 /Applications/MAMP/htdocs/wp_lozaizidoro/wp-blog-header.php(19): require_once('/Applications/M...')
+#2 /Applications/MAMP/htdocs/wp_lozaizidoro/index.php(17): require('/Applications/M...')
+#3 {main}
+  thrown in /Applications/MAMP/htdocs/wp_lozaizidoro/wp-content/themes/lozaizidoro/template-home.php on line 270
+

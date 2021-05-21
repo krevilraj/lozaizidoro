@@ -180,6 +180,19 @@ foreach ($slug as $cat_slug) {
                 <div class="col-md-4">
                   <div class="product wow fadeInDown" data-wow-duration="1s">
                     <div class="product__image">
+                      <?php
+                      if ($product->is_type('simple')) { //if simple product
+                        $output = "";
+                        if($product->sale_price!=""){
+                          $percentage = round( ( ( doubleval($product->regular_price) - doubleval($product->sale_price )) / doubleval($product->regular_price )) * 100 ).'%';
+                          $disc_amt = round( ( ( doubleval($product->regular_price) - doubleval($product->sale_price) ) )  ).'';
+                          $output =' <span class="onsale"> Poupe '.$disc_amt.'€</span>';
+                          echo $output;
+                        }
+
+                      }
+
+                      ?>
                       <a href="<?php echo the_permalink(); ?>"> <img
                             src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>"
                             alt="<?php the_title() ?>" class="img-fluid"></a>
@@ -265,6 +278,15 @@ foreach ($slug as $cat_slug) {
                 <div class="col-md-4">
                   <div class="product wow fadeInDown" data-wow-duration="1s">
                     <div class="product__image">
+                      <?php
+                      if ($product->is_type('simple')) { //if simple product
+
+                        $percentage = round( ( ( floatval($product->regular_price) - floatval($product->sale_price )) / floatval($product->regular_price )) * 100 ).'%';
+                        $disc_amt = round( ( ( floatval($product->regular_price) - floatval($product->sale_price) ) )  ).'';
+                        $output =' <span class="onsale"> Poupe '.$disc_amt.'€</span>';
+                      }
+
+                      ?>
                       <a href="<?php echo the_permalink(); ?>">
                         <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>" alt=""
                              class="img-fluid">
