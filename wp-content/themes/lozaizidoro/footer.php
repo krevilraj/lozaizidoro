@@ -5,8 +5,31 @@
 </footer>
 
 <section class="delivery_time" id="delivery_time">
-
-  <h1>Delivery time</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 items">
+        <div class="d-flex align-items-center">
+          <div class="img-wrapper"><img src="<?php bloginfo('template_url'); ?>/images/entregas-02.png" alt=""
+                                        class="mr-3 img-fluid"></div>
+          <h5>Portes gratuitos pares encomendas a partir de 25€</h5>
+        </div>
+      </div>
+      <div class="col-md-4 items">
+        <div class="d-flex align-items-center">
+          <div class="img-wrapper"><img src="<?php bloginfo('template_url'); ?>/images/entregas-02.png" alt=""
+                                        class="mr-3 img-fluid"></div>
+          <h5>Encomendas mínimas de 10€</h5>
+        </div>
+      </div>
+      <div class="col-md-4 items">
+        <div class="d-flex align-items-center">
+          <div class="img-wrapper"><img src="<?php bloginfo('template_url'); ?>/images/entregas-02.png" alt=""
+                                        class="mr-3 img-fluid"></div>
+          <h5>Entregas na região de Lisboa</h5>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 <style>
     .delivery_time {
@@ -18,6 +41,9 @@
         right: 0;
         transform: translateY(100%);
         transition: all .5s ease;
+    }
+    .delivery_time .img-wrapper{
+       max-width:160px;
     }
 
     .fadein {
