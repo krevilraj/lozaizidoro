@@ -18,7 +18,10 @@ $(function () {
   var myWindow = $(window);
   myWindow.on('scroll', function () {
     if ($(this).scrollTop() > 200) { //height from top to trigger slideDown
-      navBar.addClass('scroll-nav');
+      setTimeout(function() {
+        navBar.addClass('scroll-nav');
+      }, 1000);
+
     } else if ($(this).scrollTop() < 200) {
       navBar.removeClass('scroll-nav');
     }
@@ -142,3 +145,5 @@ $('#accordion1').on('shown.bs.collapse', toggleChevron);
 
 $('#accordion2').on('hidden.bs.collapse', toggleChevron);
 $('#accordion2').on('shown.bs.collapse', toggleChevron);
+
+

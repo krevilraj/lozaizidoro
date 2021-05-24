@@ -359,3 +359,8 @@ width: 100%;
 .cat_shop .price ins span,.cat_shop .price span,.cat_shop .woocommerce-loop-product__title{
     color:#212529 !important;
 }
+.product-page-category input[type=checkbox]{
+    width:19px;
+    height:19px;
+    margin-right:5px
+}

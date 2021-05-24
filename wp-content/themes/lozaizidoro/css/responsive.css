@@ -115,9 +115,7 @@
         width: 100%;
     }
 
-    .product-caption {
-        display: none;
-    }
+
 
     /*login regsiter*/
     #customer_login {
@@ -213,6 +211,18 @@
     .product-page-category{
         height:100%;
         overflow-x:scroll;
+    }
+    .product-caption{
+        position: relative;
+        top:unset;
+        transform:translateY(0);
+        left:unset;
+    }
+    .search-side-product .woocommerce-products-header h2{
+       padding-top:0;
+    }
+    .caption-wrapper{
+        padding:50px 0;
     }
 }
 

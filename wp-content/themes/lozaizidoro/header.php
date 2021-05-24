@@ -23,6 +23,7 @@
 </head>
 <body <?php body_class(); ?>>
 <!-- open header -->
+<div id="content-anchor"></div>
 <header
     class="header top-sec fixed-top <?php if (is_home() || is_front_page()) : ?> home<?php else: ?> navcolor<?php endif; ?>"
     id="header">

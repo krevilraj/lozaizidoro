@@ -226,11 +226,19 @@ button:hover{
 /*scroll nav*/
 .scroll-nav {
 	background-color: var(--red-color);
-	transition: .8s all;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
 	box-shadow: 0px 2px 7px -1px rgba(0,0,0,0.77);
 	-webkit-box-shadow: 0px 2px 7px -1px rgba(0,0,0,0.77);
 	-moz-box-shadow: 0px 2px 7px -1px rgba(0,0,0,0.77);
 	padding-bottom: 20px;
+	position:fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index:999;
 }
 
 
@@ -553,7 +561,7 @@ button:hover{
 }
 
 .otalhante h2::first-letter{
-	padding-right: 10px;
+	/*padding-right: 10px;*/
 	border-bottom: 7px solid var(--red-color);
 }
 
@@ -660,7 +668,7 @@ button:hover{
 }
 
 .ocharcuteiro h2::first-letter{
-	padding-right: 10px;
+	/*padding-right: 10px;*/
 	border-bottom: 7px solid var(--red-color);
 
 }
@@ -1283,12 +1291,14 @@ nav.woocommerce-MyAccount-navigation ul li a {
 
 .cat-banner{
 	position: relative;
+	margin-top:126px;
 }
 .product-caption
 {
 	color: #fff;
 	position: absolute;
-	top: 45%;
+	top: 50%;
+	transform:translateY(-50%);
 	left: 6%;
 }
 
@@ -1755,12 +1765,12 @@ a.reset_variations{
 
 
 
-	.offer__item:first-child button{
-		background-color:red;
-	}
+.offer__item:first-child button{
+	background-color:red;
+}
 .offer__item:first-child button a{
-		color:#fff;
-	}
+	color:#fff;
+}
 
 .fancybox-content{
 	width: 50%;

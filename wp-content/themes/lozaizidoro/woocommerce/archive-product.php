@@ -33,51 +33,55 @@ get_header('shop');
 <?php
 
 $category = get_queried_object();
-$bg_color= "#fff";
-$txt_color= "#212529";
+$bg_color = "#fff";
+$txt_color = "#212529";
 if (isset($category->term_id)) {
-  $bg_color = get_term_meta($category->term_id, 'background_color',true);
-  $txt_color = get_term_meta($category->term_id, 'category_page_text_color',true);
+  $bg_color = get_term_meta($category->term_id, 'background_color', true);
+  $txt_color = get_term_meta($category->term_id, 'category_page_text_color', true);
   ?>
   <section class="cat-banner">
     <?php $category = get_queried_object(); ?>
     <div class="product-bg"><img src="<?php the_field('banner_image', 'product_cat_' . $category->term_id); ?>" alt=""
                                  class="img-fluid"></div>
-    <div class="container product-caption">
-      <h1><?php the_field('banner_title', 'product_cat_' . $category->term_id); ?></h1>
-      <p><?php the_field('banner_description', 'product_cat_' . $category->term_id); ?></p>
+    <div class="caption-wrapper" style="background-color:<?php echo $bg_color; ?>;color:<?php echo $txt_color; ?>">
+      <div class="container product-caption">
+        <h1><?php the_field('banner_title', 'product_cat_' . $category->term_id); ?></h1>
+        <p><?php the_field('banner_description', 'product_cat_' . $category->term_id); ?></p>
+      </div>
     </div>
   </section>
 
-  <?php } else { ?>
+<?php } else { ?>
   <section class="cat-banner">
     <div class="product-bg"><img src="<?php bloginfo('template_url'); ?>/images/slider.png" alt=""
                                  class="img-fluid"></div>
-    <div class="container product-caption">
-      <h1>Mercado Izidoro</h1>
+    <div class="caption-wrapper" style="background-color:<?php echo $bg_color; ?>;color:<?php echo $txt_color; ?>">
+      <div class="container product-caption">
+        <h1>Mercado Izidoro</h1>
 
+      </div>
     </div>
   </section>
 <?php } ?>
 
-<div style="background-color:<?php echo $bg_color;?>;color:<?php echo $txt_color;?>">
-  <div class="container product-section search-side-product">
-    <header class="woocommerce-products-header">
-      <?php if (apply_filters('woocommerce_show_page_title', true)) : ?>
+  <div style="background-color:<?php echo $bg_color; ?>;color:<?php echo $txt_color; ?>">
+    <div class="container product-section search-side-product">
+      <header class="woocommerce-products-header">
+        <?php if (apply_filters('woocommerce_show_page_title', true)) : ?>
 
-        <h2 class="woocommerce-products-header__title page-title text-center"><?php woocommerce_page_title(); ?></h2>
-      <?php endif; ?>
+          <h2 class="woocommerce-products-header__title page-title text-center"><?php woocommerce_page_title(); ?></h2>
+        <?php endif; ?>
 
-      <?php
-      /**
-       * Hook: woocommerce_archive_description.
-       *
-       * @hooked woocommerce_taxonomy_archive_description - 10
-       * @hooked woocommerce_product_archive_description - 10
-       */
-      do_action('woocommerce_archive_description');
-      ?>
-    </header>
+        <?php
+        /**
+         * Hook: woocommerce_archive_description.
+         *
+         * @hooked woocommerce_taxonomy_archive_description - 10
+         * @hooked woocommerce_product_archive_description - 10
+         */
+        do_action('woocommerce_archive_description');
+        ?>
+      </header>
       <div class="row cat_list">
         <div class="col-lg-3 push-lg-9 col-md-4 push-md-8 col-sm-5 push-sm-7 col-12 left-filter">
           <div class="filtros" id="filtros">FILTROS</div>
@@ -91,7 +95,9 @@ if (isset($category->term_id)) {
         </div>
         <!--col-lg-9 pull-lg-3 col-md-8 pull-md-4 col-sm-7 pull-sm-5 col-12 shop-product-list 			 -->
         <div
-            class=" col-lg-9 pull-lg-3 col-md-12 pull-md-4 col-sm-12 pull-sm-5 col-12 shop-product-list category-product <?php if (!isset($category->term_id)) {echo 'cat_shop';}?>">
+            class=" col-lg-9 pull-lg-3 col-md-12 pull-md-4 col-sm-12 pull-sm-5 col-12 shop-product-list category-product <?php if (!isset($category->term_id)) {
+              echo 'cat_shop';
+            } ?>">
           <div class="sorting">
             <?php
             if (woocommerce_product_loop()) {
@@ -145,8 +151,8 @@ if (isset($category->term_id)) {
           ?>
         </div>
       </div>
-  </div><!--product-content-section-->
-</div>
+    </div><!--product-content-section-->
+  </div>
 
 <?php
 /**
