@@ -356,5 +356,5 @@ foreach ($slug as $cat_slug) {
   $i++;
 }
 ?>
-
+<?php include('inc/template/newsletter.php'); ?>
 <?php get_footer() ?>
