@@ -1,9 +1,11 @@
 <?php
 // Display Newsletter Subscription option before I agree Terms and Condition in Checkout Page
 add_action('woocommerce_review_order_before_payment', 'dc_add_text_above_payment', 7);
-function dc_add_text_above_payment(){
+function dc_add_text_above_payment()
+{
   echo "<h3>Selecione o Método de Pagamento</h3>";
 }
+
 add_action('woocommerce_checkout_terms_and_conditions', 'dc_add_checkout_privacy_policy', 7);
 
 function dc_add_checkout_privacy_policy()
@@ -71,9 +73,6 @@ function dc_show_dawn_option_checkout_field_order($order)
 }
 
 
-
-
-
 // Display other field
 
 add_action('woocommerce_checkout_terms_and_conditions', 'dc_add_deliveries_option', 6);
@@ -126,7 +125,8 @@ function dc_add_deliveries_option()
   <p>Mais informações sobre encomedas <a href="#" data-toggle="modal" data-target="#exampleModal">aqui</a></p>
 
 
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+       aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
       <div class="modal-content">
 
@@ -175,25 +175,61 @@ function dc_add_deliveries_option()
   /**
    * Add a custom field (in an order) to the emails
    */
-  add_filter( 'woocommerce_email_order_meta_fields', 'custom_woocommerce_email_order_morning_option', 10, 3 );
 
-  function custom_woocommerce_email_order_morning_option( $fields, $sent_to_admin, $order ) {
+  add_filter('woocommerce_email_order_meta_fields', 'custom_woocommerce_email_order_morning_option', 10, 3);
+
+  function custom_woocommerce_email_order_morning_option($fields, $sent_to_admin, $order)
+  {
     $fields['morning_option'] = array(
-      'label' => __( 'Manhã 9h-12h' ),
-      'value' => get_post_meta( $order->id, 'morning_option', true ),
+      'label' => __('Manhã 9h-12h'),
+      'value' => get_post_meta($order->get_order_number(), 'morning_option', true),
     );
-    return $fields;
-  }
-
-  add_filter( 'woocommerce_email_order_meta_fields', 'custom_woocommerce_email_order_dawn_option', 10, 3 );
-
-  function custom_woocommerce_email_order_dawn_option( $fields, $sent_to_admin, $order ) {
     $fields['dawn_option'] = array(
-      'label' => __( 'Tarde 16h-20h' ),
-      'value' => get_post_meta( $order->id, 'dawn_option', true ),
+      'label' => __('Tarde 16h-20h'),
+      'value' => get_post_meta($order->get_order_number(), 'dawn_option', true),
     );
     return $fields;
   }
 
+  add_action('woocommerce_email_order_meta', 'misha_add_email_order_meta', 10, 3);
+  /*
+   * @param $order_obj Order Object
+   * @param $sent_to_admin If this email is for administrator or for a customer
+   * @param $plain_text HTML or Plain text (can be configured in WooCommerce > Settings > Emails)
+   */
+  function misha_add_email_order_meta($order_obj, $sent_to_admin, $plain_text)
+  {
+
+    // this order meta checks if order is marked as a gift
+    $is_gift = get_post_meta($order_obj->get_order_number(), 'is_gift', true);
+
+    // we won't display anything if it is not a gift
+    if (empty($is_gift))
+      return;
+
+    // ok, if it is the gift order, get all the other fields
+    $morning_option = get_post_meta($order_obj->get_order_number(), 'morning_option', true);
+    $dawn_option = get_post_meta($order_obj->get_order_number(), 'dawn_option', true);
+
+
+    // ok, we will add the separate version for plaintext emails
+    if ($plain_text === false) {
+
+      // you shouldn't have to worry about inline styles, WooCommerce adds them itself depending on the theme you use
+      echo '<h2>Delivery Information</h2>
+		<ul>
+		<li><strong>Manhã 9h-12h:</strong> ' . $morning_option . '</li>
+		<li><strong>Tarde 16h-20h:</strong> ' . $dawn_option . '</li>
+		</ul>';
+
+    } else {
+
+      echo "Delivery Information\n
+		Manhã 9h-12h: $morning_option\n
+		Tarde 16h-20h: $dawn_option";
+
+    }
+
+  }
 }
 
