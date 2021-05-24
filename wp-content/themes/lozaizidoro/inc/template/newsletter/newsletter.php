@@ -3,7 +3,7 @@
  * newsletter template
  */
 
-// <?php include('inc/template/newsletter.php'); ?>
+// <?php include('inc/template/newsletter.php');
 
 
 <!-- Junta-te às novidades mais veggie open -->

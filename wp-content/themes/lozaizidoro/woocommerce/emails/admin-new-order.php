@@ -23,7 +23,7 @@ defined( 'ABSPATH' ) || exit;
 do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
 <?php /* translators: %s: Customer billing full name */ ?>
-<p><?php printf( esc_html__( 'You’ve received the following order from %s:', 'woocommerce' ), $order->get_formatted_billing_full_name() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+  <p><?php printf( esc_html__( 'You’ve received the following order from %s:', 'woocommerce' ), $order->get_formatted_billing_full_name() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
 <?php
 
 /*
@@ -45,13 +45,26 @@ do_action( 'woocommerce_email_order_meta', $order, $sent_to_admin, $plain_text, 
  */
 do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text, $email );
 
+?>
+  <h3>Horário de Entrega</h3>
+<?php
 
+
+$order_id  = $order->get_order_number(); // Get the order ID
+//$morning_option = get_post_meta($order_obj->get_order_number(), 'morning_option', true);
+//  $dawn_option = get_post_meta($order_obj->get_order_number(), 'dawn_option', true);
+if (get_post_meta($order_id, 'morning_option', true)) echo '<p><strong>Manhã 9h-12h: Checked</strong> ' . '</p>';
+if (get_post_meta($order_id, 'dawn_option', true)) echo '<p><strong>Tarde 16h-20h: Checked</strong> ' . '</p>';
+?>
+
+
+<?php
 
 /**
  * Show user-defined additional content - this is set in each email's settings.
  */
 if ( $additional_content ) {
-	echo wp_kses_post( wpautop( wptexturize( $additional_content ) ) );
+  echo wp_kses_post( wpautop( wptexturize( $additional_content ) ) );
 }
 
 /*
