@@ -841,7 +841,7 @@ button:hover{
 
 
 .footer {
-	padding: 20px 0;
+	padding: 20px;
 	text-align: center;
 }
 .footer a{
@@ -1291,7 +1291,7 @@ nav.woocommerce-MyAccount-navigation ul li a {
 
 .cat-banner{
 	position: relative;
-	margin-top:126px;
+	margin-top: 64px;
 }
 .product-caption
 {
@@ -1815,6 +1815,10 @@ a.reset_variations{
 
 }
 
+.izidoro__faq  .fa.fa-question{
+	color: #fdb714;
+}
+
 .izidoro__faq a {
 	font-family: 'Tungsten Rounded light';
 	color: #000;
@@ -1829,7 +1833,7 @@ a.reset_variations{
 }
 
 .izidoro__faq .fa-question{
-	border: 2px solid red;
+	border: 2px solid #fdb714;
 	text-align: center;
 	height: 50px;
 	width: 50px;
@@ -1844,9 +1848,9 @@ a.reset_variations{
 }
 
 .all-header__faq {
-	margin-top: 20%;
+	margin-top: 9%;
 	text-align: center;
-	padding-bottom: 5%;
+	padding-bottom: 3%;
 }
 
 .all-header__faq h1{

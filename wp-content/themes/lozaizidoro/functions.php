@@ -560,3 +560,13 @@ add_filter( 'woocommerce_get_image_size_gallery_thumbnail', function( $size ) {
 } );
 //force shop to show 3 column
 add_filter('loop_shop_columns',function(){return 3;});
+
+
+
+// newsletter css register
+
+function letter_stylesheets(){
+    wp_register_style('newsletter', get_template_directory_uri().'/inc/template/newsletter/newsletter.css',array(),1,'all');
+    wp_enqueue_style('newsletter');
+}
+add_action('wp_enqueue_scripts','letter_stylesheets');
