@@ -189,7 +189,7 @@
         width: 350px;
         height: 100vh;
         transition: transform 0.3s;
-        z-index: 100;
+        z-index: 1030;
         background: #fff;
     }
     .left-filter.active{
