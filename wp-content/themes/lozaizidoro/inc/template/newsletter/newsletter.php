@@ -4,9 +4,9 @@
  */
 
 // <?php include('inc/template/newsletter.php');
+?>
 
 
-<!-- Junta-te às novidades mais veggie open -->
 <section class="news-letter-sec">
     <div class="news-wall">
         <div class="container">
@@ -36,4 +36,4 @@
         </div>
     </div>
 </section>
-<!-- Junta-te às novidades mais veggie end -->
+

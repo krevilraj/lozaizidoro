@@ -172,6 +172,15 @@
 
     }
 
+/*    contact form */
+    .contat__two__col{
+        flex-wrap: wrap;
+    }
+
+    .fancybox-content {
+        width: 95%;
+    }
+
 
 }
 

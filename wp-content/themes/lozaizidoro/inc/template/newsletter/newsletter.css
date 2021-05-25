@@ -5,10 +5,7 @@
 .news-wall {
     background-color: var(--second-color);
     position: relative;
-    padding-bottom: 84px;
-
 }
-
 
 .news-wall h2{
     color: red;
