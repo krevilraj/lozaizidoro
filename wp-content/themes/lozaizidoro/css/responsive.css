@@ -167,13 +167,33 @@
         padding-right: 15px;
     }
 
+    .all-header__faq {
+        margin-top: 22%;
+
+    }
+
+/*    contact form */
+    .contat__two__col{
+        flex-wrap: wrap;
+    }
+
+    .fancybox-content {
+        width: 95%;
+    }
+
+
 }
 
 
 @media (max-width: 767.98px) {
     .product-caption h1 {
         font-size: 3rem;
-        line-height: 2rem;
+        line-height: 3rem;
+    }
+
+    .all-header__faq {
+        margin-top: 15%;
+
     }
 
 }
@@ -211,6 +231,9 @@
     .product-page-category{
         height:100%;
         overflow-x:scroll;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     .product-caption{
         position: relative;

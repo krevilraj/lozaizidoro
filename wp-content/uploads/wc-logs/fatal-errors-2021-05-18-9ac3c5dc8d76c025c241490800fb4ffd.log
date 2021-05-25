@@ -1,0 +1,18 @@
+2021-05-18T08:26:53+00:00 CRITICAL Cannot redeclare ts_replace_add_to_cart_button() (previously declared in /var/www/vhosts/agitated-fermat.176-61-146-49.plesk.page/httpdocs/wp-content/themes/lozaizidoro/functions.php:6) in /var/www/vhosts/agitated-fermat.176-61-146-49.plesk.page/httpdocs/wp-content/themes/lozaizidoro/functions.php on line 524
+
+2021-05-18T13:21:35+00:00 CRITICAL syntax error, unexpected '<' in /var/www/vhosts/agitated-fermat.176-61-146-49.plesk.page/httpdocs/wp-content/themes/lozaizidoro/nutrition.php on line 21
+
+2021-05-18T13:21:50+00:00 CRITICAL syntax error, unexpected '<' in /var/www/vhosts/agitated-fermat.176-61-146-49.plesk.page/httpdocs/wp-content/themes/lozaizidoro/nutrition.php on line 21
+
+2021-05-18T13:22:40+00:00 CRITICAL syntax error, unexpected '<' in /var/www/vhosts/agitated-fermat.176-61-146-49.plesk.page/httpdocs/wp-content/themes/lozaizidoro/nutrition.php on line 21
+
+2021-05-18T13:22:44+00:00 CRITICAL syntax error, unexpected '<' in /var/www/vhosts/agitated-fermat.176-61-146-49.plesk.page/httpdocs/wp-content/themes/lozaizidoro/nutrition.php on line 21
+
+2021-05-18T13:22:52+00:00 CRITICAL syntax error, unexpected '<' in /var/www/vhosts/agitated-fermat.176-61-146-49.plesk.page/httpdocs/wp-content/themes/lozaizidoro/nutrition.php on line 21
+
+2021-05-18T13:23:03+00:00 CRITICAL syntax error, unexpected '<' in /var/www/vhosts/agitated-fermat.176-61-146-49.plesk.page/httpdocs/wp-content/themes/lozaizidoro/nutrition.php on line 21
+
+2021-05-18T13:23:11+00:00 CRITICAL syntax error, unexpected '<' in /var/www/vhosts/agitated-fermat.176-61-146-49.plesk.page/httpdocs/wp-content/themes/lozaizidoro/nutrition.php on line 21
+
+2021-05-18T13:23:28+00:00 CRITICAL syntax error, unexpected '<' in /var/www/vhosts/agitated-fermat.176-61-146-49.plesk.page/httpdocs/wp-content/themes/lozaizidoro/nutrition.php on line 23
+

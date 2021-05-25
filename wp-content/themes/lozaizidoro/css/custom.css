@@ -841,8 +841,9 @@ button:hover{
 
 
 .footer {
-	padding: 20px 0;
+	padding: 20px;
 	text-align: center;
+	margin-top: 55px;
 }
 .footer a{
 	text-decoration: none;
@@ -1291,7 +1292,7 @@ nav.woocommerce-MyAccount-navigation ul li a {
 
 .cat-banner{
 	position: relative;
-	margin-top:126px;
+	margin-top: 64px;
 }
 .product-caption
 {
@@ -1815,6 +1816,10 @@ a.reset_variations{
 
 }
 
+.izidoro__faq  .fa.fa-question{
+	color: #fdb714;
+}
+
 .izidoro__faq a {
 	font-family: 'Tungsten Rounded light';
 	color: #000;
@@ -1829,7 +1834,7 @@ a.reset_variations{
 }
 
 .izidoro__faq .fa-question{
-	border: 2px solid red;
+	border: 2px solid #fdb714;
 	text-align: center;
 	height: 50px;
 	width: 50px;
@@ -1844,9 +1849,9 @@ a.reset_variations{
 }
 
 .all-header__faq {
-	margin-top: 20%;
+	margin-top: 9%;
 	text-align: center;
-	padding-bottom: 5%;
+	padding-bottom: 3%;
 }
 
 .all-header__faq h1{
@@ -1856,3 +1861,98 @@ a.reset_variations{
 .coupon {
 	display: flex;
 }
+
+
+/*========= contact page ========== */
+.contact__info {
+	background-color: var(--orange-color);
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	padding: 40px 0;
+	margin-top: 20px;
+}
+
+.address__number , .address__email , .address__address{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-top: 20px;
+}
+
+.contact__info h2{
+	font-size: 2rem;
+}
+.contact__info p
+{
+	font-family: 'Tungsten Rounded semibold';
+	font-size: 1.4rem;
+	letter-spacing: 3px;
+}
+
+.address__number i, .address__email i, .address__address i{
+	background-color: white;
+	width: 60px;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	border-radius: 100px;
+	font-size: 1.6rem;
+}
+
+.contact__form__sec h2{
+	font-size: 2rem;
+	text-align: center;
+	padding-bottom: 35px;
+}
+.contact__form__sec{
+	margin-top: 20px;
+}
+.contact__form__sec .wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required{
+	width: 100%;
+	height: 43px;
+	padding: 10px;
+}
+
+.contact__form__sec .wpcf7-form-control.wpcf7-textarea.wpcf7-validates-as-required {
+	width: 100%;
+	resize: none;
+	height: 150px;
+	padding: 10px;
+}
+
+.contact__form__sec .contact__name , .contact__form__sec .contact__email, .contact__form__sec .contact__address, .contact__form__sec .contact__number, .contact__form__sec .contact__address{
+	padding-bottom: 25px;
+}
+
+.contat__two__col {
+	display: flex;
+	column-gap: 25px;
+}
+
+.contact__form__sec .contact__btn {
+	text-align: center;
+
+}
+.contact__form__sec .contact__btn .wpcf7-submit {
+	background-color: red;
+	border: none;
+	outline: none;
+	padding: 6px 30px;
+	border-radius: 25px;
+	color: #fff;
+	font-family: "Tungsten Rounded semibold";
+	font-size: 1.5rem;
+	transition: 0.4s all;
+}
+
+.contact__form__sec .contact__btn .wpcf7-submit:hover{
+	background-color: var(--purple-color);
+}
+.contact__form__sec .contact__acceptance a{
+	color: var(--purple-color);
+	font-width: bold;
+}
+
